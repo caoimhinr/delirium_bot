@@ -8,16 +8,36 @@ client.once('clientReady', () => {
     console.log(`Logged in as ${client.user.tag}`);
 });
 
-client.on('messageCreate', message => {
+client.on('messageCreate', async message => {
+    // ignore bot messages
+    if (message.author.bot) return;
+
     switch(message.content) {
         case `${COMMAND_OPERATOR}ping`:
-            handlePing(message);
+            await handlePing(message);
             break;
+        default:
+            if (message.content.startsWith(`${COMMAND_OPERATOR}xemidan`))
+                await handleXemidan(message)
     }
 });
 
 client.login(process.env.DISCORD_TOKEN);
 
-function handlePing(message) {
+async function handlePing(message) {
     message.channel.send('Pong!');
+}
+
+async function handleXemidan(message) {
+    const mention = message.mentions.users.first();
+
+    if (!mention) {
+        return message.reply("You need to mention a user. Example: `$xemidan <User>`");
+    }
+
+    // Delete the original message
+    await message.delete().catch(() => {});
+
+    // Send the replacement message
+    message.channel.send(`Hey @${mention}, go multiple yourself by yourself you mewling quim.`);
 }
