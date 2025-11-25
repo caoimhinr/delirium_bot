@@ -35,10 +35,10 @@ async function handlePing(message) {
 }
 
 async function handleHelp(message) {
-    let helpText = "**📘 Available Commands**\n\n";
+    let helpText = "** Available Commands**\n\n";
 
     for (const [name, info] of Object.entries(commands)) {
-        helpText += `**${prefix}${name}** — ${info.description}\n`;
+        helpText += `**${COMMAND_OPERATOR}${name}** — ${info.description}\n`;
     }
 
     return message.channel.send(helpText);
