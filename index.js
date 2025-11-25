@@ -9,9 +9,15 @@ client.once('clientReady', () => {
 });
 
 client.on('messageCreate', message => {
-    if(message.content === `${COMMAND_OPERATOR}ping`) {
-        message.channel.send('Pong!');
+    switch(message.content) {
+        case `${COMMAND_OPERATOR}ping`:
+            handlePing(message);
+            break;
     }
 });
 
 client.login(process.env.DISCORD_TOKEN);
+
+function handlePing(message) {
+    message.channel.send('Pong!');
+}
