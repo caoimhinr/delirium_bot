@@ -32,12 +32,12 @@ async function handleXemidan(message) {
     const mention = message.mentions.users.first();
 
     if (!mention) {
-        return message.reply("You need to mention a user. Example: `$xemidan <User>`");
+        return message.reply("You need to mention a user. Example: `$xemidan @User`");
     }
 
     // Delete the original message
     await message.delete().catch(() => {});
 
     // Send the replacement message
-    message.channel.send(`Hey @${mention}, go multiple yourself by yourself you mewling quim.`);
+    message.channel.send(`Hey ${mention}, go multiple yourself by yourself you mewling quim.`);
 }
