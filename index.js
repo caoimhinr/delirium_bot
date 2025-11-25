@@ -55,5 +55,5 @@ async function handleXemidan(message) {
     await message.delete().catch(() => {});
 
     // Send the replacement message
-    message.channel.send(`Hey ${mention}, go multiple yourself by yourself you mewling quim.`);
+    message.channel.send(`Hey ${mention}, go multiply yourself by yourself you mewling quim.`);
 }
