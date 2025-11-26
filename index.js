@@ -71,8 +71,6 @@ async function handleXemidan(message) {
 }
 
 async function handleDrama(message) {
-    // Send a temporary reply to let user know generation is in progress
-    const placeholderMessage = await message.channel.send("Get ready... ⏳");
     // Parse the number of messages to check (optional, default 20)
     const args = message.content.split(/\s+/);
     const limit = parseInt(args[1]) || 20;
@@ -111,6 +109,9 @@ async function handleDrama(message) {
 }
 
 async function respondTo(targetMessage) {
+    // Send a temporary reply to let user know generation is in progress
+    const placeholderMessage = await message.channel.send("Get ready... ⏳");
+    
     const offender = targetMessage.author;
     const targetContent = targetMessage.content;
 
