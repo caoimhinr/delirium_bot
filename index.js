@@ -1,6 +1,5 @@
 require('dotenv').config();
-const { Client, GatewayIntentBits, PermissionsBitField } = require('discord.js');
-const client = new Client({ intents: [GatewayIntentBits.Guilds, GatewayIntentBits.GuildMessages, GatewayIntentBits.MessageContent] });
+const client = require('./discordClient');
 const commands = require("./commands.js");
 const axios = require('axios');
 const { buildLLMPrompt } = require('./promptBuilder');
