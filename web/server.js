@@ -22,34 +22,34 @@ passport.use(new DiscordStrategy({
     scope: ['identify', 'guilds']
 }, async (accessToken, refreshToken, profile, done) => done(null, profile)));
 
-// Serve static files (CSS, JS, images)
-app.use(express.static(path.join(__dirname, 'public')));
-
-// Set views folder and view engine
-app.engine('html', require('ejs').renderFile);
-app.set('view engine', 'html');
-app.set('views', path.join(__dirname, 'views'));
-
-// For POST data
-app.use(express.urlencoded({ extended: true }));
-
-// --- Express middlewares ---
-app.use(session({
-    secret: process.env.SESSION_SECRET || 'keyboardcat',
-    resave: false,
-    saveUninitialized: false
-}));
-app.use(passport.initialize());
-app.use(passport.session());
-app.use(bodyParser.urlencoded({ extended: true }));
-
 
 
 function start(loggedInClient) {
     client = loggedInClient;
-    
+
     const app = express();
     const PORT = process.env.PORT || 3000;
+
+    // Serve static files (CSS, JS, images)
+    app.use(express.static(path.join(__dirname, 'public')));
+
+    // Set views folder and view engine
+    app.engine('html', require('ejs').renderFile);
+    app.set('view engine', 'html');
+    app.set('views', path.join(__dirname, 'views'));
+
+    // For POST data
+    app.use(express.urlencoded({ extended: true }));
+
+    // --- Express middlewares ---
+    app.use(session({
+        secret: process.env.SESSION_SECRET || 'keyboardcat',
+        resave: false,
+        saveUninitialized: false
+    }));
+    app.use(passport.initialize());
+    app.use(passport.session());
+    app.use(bodyParser.urlencoded({ extended: true }));
 
     // --- Authentication routes ---
     app.get('/login', passport.authenticate('discord'));
