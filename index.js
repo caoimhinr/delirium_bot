@@ -34,7 +34,9 @@ client.on('messageCreate', async message => {
                 if (message.content.startsWith(`${COMMAND_OPERATOR}xemidan`))
                     await handleXemidan(message)
                 if (message.content.startsWith(`${COMMAND_OPERATOR}drama`))
-                    await handleDrama(message)
+                    await handleGPTResponse(message, 'drama')
+                if (message.content.startsWith(`${COMMAND_OPERATOR}sweet`))
+                    await handleGPTResponse(message, 'sweet')
         }
     }
 });
@@ -71,7 +73,7 @@ async function handleXemidan(message) {
     message.channel.send(`Hey ${mention}, go multiply yourself by yourself you mewling quim.`);
 }
 
-async function handleDrama(message) {
+async function handleGPTResponse(message, mode = 'drama') {
     // Parse the number of messages to check (optional, default 20)
     const args = message.content.split(/\s+/);
     const limit = parseInt(args[1]) || 20;
@@ -102,13 +104,24 @@ async function handleDrama(message) {
         // Delete the command message if you want to keep it sneaky
         await message.delete().catch(() => { });
 
-        await respondTo(targetMessage);
+        await respondTo(targetMessage, mode);
     } catch (err) {
         console.error(err);
     }
 }
 
-async function respondTo(targetMessage) {
+async function respondTo(targetMessage, mode = 'drama') {
+    switch (mode) {
+        case 'drama':
+            await respondWithDrama(targetMessage);
+            break;
+        case 'sweet':
+            await respondWithSweetness(targetMessage);
+            break;
+    }
+}
+
+async function respondWithDrama(targetMessage) {
     // Send a temporary reply to let user know generation is in progress
     const placeholderMessage = await targetMessage.channel.send("Get ready... ⏳");
 
@@ -137,6 +150,75 @@ funny and playful, but only use the user's name in the first reply.
             {
                 messages: [
                     { role: "system", content: "You are a hairy Canadian lumberjack man who's been through a lot in his still short lifetime. You don't mince words but get straight to the point and aren't afraid to offend someone." },
+                    { role: "user", content: prompt }
+                ],
+                max_completion_tokens: process.env.MAX_COMPLETION_TOKENS
+            },
+            {
+                headers: {
+                    "api-key": process.env.AZURE_OPENAI_KEY,
+                    "Content-Type": "application/json"
+                }
+            }
+        );
+
+        console.log('output', JSON.stringify(response.data, null, 2));
+        const generatedText = response.data.choices?.[0]?.message?.content?.trim();
+        console.log('generatedText:', generatedText);
+        await placeholderMessage.delete().catch(() => { });
+
+        if (!generatedText) {
+            return message.channel.send("Hmm, I couldn't come up with any drama this time.");
+        }
+
+        // Split responses if OpenAI returns multiple lines
+        const responses = generatedText.split(/\n/).filter(line => line.trim().length > 0);
+
+        await targetMessage.channel.send({
+            content: `${responses[0]}`,
+            reply: { messageReference: targetMessage.id }
+        });
+
+        // Post the rest normally with small delays
+        for (let i = 1; i < responses.length; i++) {
+            await targetMessage.channel.send(`${responses[i]}`);
+            await new Promise(r => setTimeout(r, 1000 + Math.random() * 2000));
+        }
+    } catch (err) {
+        console.error(err);
+        await placeholderMessage.edit(`Error generating code: ${err.message}`);
+    }
+}
+
+async function respondWithSweetness(targetMessage) {
+    // Send a temporary reply to let user know generation is in progress
+    const placeholderMessage = await targetMessage.channel.send("Get ready... ⏳");
+
+    try {
+
+        const offender = targetMessage.author;
+        const targetContent = targetMessage.content;
+
+        console.log('targetContent:', targetContent);
+
+        // Build prompt for Azure OpenAI
+        const prompt = `
+You are a caring and empathical Discord bot. 
+You see the following message from a user:
+
+"${targetContent}" 
+
+Generate 1 to 2 short supportive replies directed at the user ${offender.username}, 
+as if you are finding a way to help them succeed. Each reply should be one sentence, 
+sweet and playful, but only use the user's name in the first reply.
+`;
+
+        // Call Azure OpenAI
+        const response = await axios.post(
+            process.env.AZURE_OPENAI_ENDPOINT,
+            {
+                messages: [
+                    { role: "system", content: "You are a hairy Canadian lumberjack man who's been through a lot in his still short lifetime. You care about the people you interact with and wish for them to reach their full potential in life." },
                     { role: "user", content: prompt }
                 ],
                 max_completion_tokens: process.env.MAX_COMPLETION_TOKENS
