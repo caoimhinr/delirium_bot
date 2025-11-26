@@ -160,14 +160,14 @@ funny and playful, but only use the user's name in the first reply.
         // Split responses if OpenAI returns multiple lines
         const responses = generatedText.split(/\n/).filter(line => line.trim().length > 0);
 
-        await message.channel.send({
+        await targetMessage.channel.send({
             content: `${responses[0]}`,
             reply: { messageReference: targetMessage.id }
         });
 
         // Post the rest normally with small delays
         for (let i = 1; i < responses.length; i++) {
-            await message.channel.send(`${responses[i]}`);
+            await targetMessage.channel.send(`${responses[i]}`);
             await new Promise(r => setTimeout(r, 1000 + Math.random() * 2000));
         }
     } catch (err) {
