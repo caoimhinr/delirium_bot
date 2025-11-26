@@ -6,10 +6,7 @@ const DiscordStrategy = require('passport-discord').Strategy;
 const bodyParser = require('body-parser');
 const fs = require('fs');
 const path = require('path');
-const client = require('../discordClient.js'); // your Discord.js client
 
-const app = express();
-const PORT = process.env.PORT || 3000;
 const SETTINGS_FILE = path.join(__dirname, 'guildSettings.json');
 const ADMIN_ROLE_ID = process.env.ADMIN_ROLE_ID; // Discord role allowed to edit
 const GUILD_ID = process.env.GUILD_ID; // Your guild ID
@@ -46,15 +43,50 @@ app.use(passport.initialize());
 app.use(passport.session());
 app.use(bodyParser.urlencoded({ extended: true }));
 
-// --- Authentication routes ---
-app.get('/login', passport.authenticate('discord'));
-app.get('/callback',
-    passport.authenticate('discord', { failureRedirect: '/' }),
-    (req, res) => res.redirect('/settings')
-);
-app.get('/logout', (req, res) => {
-    req.logout(() => res.redirect('/'));
-});
+
+
+function start(loggedInClient) {
+    client = loggedInClient;
+    
+    const app = express();
+    const PORT = process.env.PORT || 3000;
+
+    // --- Authentication routes ---
+    app.get('/login', passport.authenticate('discord'));
+    app.get('/callback',
+        passport.authenticate('discord', { failureRedirect: '/' }),
+        (req, res) => res.redirect('/settings')
+    );
+    app.get('/logout', (req, res) => {
+        req.logout(() => res.redirect('/'));
+    });
+
+    // --- Settings page ---
+    app.get('/settings', ensureAdmin, (req, res) => {
+        const guildId = req.query.guild || req.user.guilds[0].id;
+        const settings = loadSettings();
+        const guildConfig = settings[guildId] || { systemPrompt: "You are a dramatic sassy bot." };
+
+        res.render('settings', {
+            GUILD_ID: guildId,
+            SYSTEM_PROMPT: guildConfig.systemPrompt
+        });
+    });
+
+    app.post('/settings', ensureAdmin, (req, res) => {
+        const guildId = req.query.guild;
+        const systemPrompt = req.body.systemPrompt;
+
+        const settings = loadSettings();
+        settings[guildId] = { systemPrompt };
+        saveSettings(settings);
+
+        res.send(`<p>Settings saved for guild ${guildId}!</p><p><a href="/settings?guild=${guildId}">Back</a></p>`);
+    });
+
+    // --- Start server ---
+    app.listen(PORT, () => console.log(`Web UI running on http://localhost:${PORT}`));
+}
 
 // --- Authorization middleware ---
 async function ensureAdmin(req, res, next) {
@@ -79,28 +111,4 @@ function saveSettings(data) {
     fs.writeFileSync(SETTINGS_FILE, JSON.stringify(data, null, 2));
 }
 
-// --- Settings page ---
-app.get('/settings', ensureAdmin, (req, res) => {
-    const guildId = req.query.guild || req.user.guilds[0].id;
-    const settings = loadSettings();
-    const guildConfig = settings[guildId] || { systemPrompt: "You are a dramatic sassy bot." };
-
-    res.render('settings', {
-        GUILD_ID: guildId,
-        SYSTEM_PROMPT: guildConfig.systemPrompt
-    });
-});
-
-app.post('/settings', ensureAdmin, (req, res) => {
-    const guildId = req.query.guild;
-    const systemPrompt = req.body.systemPrompt;
-
-    const settings = loadSettings();
-    settings[guildId] = { systemPrompt };
-    saveSettings(settings);
-
-    res.send(`<p>Settings saved for guild ${guildId}!</p><p><a href="/settings?guild=${guildId}">Back</a></p>`);
-});
-
-// --- Start server ---
-app.listen(PORT, () => console.log(`Web UI running on http://localhost:${PORT}`));
+module.exports = { start };

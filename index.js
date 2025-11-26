@@ -1,5 +1,6 @@
 require('dotenv').config();
 const client = require('./discordClient');
+const server = require('./web/server');
 const commands = require("./commands.js");
 const axios = require('axios');
 const { buildLLMPrompt } = require('./promptBuilder');
@@ -8,6 +9,7 @@ const COMMAND_OPERATOR = '$'
 
 client.once('clientReady', () => {
     console.log(`Logged in as ${client.user.tag}`);
+    server.start(client);
 });
 
 client.on('messageCreate', async message => {
