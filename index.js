@@ -39,13 +39,22 @@ async function handlePing(message) {
 }
 
 async function handleHelp(message) {
-    let helpText = "** Available Commands**\n\n";
+    // Start markdown code block for table
+    let helpText = "```md\n# Available Commands\n\n";
+    helpText += "| Command    | Description                            | Example        |\n";
+    helpText += "|-----------|----------------------------------------|----------------|\n";
 
     for (const [name, info] of Object.entries(commands)) {
-        helpText += `**${COMMAND_OPERATOR}${name}** — ${info.description}\n`;
+        const command = `$${name}`.padEnd(10);
+        const description = info.description.padEnd(40);
+        const example = (info.example || "").padEnd(14);
+
+        helpText += `| ${command} | ${description} | ${example} |\n`;
     }
 
-    return message.channel.send(helpText);
+    helpText += "```";
+
+    await message.channel.send(helpText);
 }
 
 async function handleXemidan(message) {
