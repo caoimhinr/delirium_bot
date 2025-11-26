@@ -70,23 +70,29 @@ async function handleDrama(message) {
     // Parse the number of messages to check (optional, default 20)
     const args = message.content.split(/\s+/);
     const limit = parseInt(args[1]) || 20;
+    let targetMessage;
 
     try {
 
         // ----------------------------
         // Step 1: Pick a message
         // ----------------------------
-        const messages = await message.channel.messages.fetch({ limit });
-        // Remove the $drama command message from selection
-        const eligible = messages.filter(m => !m.author.bot && m.id !== message.id &&
-            !m.content.startsWith(COMMAND_OPERATOR));
+        if (message.reference) {
+            // Use the message being replied to
+            targetMessage = await message.channel.messages.fetch(message.reference.messageId);
+        } else {
+            const messages = await message.channel.messages.fetch({ limit });
+            // Remove the $drama command message from selection
+            const eligible = messages.filter(m => !m.author.bot && m.id !== message.id &&
+                !m.content.startsWith(COMMAND_OPERATOR));
 
-        if (eligible.size === 0) {
-            return message.reply("No messages to take offense to!");
+            if (eligible.size === 0) {
+                return message.reply("No messages to take offense to!");
+            }
+
+            // Pick a random message
+            targetMessage = eligible.random();
         }
-
-        // Pick a random message
-        const targetMessage = eligible.random();
         const offender = targetMessage.author;
         const targetContent = targetMessage.content;
 
