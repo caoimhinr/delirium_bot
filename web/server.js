@@ -25,6 +25,13 @@ passport.use(new DiscordStrategy({
     scope: ['identify', 'guilds']
 }, async (accessToken, refreshToken, profile, done) => done(null, profile)));
 
+// Set views folder and view engine
+app.set('views', path.join(__dirname, 'views'));
+app.set('view engine', 'ejs');
+
+// For POST data
+app.use(express.urlencoded({ extended: true }));
+
 // --- Express middlewares ---
 app.use(session({
     secret: process.env.SESSION_SECRET || 'keyboardcat',
@@ -70,19 +77,14 @@ function saveSettings(data) {
 
 // --- Settings page ---
 app.get('/settings', ensureAdmin, (req, res) => {
-    const guildId = client.guilds.cache.get(GUILD_ID);
+    const guildId = req.query.guild || req.user.guilds[0].id;
     const settings = loadSettings();
     const guildConfig = settings[guildId] || { systemPrompt: "You are a dramatic sassy bot." };
 
-    res.send(`
-        <h1>Guild Settings for ${guildId}</h1>
-        <form method="POST" action="/settings?guild=${guildId}">
-            <label>System Prompt:</label><br>
-            <textarea name="systemPrompt" rows="5" cols="60">${guildConfig.systemPrompt}</textarea><br>
-            <button type="submit">Save</button>
-        </form>
-        <p><a href="/logout">Logout</a></p>
-    `);
+    res.render('settings', {
+        GUILD_ID: guildId,
+        SYSTEM_PROMPT: guildConfig.systemPrompt
+    });
 });
 
 app.post('/settings', ensureAdmin, (req, res) => {

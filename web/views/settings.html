@@ -1,0 +1,21 @@
+<!-- settings.html -->
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Guild Settings</title>
+</head>
+
+<body>
+    <h1>Guild Settings for <%= GUILD_ID %>
+    </h1>
+    <form method="POST" action="/settings?guild=<%= GUILD_ID %>">
+        <label>System Prompt:</label><br>
+        <textarea name="systemPrompt" rows="5" cols="60"><%= SYSTEM_PROMPT %></textarea><br>
+        <button type="submit">Save</button>
+    </form>
+    <p><a href="/logout">Logout</a></p>
+
+</body>
+
+</html>
