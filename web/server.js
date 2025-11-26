@@ -26,8 +26,9 @@ passport.use(new DiscordStrategy({
 }, async (accessToken, refreshToken, profile, done) => done(null, profile)));
 
 // Set views folder and view engine
+app.engine('html', require('ejs').renderFile);
+app.set('view engine', 'html');
 app.set('views', path.join(__dirname, 'views'));
-app.set('view engine', 'ejs');
 
 // For POST data
 app.use(express.urlencoded({ extended: true }));
