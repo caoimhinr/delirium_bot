@@ -7,6 +7,7 @@
 APP_NAME="delirium_bot"           # PM2 process name
 APP_DIR="/opt/delirium_bot"   # Path to your bot
 BRANCH="main"                 # Git branch to deploy
+ECOSYSTEM="ecosystem.config.js"  # PM2 ecosystem file (if used)
 
 echo "🚀 Starting deployment..."
 
@@ -28,7 +29,7 @@ npm install
 
 # Restart PM2 process
 echo "🔁 Restarting PM2 process..."
-pm2 restart $APP_NAME || pm2 start index.js --name $APP_NAME
+pm2 restart $ECOSYSTEM || pm2 start $ECOSYSTEM
 
 # Optional: save PM2 list for startup
 pm2 save

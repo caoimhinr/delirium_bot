@@ -1,0 +1,100 @@
+require('dotenv').config();
+const express = require('express');
+const session = require('express-session');
+const passport = require('passport');
+const DiscordStrategy = require('passport-discord').Strategy;
+const bodyParser = require('body-parser');
+const fs = require('fs');
+const path = require('path');
+const client = require('./discordClient'); // your Discord.js client
+
+const app = express();
+const PORT = process.env.PORT || 3000;
+const SETTINGS_FILE = path.join(__dirname, 'guildSettings.json');
+const ADMIN_ROLE_ID = process.env.ADMIN_ROLE_ID; // Discord role allowed to edit
+
+// --- Passport Discord OAuth2 setup ---
+passport.serializeUser((user, done) => done(null, user));
+passport.deserializeUser((obj, done) => done(null, obj));
+
+passport.use(new DiscordStrategy({
+    clientID: process.env.DISCORD_CLIENT_ID,
+    clientSecret: process.env.DISCORD_CLIENT_SECRET,
+    callbackURL: process.env.DISCORD_CALLBACK_URL,
+    scope: ['identify', 'guilds']
+}, async (accessToken, refreshToken, profile, done) => done(null, profile)));
+
+// --- Express middlewares ---
+app.use(session({
+    secret: process.env.SESSION_SECRET || 'keyboardcat',
+    resave: false,
+    saveUninitialized: false
+}));
+app.use(passport.initialize());
+app.use(passport.session());
+app.use(bodyParser.urlencoded({ extended: true }));
+
+// --- Authentication routes ---
+app.get('/login', passport.authenticate('discord'));
+app.get('/callback',
+    passport.authenticate('discord', { failureRedirect: '/' }),
+    (req, res) => res.redirect('/settings')
+);
+app.get('/logout', (req, res) => {
+    req.logout(() => res.redirect('/'));
+});
+
+// --- Authorization middleware ---
+function ensureAdmin(req, res, next) {
+    if (!req.isAuthenticated()) return res.redirect('/login');
+
+    // Check if user is in any guild where they have ADMIN_ROLE_ID
+    const allowed = req.user.guilds.some(guild => {
+        const guildMember = client.guilds.cache.get(guild.id)?.members.cache.get(req.user.id);
+        return guildMember?.roles.cache.has(ADMIN_ROLE_ID);
+    });
+
+    if (!allowed) return res.status(403).send('Forbidden: You do not have permission.');
+    next();
+}
+
+// --- Load/save guild settings ---
+function loadSettings() {
+    if (!fs.existsSync(SETTINGS_FILE)) return {};
+    return JSON.parse(fs.readFileSync(SETTINGS_FILE));
+}
+
+function saveSettings(data) {
+    fs.writeFileSync(SETTINGS_FILE, JSON.stringify(data, null, 2));
+}
+
+// --- Settings page ---
+app.get('/settings', ensureAdmin, (req, res) => {
+    const guildId = req.query.guild || req.user.guilds[0].id;
+    const settings = loadSettings();
+    const guildConfig = settings[guildId] || { systemPrompt: "You are a dramatic sassy bot." };
+
+    res.send(`
+        <h1>Guild Settings for ${guildId}</h1>
+        <form method="POST" action="/settings?guild=${guildId}">
+            <label>System Prompt:</label><br>
+            <textarea name="systemPrompt" rows="5" cols="60">${guildConfig.systemPrompt}</textarea><br>
+            <button type="submit">Save</button>
+        </form>
+        <p><a href="/logout">Logout</a></p>
+    `);
+});
+
+app.post('/settings', ensureAdmin, (req, res) => {
+    const guildId = req.query.guild;
+    const systemPrompt = req.body.systemPrompt;
+
+    const settings = loadSettings();
+    settings[guildId] = { systemPrompt };
+    saveSettings(settings);
+
+    res.send(`<p>Settings saved for guild ${guildId}!</p><p><a href="/settings?guild=${guildId}">Back</a></p>`);
+});
+
+// --- Start server ---
+app.listen(PORT, () => console.log(`Web UI running on http://localhost:${PORT}`));
