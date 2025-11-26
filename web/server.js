@@ -25,6 +25,9 @@ passport.use(new DiscordStrategy({
     scope: ['identify', 'guilds']
 }, async (accessToken, refreshToken, profile, done) => done(null, profile)));
 
+// Serve static files (CSS, JS, images)
+app.use(express.static(path.join(__dirname, 'public')));
+
 // Set views folder and view engine
 app.engine('html', require('ejs').renderFile);
 app.set('view engine', 'html');
