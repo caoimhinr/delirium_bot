@@ -39,20 +39,13 @@ async function handlePing(message) {
 }
 
 async function handleHelp(message) {
-    // Start markdown code block for table
-    let helpText = "```md\n# Available Commands\n\n";
-    helpText += "| Command    | Description                            | Example        |\n";
-    helpText += "|-----------|----------------------------------------|----------------|\n";
+    let helpText = "**Available Commands:**\n\n";
 
     for (const [name, info] of Object.entries(commands)) {
-        const command = `$${name}`.padEnd(10);
-        const description = info.description.padEnd(40);
-        const example = (info.example || "").padEnd(14);
-
-        helpText += `| ${command} | ${description} | ${example} |\n`;
+        helpText += `• **$${name}** — ${info.description}`;
+        if (info.example) helpText += ` (Example: \`${info.example}\`)`;
+        helpText += `\n`;
     }
-
-    helpText += "```";
 
     await message.channel.send(helpText);
 }
