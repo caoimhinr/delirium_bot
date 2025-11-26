@@ -175,3 +175,5 @@ funny and playful, but only use the user's name in the first reply.
         await placeholderMessage.edit(`Error generating code: ${err.message}`);
     }
 }
+
+module.exports = client;
