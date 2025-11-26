@@ -104,21 +104,22 @@ async function handleDrama(message) {
         await respondTo(targetMessage);
     } catch (err) {
         console.error(err);
-        await replyMessage.edit(`Error generating code: ${err.message}`);
     }
 }
 
 async function respondTo(targetMessage) {
     // Send a temporary reply to let user know generation is in progress
-    const placeholderMessage = await message.channel.send("Get ready... ⏳");
-    
-    const offender = targetMessage.author;
-    const targetContent = targetMessage.content;
+    const placeholderMessage = await targetMessage.channel.send("Get ready... ⏳");
 
-    console.log('targetContent:', targetContent);
+    try {
 
-    // Build prompt for Azure OpenAI
-    const prompt = `
+        const offender = targetMessage.author;
+        const targetContent = targetMessage.content;
+
+        console.log('targetContent:', targetContent);
+
+        // Build prompt for Azure OpenAI
+        const prompt = `
 You are a dramatic and sassy Discord bot. 
 You see the following message from a user:
 
@@ -129,44 +130,48 @@ as if you are taking offense to what they said. Each reply should be one sentenc
 funny and playful, but only use the user's name in the first reply.
 `;
 
-    // Call Azure OpenAI
-    const response = await axios.post(
-        process.env.AZURE_OPENAI_ENDPOINT,
-        {
-            messages: [
-                { role: "system", content: "You are a hairy Canadian lumberjack man who's been through a lot in his still short lifetime. You don't mince words but get straight to the point and aren't afraid to offend someone." },
-                { role: "user", content: prompt }
-            ],
-            max_completion_tokens: process.env.MAX_COMPLETION_TOKENS
-        },
-        {
-            headers: {
-                "api-key": process.env.AZURE_OPENAI_KEY,
-                "Content-Type": "application/json"
+        // Call Azure OpenAI
+        const response = await axios.post(
+            process.env.AZURE_OPENAI_ENDPOINT,
+            {
+                messages: [
+                    { role: "system", content: "You are a hairy Canadian lumberjack man who's been through a lot in his still short lifetime. You don't mince words but get straight to the point and aren't afraid to offend someone." },
+                    { role: "user", content: prompt }
+                ],
+                max_completion_tokens: process.env.MAX_COMPLETION_TOKENS
+            },
+            {
+                headers: {
+                    "api-key": process.env.AZURE_OPENAI_KEY,
+                    "Content-Type": "application/json"
+                }
             }
+        );
+
+        console.log('output', JSON.stringify(response.data, null, 2));
+        const generatedText = response.data.choices?.[0]?.message?.content?.trim();
+        console.log('generatedText:', generatedText);
+        await placeholderMessage.delete().catch(() => { });
+
+        if (!generatedText) {
+            return message.channel.send("Hmm, I couldn't come up with any drama this time.");
         }
-    );
 
-    console.log('output', JSON.stringify(response.data, null, 2));
-    const generatedText = response.data.choices?.[0]?.message?.content?.trim();
-    console.log('generatedText:', generatedText);
-    await placeholderMessage.delete().catch(() => { });
+        // Split responses if OpenAI returns multiple lines
+        const responses = generatedText.split(/\n/).filter(line => line.trim().length > 0);
 
-    if (!generatedText) {
-        return message.channel.send("Hmm, I couldn't come up with any drama this time.");
-    }
+        await message.channel.send({
+            content: `${responses[0]}`,
+            reply: { messageReference: targetMessage.id }
+        });
 
-    // Split responses if OpenAI returns multiple lines
-    const responses = generatedText.split(/\n/).filter(line => line.trim().length > 0);
-
-    await message.channel.send({
-        content: `${responses[0]}`,
-        reply: { messageReference: targetMessage.id }
-    });
-
-    // Post the rest normally with small delays
-    for (let i = 1; i < responses.length; i++) {
-        await message.channel.send(`${responses[i]}`);
-        await new Promise(r => setTimeout(r, 1000 + Math.random() * 2000));
+        // Post the rest normally with small delays
+        for (let i = 1; i < responses.length; i++) {
+            await message.channel.send(`${responses[i]}`);
+            await new Promise(r => setTimeout(r, 1000 + Math.random() * 2000));
+        }
+    } catch (err) {
+        console.error(err);
+        await placeholderMessage.edit(`Error generating code: ${err.message}`);
     }
 }
