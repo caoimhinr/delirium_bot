@@ -12,6 +12,7 @@ const app = express();
 const PORT = process.env.PORT || 3000;
 const SETTINGS_FILE = path.join(__dirname, 'guildSettings.json');
 const ADMIN_ROLE_ID = process.env.ADMIN_ROLE_ID; // Discord role allowed to edit
+const GUILD_ID = process.env.GUILD_ID; // Your guild ID
 
 // --- Passport Discord OAuth2 setup ---
 passport.serializeUser((user, done) => done(null, user));
@@ -70,7 +71,7 @@ function saveSettings(data) {
 
 // --- Settings page ---
 app.get('/settings', ensureAdmin, (req, res) => {
-    const guildId = req.query.guild || req.user.guilds[0].id;
+    const guildId = client.guilds.cache.get(GUILD_ID);
     const settings = loadSettings();
     const guildConfig = settings[guildId] || { systemPrompt: "You are a dramatic sassy bot." };
 
