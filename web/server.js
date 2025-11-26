@@ -6,7 +6,7 @@ const DiscordStrategy = require('passport-discord').Strategy;
 const bodyParser = require('body-parser');
 const fs = require('fs');
 const path = require('path');
-const client = require('./discordClient'); // your Discord.js client
+const client = require('../discordClient'); // your Discord.js client
 
 const app = express();
 const PORT = process.env.PORT || 3000;
