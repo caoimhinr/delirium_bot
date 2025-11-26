@@ -8,7 +8,7 @@ module.exports = {
         example: "$xemidan @user"
     },
     drama: {
-        description: "Picks one of the last <X> messages in the channel to take offense to.",
+        description: "Picks one of the last <X> messages in the channel to take offense to, alternatively you can reply to a specific message with $drama for a targeted input.",
         example: "$drama 20"
     },
     help: {
