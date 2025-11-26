@@ -46,16 +46,15 @@ app.get('/logout', (req, res) => {
 });
 
 // --- Authorization middleware ---
-function ensureAdmin(req, res, next) {
+async function ensureAdmin(req, res, next) {
     if (!req.isAuthenticated()) return res.redirect('/login');
 
     // Check if user is in any guild where they have ADMIN_ROLE_ID
-    const allowed = req.user.guilds.some(guild => {
-        const guildMember = client.guilds.cache.get(guild.id)?.members.cache.get(req.user.id);
-        return guildMember?.roles.cache.has(ADMIN_ROLE_ID);
-    });
-
-    if (!allowed) return res.status(403).send('Forbidden: You do not have permission.');
+    const guild = await client.guilds.fetch(GUILD_ID);           // ensure guild object
+    const member = await guild.members.fetch(req.user.id);      // fetch the member explicitly
+    if (!member.roles.cache.has(process.env.ADMIN_ROLE_ID)) {
+        return res.status(403).send('Forbidden: You do not have permission.');
+    }
     next();
 }
 
