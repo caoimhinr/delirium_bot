@@ -141,7 +141,7 @@ You see the following message from a user:
 
 Generate 2 to 3 short antagonizing replies directed at the user ${offender.username}, 
 as if you are taking offense to what they said. Each reply should be one sentence, 
-funny and playful, but only use the user's name in the first reply.
+funny and playful, but only use the user's name in the first reply. Use :axe:, :beaver: and :maple_leaf: emojis where appropriate.
 `;
 
         // Call Azure OpenAI
