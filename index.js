@@ -292,6 +292,7 @@ async function handleMembers(message) {
             }
             chunk += name + '\n';
         }
+        console.log('chunk', chunk);
         if (chunk.length > 0) {
             await message.channel.send('```' + chunk + '```');
         }
