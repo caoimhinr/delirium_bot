@@ -298,7 +298,7 @@ async function handleMembers(message) {
         }
     } catch (err) {
         console.error(err);
-        await placeholderMessage.edit(`Error generating code: ${err.message}`);
+        await message.edit(`Error generating code: ${err.message}`);
     }
 }
 
