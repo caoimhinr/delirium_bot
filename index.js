@@ -135,6 +135,7 @@ async function respondTo(message, mode = 'drama', modifiers = null) {
 async function respondWithJas(message, modifiers = null) {
     // Send a temporary reply to let user know generation is in progress
     //const placeholderMessage = await targetMessage.channel.send(prompts.placeholderMessage);
+    message.channel.sendTyping();
 
     try {
 
@@ -159,6 +160,7 @@ async function respondWithJas(message, modifiers = null) {
         });
 
         // Post the rest normally with small delays
+        message.channel.sendTyping();
         for (let i = 1; i < responses.length; i++) {
             await message.channel.send(`${responses[i]}`);
             await new Promise(r => setTimeout(r, 1000 + Math.random() * 2000));
