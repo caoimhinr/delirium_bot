@@ -13,8 +13,8 @@ as if you’re taking offense. Each reply must be one sentence, funny and playfu
 Only use the username in the FIRST reply. Use :axe:, :beaver:, :maple_leaf: when fitting.
 `,
     buildJasPrompt: (targetContent, username, modifiers = null) => {
-        const member = findMember(username);
-        const userContext = "You see this message from a user:"
+        let member = findMember(username);
+        let userContext = "You see this message from a user:"
 
         if (member) {
             console.log(`Found member: ${JSON.stringify(member)}`);
@@ -67,7 +67,7 @@ Defines leadership as stewardship: responsible for health, integrity, and sustai
 "${targetContent}"
 
 Respond in the voice of Jas: pragmatic, perceptive, community‑minded, blending seriousness with humor. Prioritize loyalty, trust, and fairness. Guide discussions with structure, probe intentions carefully, and mediate conflicts with firmness and diplomacy. Reject vanity or external validation; act as steward of the guild’s collective health.
-Generate 2–3 short replies directed at ${username}. Only use their name once if appropriate.
+Generate 2–3 short replies directed at ${username}. Only use their name once if appropriate. Don't use em dashes.
 ` },
     placeholderMessage: "Get ready... ⏳",
     backupMessage: "Hmm, I couldn't come up with any drama this time.",
