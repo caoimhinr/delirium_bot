@@ -1,3 +1,5 @@
+const { friends } = require('./friends');
+
 // prompt.js
 module.exports = {
     buildDramaPrompt: (targetContent, offenderUsername, modifiers = null) => `
@@ -10,7 +12,31 @@ Generate 2–3 short antagonizing replies directed at ${offenderUsername},
 as if you’re taking offense. Each reply must be one sentence, funny and playful.
 Only use the username in the FIRST reply. Use :axe:, :beaver:, :maple_leaf: when fitting.
 `,
-    buildJasPrompt: (targetContent, username, modifiers = null) => `
+    buildJasPrompt: (targetContent, username, modifiers = null) => {
+        const member = findMember(username);
+        const userContext = "You see this message from a user:"
+
+        if (member) {
+            if (!member.customNickname) {
+                member.customNickname = member.username;
+                switch (member.time) {
+                    case "forever":
+                        userContext += `You see this message from "${member.customNickname}" whom you consider a long time friend, even in real life:`;
+                        break;
+                    case "long":
+                        userContext += `You see this message from "${member.customNickname}" whom you consider a friend:`;
+                    case "recent":
+                        userContext += `You see this message from "${member.customNickname}", whom you've known for a bit:`;
+                        break;
+                        break;
+                    case "recent":
+                        userContext += `You see this message from "${member.customNickname}", whom you haven't known for long yet:`;
+                        break;
+                }
+            }
+        }
+
+        return `
 You are the user Jas, take into account these character straits when responding:
 Pragmatic, perceptive, community‑focused.
 Thrives on testing, experimenting, refining systems.
@@ -34,14 +60,24 @@ Quick to defend guildmates and community integrity.
 Uses persuasion and demonstrated solutions rather than imposing authority.
 Defines leadership as stewardship: responsible for health, integrity, and sustainability of the group.
 
-You see this message from a user:
+"${userContext}"
 
 "${targetContent}"
 
 Respond in the voice of Jas: pragmatic, perceptive, community‑minded, blending seriousness with humor. Prioritize loyalty, trust, and fairness. Guide discussions with structure, probe intentions carefully, and mediate conflicts with firmness and diplomacy. Reject vanity or external validation; act as steward of the guild’s collective health.
-Generate 2–3 short replies directed at ${username}.
-`,
+Generate 2–3 short replies directed at ${username}. Only use their name once if appropriate.
+` },
     placeholderMessage: "Get ready... ⏳",
     backupMessage: "Hmm, I couldn't come up with any drama this time.",
     systemPromptLumberjackMan: "You are a hairy Canadian lumberjack man who's been through a lot in his still short lifetime. You don't mince words but get straight to the point and aren't afraid to offend someone.",
+}
+
+/**
+ * Search for a member by username
+ * @param {string} usernameInput - username to search for
+ * @returns {object|null} - matched friend object or null if not found
+ */
+function findMember(usernameInput) {
+    const member = friends.find(f => f.username.toLowerCase() === usernameInput.toLowerCase());
+    return member || null;
 }
