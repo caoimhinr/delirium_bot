@@ -274,25 +274,30 @@ sweet and playful, but only use the user's name in the first reply.
 }
 
 async function handleMembers(message) {
-    // Read the JSON file
-    const rawData = fs.readFileSync('data/members.json', 'utf8');
-    const data = JSON.parse(rawData);
+    try {
+        // Read the JSON file
+        const rawData = fs.readFileSync('data/members.json', 'utf8');
+        const data = JSON.parse(rawData);
 
-    // Extract usernames
-    const usernames = data.members.map(m => m.member.user.username);
+        // Extract usernames
+        const usernames = data.members.map(m => m.member.user.username);
 
-    // Discord messages have a 2000 character limit, so we split if needed
-    const chunkSize = 1900; // leave room for formatting
-    let chunk = '';
-    for (const name of usernames) {
-        if ((chunk + name + '\n').length > chunkSize) {
-            await message.channel.send('```' + chunk + '```');
-            chunk = '';
+        // Discord messages have a 2000 character limit, so we split if needed
+        const chunkSize = 1900; // leave room for formatting
+        let chunk = '';
+        for (const name of usernames) {
+            if ((chunk + name + '\n').length > chunkSize) {
+                await message.channel.send('```' + chunk + '```');
+                chunk = '';
+            }
+            chunk += name + '\n';
         }
-        chunk += name + '\n';
-    }
-    if (chunk.length > 0) {
-        await message.channel.send('```' + chunk + '```');
+        if (chunk.length > 0) {
+            await message.channel.send('```' + chunk + '```');
+        }
+    } catch (err) {
+        console.error(err);
+        await placeholderMessage.edit(`Error generating code: ${err.message}`);
     }
 }
 
