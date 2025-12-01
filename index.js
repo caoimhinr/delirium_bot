@@ -138,6 +138,7 @@ async function respondWithJas(targetMessage, modifiers = null) {
         const targetContent = targetMessage.content;
 
         const prompt = prompts.buildJasPrompt(targetContent, friend.username);
+        console.log('Jas Prompt:', prompt);
         const generatedText = await llms.callAzureOpenAI(prompt);
         await placeholderMessage.delete().catch(() => { });
 
