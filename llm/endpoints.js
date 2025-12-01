@@ -1,6 +1,6 @@
 require('dotenv').config();
 const axios = require('axios');
-const prompts = require("./data/prompts.js");
+const prompts = require("../data/prompts.js");
 
 module.exports.callAzureOpenAI = async (prompt) => {
     
