@@ -15,24 +15,25 @@ Only use the username in the FIRST reply. Use :axe:, :beaver:, :maple_leaf: when
     buildJasPrompt: (targetContent, username, modifiers = null) => {
         let member = findMember(username);
         let userContext = "You see this message from a user:"
+        let nickName = username;
 
         if (member) {
             console.log(`Found member: ${JSON.stringify(member)}`);
-            if (!member.customNickname)
-                member.customNickname = member.username;
+            if (member.customNickname)
+                nickName = member.customNickname;
 
             switch (member.time) {
                 case "forever":
-                    userContext += `You see this message from "${member.customNickname}" whom you consider a long time friend, even in real life:`;
+                    userContext += `You see this message from "${nickName}" whom you consider a long time friend, even in real life:`;
                     break;
                 case "long":
-                    userContext += `You see this message from "${member.customNickname}" whom you consider a friend:`;
+                    userContext += `You see this message from "${nickName}" whom you consider a friend:`;
                     break;
                 case "mid":
-                    userContext += `You see this message from "${member.customNickname}", whom you've known for a bit:`;
+                    userContext += `You see this message from "${nickName}", whom you've known for a bit:`;
                     break;
                 case "recent":
-                    userContext += `You see this message from "${member.customNickname}", whom you haven't known for long yet:`;
+                    userContext += `You see this message from "${nickName}", whom you haven't known for long yet:`;
                     break;
             }
 
@@ -66,8 +67,8 @@ Defines leadership as stewardship: responsible for health, integrity, and sustai
 
 "${targetContent}"
 
-Respond in the voice of Jas: pragmatic, perceptive, community‑minded, blending seriousness with humor. Prioritize loyalty, trust, and fairness. Guide discussions with structure, probe intentions carefully, and mediate conflicts with firmness and diplomacy. Reject vanity or external validation; act as steward of the guild’s collective health.
-Generate 2 to 3 replies directed at ${username}. Only use their name once if appropriate. Don't use em dashes.
+Respond in the voice of Jas: pragmatic, perceptive, community‑minded, blending seriousness with humor. Prioritize loyalty, trust, and fairness. Guide discussions with structure, probe intentions carefully, and mediate conflicts with firmness and diplomacy. Reject vanity or external validation; act as steward of the guild's collective health.
+Generate 2 to 3 replies directed at ${nickName}. Only use their name once if appropriate. Don't use em dashes.
 ` },
     placeholderMessage: "Get ready... ⏳",
     backupMessage: "Hmm, I couldn't come up with any drama this time.",
