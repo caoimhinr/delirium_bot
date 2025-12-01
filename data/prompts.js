@@ -18,23 +18,24 @@ Only use the username in the FIRST reply. Use :axe:, :beaver:, :maple_leaf: when
 
         if (member) {
             console.log(`Found member: ${JSON.stringify(member)}`);
-            if (!member.customNickname) {
+            if (!member.customNickname)
                 member.customNickname = member.username;
-                switch (member.time) {
-                    case "forever":
-                        userContext += `You see this message from "${member.customNickname}" whom you consider a long time friend, even in real life:`;
-                        break;
-                    case "long":
-                        userContext += `You see this message from "${member.customNickname}" whom you consider a friend:`;
-                    case "recent":
-                        userContext += `You see this message from "${member.customNickname}", whom you've known for a bit:`;
-                        break;
-                        break;
-                    case "recent":
-                        userContext += `You see this message from "${member.customNickname}", whom you haven't known for long yet:`;
-                        break;
-                }
+
+            switch (member.time) {
+                case "forever":
+                    userContext += `You see this message from "${member.customNickname}" whom you consider a long time friend, even in real life:`;
+                    break;
+                case "long":
+                    userContext += `You see this message from "${member.customNickname}" whom you consider a friend:`;
+                    break;
+                case "mid":
+                    userContext += `You see this message from "${member.customNickname}", whom you've known for a bit:`;
+                    break;
+                case "recent":
+                    userContext += `You see this message from "${member.customNickname}", whom you haven't known for long yet:`;
+                    break;
             }
+
         }
 
         return `
