@@ -140,7 +140,7 @@ async function respondWithJas(targetMessage, modifiers = null) {
         const prompt = prompts.buildJasPrompt(targetContent, friend.username);
         console.log('Jas Prompt:', prompt);
         const generatedText = await llms.callAzureOpenAI(prompt);
-        await placeholderMessage.delete().catch(() => { });
+        //await placeholderMessage.delete().catch(() => { });
 
         if (!generatedText) {
             return message.channel.send(prompts.backupMessage);
@@ -161,7 +161,7 @@ async function respondWithJas(targetMessage, modifiers = null) {
         }
     } catch (err) {
         console.error(err);
-        await placeholderMessage.edit(`Error generating code: ${err.message}`);
+        //await placeholderMessage.edit(`Error generating code: ${err.message}`);
     }
 }
 
