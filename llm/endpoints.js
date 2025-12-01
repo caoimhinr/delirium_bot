@@ -21,6 +21,6 @@ module.exports.callAzureOpenAI = async (prompt) => {
                 }
             }
         );
-
+        console.log('output', JSON.stringify(response.data, null, 2));
         return response.data.choices?.[0]?.message?.content?.trim();
     }
