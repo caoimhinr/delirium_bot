@@ -17,6 +17,7 @@ Only use the username in the FIRST reply. Use :axe:, :beaver:, :maple_leaf: when
         const userContext = "You see this message from a user:"
 
         if (member) {
+            console.log(`Found member: ${JSON.stringify(member)}`);
             if (!member.customNickname) {
                 member.customNickname = member.username;
                 switch (member.time) {
