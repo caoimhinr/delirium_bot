@@ -15,6 +15,10 @@ module.exports = {
         description: "Picks one of the last <X> messages in the channel to encourage and uplift the sender, alternatively you can reply to a specific message with $sweet for a targeted input.",
         example: "$sweet 20"
     },
+    members: {
+      description: "Lists all members from the server file.",
+        example: "$members"  
+    },
     help: {
         description: "Shows this help menu.",
         example: "$help"

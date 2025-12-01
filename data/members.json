@@ -1,0 +1,4831 @@
+{
+    "guild_id": "1148290665990598788",
+    "members": [
+        {
+            "member": {
+                "avatar": null,
+                "banner": null,
+                "communication_disabled_until": null,
+                "flags": 10,
+                "joined_at": "2025-12-01T08:51:44.400000+00:00",
+                "nick": null,
+                "pending": false,
+                "premium_since": null,
+                "roles": [
+                    "1443891119518908518",
+                    "1441629741882019974",
+                    "1443888044808736939",
+                    "1442953429373947984",
+                    "1443891039009112115",
+                    "1201938737991516180",
+                    "1148339024742854747",
+                    "1443887228899168319"
+                ],
+                "unusual_dm_activity_until": null,
+                "collectibles": null,
+                "display_name_styles": null,
+                "user": {
+                    "id": "1444958424377852007",
+                    "username": "v_v01368",
+                    "avatar": "b70142a8b718c86d8a1388a7d6e32401",
+                    "discriminator": "0",
+                    "public_flags": 0,
+                    "flags": 0,
+                    "banner": null,
+                    "accent_color": null,
+                    "global_name": "v-v",
+                    "avatar_decoration_data": null,
+                    "collectibles": null,
+                    "display_name_styles": null,
+                    "banner_color": null,
+                    "clan": null,
+                    "primary_guild": null
+                },
+                "mute": false,
+                "deaf": false
+            },
+            "source_invite_code": "eyqZTn3N",
+            "join_source_type": 5,
+            "inviter_id": "361732550106021890",
+            "join_source_application_id": null,
+            "join_source_channel_id": null
+        },
+        {
+            "member": {
+                "avatar": null,
+                "banner": null,
+                "communication_disabled_until": null,
+                "flags": 10,
+                "joined_at": "2025-11-30T15:34:33.213000+00:00",
+                "nick": null,
+                "pending": false,
+                "premium_since": null,
+                "roles": [
+                    "1443895792854110242",
+                    "1441629741882019974",
+                    "1201938737991516180",
+                    "1443895863717003284",
+                    "1437398678406041721",
+                    "1234835712919081050",
+                    "1441624639695622204",
+                    "1443887228899168319"
+                ],
+                "unusual_dm_activity_until": null,
+                "collectibles": null,
+                "display_name_styles": null,
+                "user": {
+                    "id": "231170334496260096",
+                    "username": "ogah3911",
+                    "avatar": "e9ce5a8501acacbfcd8737be1d6d20e2",
+                    "discriminator": "0",
+                    "public_flags": 0,
+                    "flags": 0,
+                    "banner": null,
+                    "accent_color": null,
+                    "global_name": "\u00d6gah",
+                    "avatar_decoration_data": null,
+                    "collectibles": null,
+                    "display_name_styles": null,
+                    "banner_color": null,
+                    "clan": null,
+                    "primary_guild": null
+                },
+                "mute": false,
+                "deaf": false
+            },
+            "source_invite_code": "cPUhpASs",
+            "join_source_type": 5,
+            "inviter_id": "361732550106021890",
+            "join_source_application_id": null,
+            "join_source_channel_id": null
+        },
+        {
+            "member": {
+                "avatar": null,
+                "banner": null,
+                "communication_disabled_until": null,
+                "flags": 0,
+                "joined_at": "2025-11-25T20:22:44.005000+00:00",
+                "nick": "Jas",
+                "pending": false,
+                "premium_since": null,
+                "roles": [
+                    "1442961603803746324",
+                    "1442973803092250751"
+                ],
+                "unusual_dm_activity_until": null,
+                "collectibles": null,
+                "display_name_styles": null,
+                "user": {
+                    "id": "1442608295989743718",
+                    "username": "DeliriumBot",
+                    "avatar": "e0a77af9d1100b29f2f652ca816b8a58",
+                    "discriminator": "1421",
+                    "public_flags": 0,
+                    "flags": 0,
+                    "bot": true,
+                    "banner": null,
+                    "accent_color": null,
+                    "global_name": null,
+                    "avatar_decoration_data": null,
+                    "collectibles": null,
+                    "display_name_styles": null,
+                    "banner_color": null,
+                    "clan": null,
+                    "primary_guild": null
+                },
+                "mute": false,
+                "deaf": false
+            },
+            "source_invite_code": null,
+            "join_source_type": 0,
+            "inviter_id": null,
+            "join_source_application_id": null,
+            "join_source_channel_id": null
+        },
+        {
+            "member": {
+                "avatar": null,
+                "banner": null,
+                "communication_disabled_until": null,
+                "flags": 10,
+                "joined_at": "2025-11-24T02:45:09.181000+00:00",
+                "nick": null,
+                "pending": false,
+                "premium_since": null,
+                "roles": [
+                    "1442953180122976306",
+                    "1441624639695622204",
+                    "1234835712919081050",
+                    "1441629741882019974"
+                ],
+                "unusual_dm_activity_until": null,
+                "collectibles": null,
+                "display_name_styles": null,
+                "user": {
+                    "id": "183456272757161984",
+                    "username": "imtspoon",
+                    "avatar": "9d32dc31a2aca3769013813ccda36077",
+                    "discriminator": "0",
+                    "public_flags": 0,
+                    "flags": 0,
+                    "banner": null,
+                    "accent_color": null,
+                    "global_name": "Tspoon",
+                    "avatar_decoration_data": null,
+                    "collectibles": null,
+                    "display_name_styles": null,
+                    "banner_color": null,
+                    "clan": null,
+                    "primary_guild": null
+                },
+                "mute": false,
+                "deaf": false
+            },
+            "source_invite_code": "PAsu6A7q",
+            "join_source_type": 5,
+            "inviter_id": "361732550106021890",
+            "join_source_application_id": null,
+            "join_source_channel_id": null
+        },
+        {
+            "member": {
+                "avatar": null,
+                "banner": null,
+                "communication_disabled_until": null,
+                "flags": 10,
+                "joined_at": "2025-11-20T22:44:59.859000+00:00",
+                "nick": null,
+                "pending": false,
+                "premium_since": null,
+                "roles": [
+                    "1443894817959706754",
+                    "1161035196112568454",
+                    "1441629741882019974",
+                    "1443888044808736939",
+                    "1234835712919081050",
+                    "1148339024742854747",
+                    "1148338895633788959",
+                    "1443887228899168319"
+                ],
+                "unusual_dm_activity_until": null,
+                "collectibles": null,
+                "display_name_styles": null,
+                "user": {
+                    "id": "292755470609809410",
+                    "username": "kimberlyss_",
+                    "avatar": "6784127ae30ae73c6938a24de14e495d",
+                    "discriminator": "0",
+                    "public_flags": 256,
+                    "flags": 256,
+                    "banner": null,
+                    "accent_color": null,
+                    "global_name": "Kim \ud83c\udf19",
+                    "avatar_decoration_data": {
+                        "asset": "a_be6c77adcaa4aa3ed641f6c78de0dbb8",
+                        "sku_id": "1432427447093039205",
+                        "expires_at": 1768003200
+                    },
+                    "collectibles": null,
+                    "display_name_styles": null,
+                    "banner_color": null,
+                    "clan": null,
+                    "primary_guild": null
+                },
+                "mute": false,
+                "deaf": false
+            },
+            "source_invite_code": "zpnnpqzy",
+            "join_source_type": 5,
+            "inviter_id": "361732550106021890",
+            "join_source_application_id": null,
+            "join_source_channel_id": null
+        },
+        {
+            "member": {
+                "avatar": null,
+                "banner": null,
+                "communication_disabled_until": null,
+                "flags": 10,
+                "joined_at": "2025-11-20T22:44:36.753000+00:00",
+                "nick": null,
+                "pending": false,
+                "premium_since": null,
+                "roles": [
+                    "1234835712919081050",
+                    "1148339024742854747",
+                    "1441629741882019974",
+                    "1148338895633788959"
+                ],
+                "unusual_dm_activity_until": null,
+                "collectibles": null,
+                "display_name_styles": null,
+                "user": {
+                    "id": "195190023778205696",
+                    "username": "sonenses",
+                    "avatar": "ac9bffd8d0f616b9285a4299890087b9",
+                    "discriminator": "0",
+                    "public_flags": 256,
+                    "flags": 256,
+                    "banner": null,
+                    "accent_color": null,
+                    "global_name": "SonenseS",
+                    "avatar_decoration_data": {
+                        "asset": "a_be6c77adcaa4aa3ed641f6c78de0dbb8",
+                        "sku_id": "1432427447093039205",
+                        "expires_at": 1768003200
+                    },
+                    "collectibles": null,
+                    "display_name_styles": null,
+                    "banner_color": null,
+                    "clan": {
+                        "identity_guild_id": "1270067941055922227",
+                        "identity_enabled": true,
+                        "tag": "BOX",
+                        "badge": "2d8bea68b3152b52858942d2bc854cc7"
+                    },
+                    "primary_guild": {
+                        "identity_guild_id": "1270067941055922227",
+                        "identity_enabled": true,
+                        "tag": "BOX",
+                        "badge": "2d8bea68b3152b52858942d2bc854cc7"
+                    }
+                },
+                "mute": false,
+                "deaf": false
+            },
+            "source_invite_code": "zpnnpqzy",
+            "join_source_type": 5,
+            "inviter_id": "361732550106021890",
+            "join_source_application_id": null,
+            "join_source_channel_id": null
+        },
+        {
+            "member": {
+                "avatar": null,
+                "banner": null,
+                "communication_disabled_until": null,
+                "flags": 10,
+                "joined_at": "2025-11-14T11:00:57.414000+00:00",
+                "nick": null,
+                "pending": false,
+                "premium_since": null,
+                "roles": [
+                    "1148338643258331177",
+                    "1234835712919081050",
+                    "1148339024742854747",
+                    "1148338732089483285"
+                ],
+                "unusual_dm_activity_until": null,
+                "collectibles": null,
+                "display_name_styles": null,
+                "user": {
+                    "id": "836700882434261019",
+                    "username": "mistert_1720",
+                    "avatar": "6ec536c140ad92106a0961c71557510e",
+                    "discriminator": "0",
+                    "public_flags": 0,
+                    "flags": 0,
+                    "banner": null,
+                    "accent_color": null,
+                    "global_name": "MISTER T",
+                    "avatar_decoration_data": null,
+                    "collectibles": null,
+                    "display_name_styles": null,
+                    "banner_color": null,
+                    "clan": null,
+                    "primary_guild": null
+                },
+                "mute": false,
+                "deaf": false
+            },
+            "source_invite_code": "ySxkwmjK",
+            "join_source_type": 5,
+            "inviter_id": "361732550106021890",
+            "join_source_application_id": null,
+            "join_source_channel_id": null
+        },
+        {
+            "member": {
+                "avatar": null,
+                "banner": null,
+                "communication_disabled_until": null,
+                "flags": 10,
+                "joined_at": "2025-11-05T15:34:46.723000+00:00",
+                "nick": null,
+                "pending": false,
+                "premium_since": null,
+                "roles": [
+                    "1148338732089483285"
+                ],
+                "unusual_dm_activity_until": null,
+                "collectibles": null,
+                "display_name_styles": null,
+                "user": {
+                    "id": "1417141489930080327",
+                    "username": "alina0634",
+                    "avatar": "1628fc11e7961d85181295493426b775",
+                    "discriminator": "0",
+                    "public_flags": 0,
+                    "flags": 0,
+                    "banner": null,
+                    "accent_color": null,
+                    "global_name": "Alina",
+                    "avatar_decoration_data": null,
+                    "collectibles": null,
+                    "display_name_styles": null,
+                    "banner_color": null,
+                    "clan": null,
+                    "primary_guild": null
+                },
+                "mute": false,
+                "deaf": false
+            },
+            "source_invite_code": "BundM2KY",
+            "join_source_type": 5,
+            "inviter_id": "361732550106021890",
+            "join_source_application_id": null,
+            "join_source_channel_id": null
+        },
+        {
+            "member": {
+                "avatar": null,
+                "banner": null,
+                "communication_disabled_until": null,
+                "flags": 10,
+                "joined_at": "2025-11-01T19:52:55.339000+00:00",
+                "nick": null,
+                "pending": false,
+                "premium_since": null,
+                "roles": [
+                    "1441629741882019974",
+                    "1441055534659801229",
+                    "1442953429373947984",
+                    "1148338732089483285",
+                    "1437398678406041721",
+                    "1234835712919081050",
+                    "1148339024742854747",
+                    "1148338895633788959",
+                    "1443887228899168319"
+                ],
+                "unusual_dm_activity_until": null,
+                "collectibles": null,
+                "display_name_styles": null,
+                "user": {
+                    "id": "495306514211536924",
+                    "username": "ashi6734",
+                    "avatar": "4a90fbb604f5235b215be5c3caec0e47",
+                    "discriminator": "0",
+                    "public_flags": 0,
+                    "flags": 0,
+                    "banner": null,
+                    "accent_color": null,
+                    "global_name": "Ashi",
+                    "avatar_decoration_data": {
+                        "asset": "a_16f9f3dfe294062d0c1fa9864c6c2267",
+                        "sku_id": "1435783917776146465",
+                        "expires_at": 1768608000
+                    },
+                    "collectibles": null,
+                    "display_name_styles": null,
+                    "banner_color": null,
+                    "clan": null,
+                    "primary_guild": null
+                },
+                "mute": false,
+                "deaf": false
+            },
+            "source_invite_code": "wg2QMZMn",
+            "join_source_type": 5,
+            "inviter_id": "386185608038711297",
+            "join_source_application_id": null,
+            "join_source_channel_id": null
+        },
+        {
+            "member": {
+                "avatar": null,
+                "banner": null,
+                "communication_disabled_until": null,
+                "flags": 10,
+                "joined_at": "2025-11-01T18:42:13.380000+00:00",
+                "nick": null,
+                "pending": false,
+                "premium_since": null,
+                "roles": [
+                    "1441629741882019974",
+                    "1148338732089483285",
+                    "1437398678406041721",
+                    "1148339024742854747",
+                    "1148338895633788959"
+                ],
+                "unusual_dm_activity_until": null,
+                "collectibles": null,
+                "display_name_styles": null,
+                "user": {
+                    "id": "499166075213053953",
+                    "username": "joker45js",
+                    "avatar": "834e09654a3662fca1de49a945614a2c",
+                    "discriminator": "0",
+                    "public_flags": 0,
+                    "flags": 0,
+                    "banner": null,
+                    "accent_color": null,
+                    "global_name": "JamesSnow",
+                    "avatar_decoration_data": {
+                        "asset": "a_1953da70cb693d9a27178eca180f8cb5",
+                        "sku_id": "1369434230693695628",
+                        "expires_at": null
+                    },
+                    "collectibles": {
+                        "nameplate": {
+                            "sku_id": "1417311919555215471",
+                            "asset": "nameplates/nameplate_bonanza/starlight_whales/",
+                            "label": "COLLECTIBLES_NAMEPLATE_BONANZA_STARLIGHT_WHALES_NP_A11Y",
+                            "palette": "violet"
+                        }
+                    },
+                    "display_name_styles": {
+                        "font_id": 10,
+                        "effect_id": 2,
+                        "colors": [
+                            13565948,
+                            4381693
+                        ]
+                    },
+                    "banner_color": null,
+                    "clan": {
+                        "identity_guild_id": "753384735236948018",
+                        "identity_enabled": true,
+                        "tag": "SUS",
+                        "badge": "78b1ebb6b97565376cb5345a0631e362"
+                    },
+                    "primary_guild": {
+                        "identity_guild_id": "753384735236948018",
+                        "identity_enabled": true,
+                        "tag": "SUS",
+                        "badge": "78b1ebb6b97565376cb5345a0631e362"
+                    }
+                },
+                "mute": false,
+                "deaf": false
+            },
+            "source_invite_code": "2HdUj67z",
+            "join_source_type": 5,
+            "inviter_id": "272392238305116162",
+            "join_source_application_id": null,
+            "join_source_channel_id": null
+        },
+        {
+            "member": {
+                "avatar": null,
+                "banner": null,
+                "communication_disabled_until": null,
+                "flags": 10,
+                "joined_at": "2025-09-23T14:13:32.644000+00:00",
+                "nick": null,
+                "pending": false,
+                "premium_since": null,
+                "roles": [
+                    "1419631966965207163",
+                    "1148338732089483285",
+                    "1441629741882019974"
+                ],
+                "unusual_dm_activity_until": null,
+                "collectibles": null,
+                "display_name_styles": null,
+                "user": {
+                    "id": "1414620965652009131",
+                    "username": "nina_o1o7o6",
+                    "avatar": null,
+                    "discriminator": "0",
+                    "public_flags": 0,
+                    "flags": 0,
+                    "banner": null,
+                    "accent_color": null,
+                    "global_name": "Nina",
+                    "avatar_decoration_data": null,
+                    "collectibles": null,
+                    "display_name_styles": null,
+                    "banner_color": null,
+                    "clan": null,
+                    "primary_guild": null
+                },
+                "mute": false,
+                "deaf": false
+            },
+            "source_invite_code": "GKKZWVQm",
+            "join_source_type": 5,
+            "inviter_id": "361732550106021890",
+            "join_source_application_id": null,
+            "join_source_channel_id": null
+        },
+        {
+            "member": {
+                "avatar": null,
+                "banner": null,
+                "communication_disabled_until": null,
+                "flags": 10,
+                "joined_at": "2025-09-22T15:49:11.501000+00:00",
+                "nick": "Mahmoud(wants free candy)",
+                "pending": false,
+                "premium_since": null,
+                "roles": [
+                    "1148339173653229688",
+                    "1437398678406041721",
+                    "1148338732089483285",
+                    "1441629741882019974"
+                ],
+                "unusual_dm_activity_until": null,
+                "collectibles": null,
+                "display_name_styles": null,
+                "user": {
+                    "id": "1141386498294431795",
+                    "username": "mahmetney",
+                    "avatar": "02a9b5dc3d39b965113033064f059d51",
+                    "discriminator": "0",
+                    "public_flags": 0,
+                    "flags": 0,
+                    "banner": null,
+                    "accent_color": null,
+                    "global_name": "Mahmoud",
+                    "avatar_decoration_data": null,
+                    "collectibles": null,
+                    "display_name_styles": null,
+                    "banner_color": null,
+                    "clan": null,
+                    "primary_guild": null
+                },
+                "mute": false,
+                "deaf": false
+            },
+            "source_invite_code": "GKKZWVQm",
+            "join_source_type": 5,
+            "inviter_id": "361732550106021890",
+            "join_source_application_id": null,
+            "join_source_channel_id": null
+        },
+        {
+            "member": {
+                "avatar": null,
+                "banner": null,
+                "communication_disabled_until": null,
+                "flags": 10,
+                "joined_at": "2025-09-13T16:20:08.495000+00:00",
+                "nick": null,
+                "pending": false,
+                "premium_since": null,
+                "roles": [
+                    "1443891119518908518",
+                    "1441629741882019974",
+                    "1161035196112568454",
+                    "1148338643258331177",
+                    "1148339024742854747",
+                    "1443888044808736939",
+                    "1443891320266424402",
+                    "1201938737991516180",
+                    "1148338732089483285",
+                    "1443895863717003284",
+                    "1437398678406041721",
+                    "1234835712919081050",
+                    "1419631966965207163",
+                    "1441624639695622204",
+                    "1443887228899168319"
+                ],
+                "unusual_dm_activity_until": null,
+                "collectibles": null,
+                "display_name_styles": null,
+                "user": {
+                    "id": "784883974090522664",
+                    "username": "matschmae",
+                    "avatar": "b21480f2d6e9c9b91fcd13c206291a93",
+                    "discriminator": "0",
+                    "public_flags": 0,
+                    "flags": 0,
+                    "banner": null,
+                    "accent_color": null,
+                    "global_name": "matsch",
+                    "avatar_decoration_data": null,
+                    "collectibles": null,
+                    "display_name_styles": null,
+                    "banner_color": null,
+                    "clan": null,
+                    "primary_guild": null
+                },
+                "mute": false,
+                "deaf": false
+            },
+            "source_invite_code": "Xj8TXjJP",
+            "join_source_type": 5,
+            "inviter_id": "361732550106021890",
+            "join_source_application_id": null,
+            "join_source_channel_id": null
+        },
+        {
+            "member": {
+                "avatar": null,
+                "banner": null,
+                "communication_disabled_until": null,
+                "flags": 10,
+                "joined_at": "2025-09-03T14:14:29.489000+00:00",
+                "nick": null,
+                "pending": false,
+                "premium_since": null,
+                "roles": [
+                    "1148338732089483285",
+                    "1148338895633788959"
+                ],
+                "unusual_dm_activity_until": null,
+                "collectibles": null,
+                "display_name_styles": null,
+                "user": {
+                    "id": "1412800174115393677",
+                    "username": "emi_ice",
+                    "avatar": "10df6d6f1241e62c48f23c971c87baf3",
+                    "discriminator": "0",
+                    "public_flags": 0,
+                    "flags": 0,
+                    "banner": null,
+                    "accent_color": null,
+                    "global_name": "Emiice",
+                    "avatar_decoration_data": null,
+                    "collectibles": null,
+                    "display_name_styles": null,
+                    "banner_color": null,
+                    "clan": null,
+                    "primary_guild": null
+                },
+                "mute": false,
+                "deaf": false
+            },
+            "source_invite_code": "rsfmjuPp",
+            "join_source_type": 5,
+            "inviter_id": "386185608038711297",
+            "join_source_application_id": null,
+            "join_source_channel_id": null
+        },
+        {
+            "member": {
+                "avatar": null,
+                "banner": null,
+                "communication_disabled_until": null,
+                "flags": 10,
+                "joined_at": "2025-07-22T17:07:07.412000+00:00",
+                "nick": "SCHICK",
+                "pending": false,
+                "premium_since": null,
+                "roles": [
+                    "1441629741882019974",
+                    "1443891264503283852",
+                    "1435920239719219292",
+                    "1443895863717003284",
+                    "1148338732089483285",
+                    "1437398678406041721",
+                    "1234835712919081050",
+                    "1148339024742854747",
+                    "1441624639695622204",
+                    "1443887228899168319"
+                ],
+                "unusual_dm_activity_until": null,
+                "collectibles": null,
+                "display_name_styles": null,
+                "user": {
+                    "id": "415573313138720778",
+                    "username": "schoco.",
+                    "avatar": "11e806a6a1a086a2d04652ee226b93d0",
+                    "discriminator": "0",
+                    "public_flags": 128,
+                    "flags": 128,
+                    "banner": null,
+                    "accent_color": null,
+                    "global_name": "schoco",
+                    "avatar_decoration_data": {
+                        "asset": "a_74b145b3ce94b0a728ee24d1724848b1",
+                        "sku_id": "1441168457424048150",
+                        "expires_at": 1769558400
+                    },
+                    "collectibles": null,
+                    "display_name_styles": null,
+                    "banner_color": null,
+                    "clan": {
+                        "identity_guild_id": "1180042348755963924",
+                        "identity_enabled": true,
+                        "tag": "WWM",
+                        "badge": "e51a60e0d45a26bcf4e00d2ef1bcbcb1"
+                    },
+                    "primary_guild": {
+                        "identity_guild_id": "1180042348755963924",
+                        "identity_enabled": true,
+                        "tag": "WWM",
+                        "badge": "e51a60e0d45a26bcf4e00d2ef1bcbcb1"
+                    }
+                },
+                "mute": false,
+                "deaf": false
+            },
+            "source_invite_code": "unA5g8zK",
+            "join_source_type": 5,
+            "inviter_id": "386185608038711297",
+            "join_source_application_id": null,
+            "join_source_channel_id": null
+        },
+        {
+            "member": {
+                "avatar": null,
+                "banner": null,
+                "communication_disabled_until": null,
+                "flags": 10,
+                "joined_at": "2025-07-07T23:45:19.694000+00:00",
+                "nick": null,
+                "pending": false,
+                "premium_since": null,
+                "roles": [
+                    "1148338732089483285"
+                ],
+                "unusual_dm_activity_until": null,
+                "collectibles": null,
+                "display_name_styles": null,
+                "user": {
+                    "id": "765488560249503774",
+                    "username": "blueberry_hippo",
+                    "avatar": "ceb16171cc557ec3ed137e849442e5f4",
+                    "discriminator": "0",
+                    "public_flags": 0,
+                    "flags": 0,
+                    "banner": null,
+                    "accent_color": null,
+                    "global_name": "blueberry_hippo",
+                    "avatar_decoration_data": null,
+                    "collectibles": null,
+                    "display_name_styles": null,
+                    "banner_color": null,
+                    "clan": null,
+                    "primary_guild": null
+                },
+                "mute": false,
+                "deaf": false
+            },
+            "source_invite_code": "YnRJCYYw",
+            "join_source_type": 5,
+            "inviter_id": "748924645029445632",
+            "join_source_application_id": null,
+            "join_source_channel_id": null
+        },
+        {
+            "member": {
+                "avatar": null,
+                "banner": null,
+                "communication_disabled_until": null,
+                "flags": 10,
+                "joined_at": "2025-03-23T14:23:08.885000+00:00",
+                "nick": null,
+                "pending": false,
+                "premium_since": null,
+                "roles": [
+                    "1443895792854110242",
+                    "1148339024742854747",
+                    "1148338895633788959"
+                ],
+                "unusual_dm_activity_until": null,
+                "collectibles": null,
+                "display_name_styles": null,
+                "user": {
+                    "id": "710860880140697721",
+                    "username": "nyanya2004",
+                    "avatar": "9af2e0d7bc829121e89a3c95323a48f9",
+                    "discriminator": "0",
+                    "public_flags": 128,
+                    "flags": 128,
+                    "banner": null,
+                    "accent_color": null,
+                    "global_name": "~NyaNya~",
+                    "avatar_decoration_data": {
+                        "asset": "a_c3cffc19e9784f7d0b005eecdf1b566e",
+                        "sku_id": "1212569433839636530",
+                        "expires_at": null
+                    },
+                    "collectibles": {
+                        "nameplate": {
+                            "sku_id": "1377377712062074880",
+                            "asset": "nameplates/nameplates_v2/pixie_dust/",
+                            "label": "COLLECTIBLES_NAMEPLATES_V2_PIXIE_DUST_A11Y",
+                            "palette": "bubble_gum"
+                        }
+                    },
+                    "display_name_styles": null,
+                    "banner_color": null,
+                    "clan": {
+                        "identity_guild_id": "1102750822120575066",
+                        "identity_enabled": true,
+                        "tag": "meow",
+                        "badge": "226250a3dcd3c30f66f7649b4521f14e"
+                    },
+                    "primary_guild": {
+                        "identity_guild_id": "1102750822120575066",
+                        "identity_enabled": true,
+                        "tag": "meow",
+                        "badge": "226250a3dcd3c30f66f7649b4521f14e"
+                    }
+                },
+                "mute": false,
+                "deaf": false
+            },
+            "source_invite_code": "Qfnqb3dY",
+            "join_source_type": 5,
+            "inviter_id": "361732550106021890",
+            "join_source_application_id": null,
+            "join_source_channel_id": null
+        },
+        {
+            "member": {
+                "avatar": null,
+                "banner": null,
+                "communication_disabled_until": null,
+                "flags": 10,
+                "joined_at": "2025-03-23T14:07:25.606000+00:00",
+                "nick": null,
+                "pending": false,
+                "premium_since": null,
+                "roles": [
+                    "1148339024742854747",
+                    "1148338895633788959"
+                ],
+                "unusual_dm_activity_until": null,
+                "collectibles": null,
+                "display_name_styles": null,
+                "user": {
+                    "id": "519493965360398369",
+                    "username": "davytino",
+                    "avatar": "f77bc0e2c8381641030e03d4c5f7d95e",
+                    "discriminator": "0",
+                    "public_flags": 0,
+                    "flags": 0,
+                    "banner": null,
+                    "accent_color": null,
+                    "global_name": "davytino",
+                    "avatar_decoration_data": null,
+                    "collectibles": null,
+                    "display_name_styles": null,
+                    "banner_color": null,
+                    "clan": null,
+                    "primary_guild": null
+                },
+                "mute": false,
+                "deaf": false
+            },
+            "source_invite_code": "VaBmUwSE",
+            "join_source_type": 5,
+            "inviter_id": "361732550106021890",
+            "join_source_application_id": null,
+            "join_source_channel_id": null
+        },
+        {
+            "member": {
+                "avatar": null,
+                "banner": null,
+                "communication_disabled_until": null,
+                "flags": 10,
+                "joined_at": "2024-09-17T08:18:04.849000+00:00",
+                "nick": null,
+                "pending": false,
+                "premium_since": null,
+                "roles": [
+                    "1148339024742854747",
+                    "1148338732089483285"
+                ],
+                "unusual_dm_activity_until": null,
+                "collectibles": null,
+                "display_name_styles": null,
+                "user": {
+                    "id": "412280754660179979",
+                    "username": "nepetina",
+                    "avatar": "09fa92047f1a858394bd65f35c4dd53a",
+                    "discriminator": "0",
+                    "public_flags": 256,
+                    "flags": 256,
+                    "banner": null,
+                    "accent_color": null,
+                    "global_name": "Pax",
+                    "avatar_decoration_data": null,
+                    "collectibles": null,
+                    "display_name_styles": null,
+                    "banner_color": null,
+                    "clan": {
+                        "identity_guild_id": "595999872222756885",
+                        "identity_enabled": true,
+                        "tag": "ST!",
+                        "badge": "2e1d78feb731cf7048b277c680c83514"
+                    },
+                    "primary_guild": {
+                        "identity_guild_id": "595999872222756885",
+                        "identity_enabled": true,
+                        "tag": "ST!",
+                        "badge": "2e1d78feb731cf7048b277c680c83514"
+                    }
+                },
+                "mute": false,
+                "deaf": false
+            },
+            "source_invite_code": "4DHaHB5rSY",
+            "join_source_type": 5,
+            "inviter_id": "860692665770311690",
+            "join_source_application_id": null,
+            "join_source_channel_id": null
+        },
+        {
+            "member": {
+                "avatar": null,
+                "banner": null,
+                "communication_disabled_until": null,
+                "flags": 10,
+                "joined_at": "2024-09-01T20:22:37.408000+00:00",
+                "nick": "Marumi",
+                "pending": false,
+                "premium_since": null,
+                "roles": [
+                    "1148339024742854747",
+                    "1148338732089483285"
+                ],
+                "unusual_dm_activity_until": null,
+                "collectibles": null,
+                "display_name_styles": null,
+                "user": {
+                    "id": "363050260807024661",
+                    "username": "kiraannjohns",
+                    "avatar": "44f0f28f3486777dde85ab48a426de43",
+                    "discriminator": "0",
+                    "public_flags": 0,
+                    "flags": 0,
+                    "banner": null,
+                    "accent_color": null,
+                    "global_name": "KiraAnnJohns",
+                    "avatar_decoration_data": null,
+                    "collectibles": null,
+                    "display_name_styles": null,
+                    "banner_color": null,
+                    "clan": null,
+                    "primary_guild": null
+                },
+                "mute": false,
+                "deaf": false
+            },
+            "source_invite_code": "trAmWmBy",
+            "join_source_type": 5,
+            "inviter_id": "272392238305116162",
+            "join_source_application_id": null,
+            "join_source_channel_id": null
+        },
+        {
+            "member": {
+                "avatar": null,
+                "banner": null,
+                "communication_disabled_until": null,
+                "flags": 10,
+                "joined_at": "2024-08-09T16:29:15.470000+00:00",
+                "nick": null,
+                "pending": false,
+                "premium_since": null,
+                "roles": [
+                    "1234835712919081050",
+                    "1148339024742854747",
+                    "1148338732089483285"
+                ],
+                "unusual_dm_activity_until": null,
+                "collectibles": null,
+                "display_name_styles": null,
+                "user": {
+                    "id": "1271455401459580991",
+                    "username": "gambo.7",
+                    "avatar": "157e517cdbf371a47aaead44675714a3",
+                    "discriminator": "0",
+                    "public_flags": 0,
+                    "flags": 0,
+                    "banner": null,
+                    "accent_color": null,
+                    "global_name": "Chris",
+                    "avatar_decoration_data": null,
+                    "collectibles": null,
+                    "display_name_styles": null,
+                    "banner_color": null,
+                    "clan": null,
+                    "primary_guild": null
+                },
+                "mute": false,
+                "deaf": false
+            },
+            "source_invite_code": "4DHaHB5rSY",
+            "join_source_type": 5,
+            "inviter_id": "860692665770311690",
+            "join_source_application_id": null,
+            "join_source_channel_id": null
+        },
+        {
+            "member": {
+                "avatar": null,
+                "banner": null,
+                "communication_disabled_until": null,
+                "flags": 10,
+                "joined_at": "2024-06-10T11:50:36.787000+00:00",
+                "nick": null,
+                "pending": false,
+                "premium_since": null,
+                "roles": [
+                    "1234835712919081050",
+                    "1148339024742854747",
+                    "1148338732089483285"
+                ],
+                "unusual_dm_activity_until": null,
+                "collectibles": null,
+                "display_name_styles": null,
+                "user": {
+                    "id": "611247771294367754",
+                    "username": "kittenkris",
+                    "avatar": "52e29da6eb9c3da808db3caaf725e642",
+                    "discriminator": "0",
+                    "public_flags": 128,
+                    "flags": 128,
+                    "banner": null,
+                    "accent_color": null,
+                    "global_name": "Kitten Kris",
+                    "avatar_decoration_data": {
+                        "asset": "a_d1e5d3aabccb3d38f21b5ac8a33fcf4d",
+                        "sku_id": "1409978159255785652",
+                        "expires_at": null
+                    },
+                    "collectibles": {
+                        "nameplate": {
+                            "sku_id": "1409983105577783410",
+                            "asset": "nameplates/special_events_2/nitro_rocketfuel_nameplate/",
+                            "label": "COLLECTIBLES_SEPTEMBER_2025_MARKETING_NAMEPLATE_A11Y",
+                            "palette": "violet"
+                        }
+                    },
+                    "display_name_styles": {
+                        "font_id": 10,
+                        "effect_id": 3,
+                        "colors": [
+                            6888941
+                        ]
+                    },
+                    "banner_color": null,
+                    "clan": {
+                        "identity_guild_id": "1040204603528069211",
+                        "identity_enabled": true,
+                        "tag": "CUTE",
+                        "badge": "3765c986974cebce27c1fbaac923c904"
+                    },
+                    "primary_guild": {
+                        "identity_guild_id": "1040204603528069211",
+                        "identity_enabled": true,
+                        "tag": "CUTE",
+                        "badge": "3765c986974cebce27c1fbaac923c904"
+                    }
+                },
+                "mute": false,
+                "deaf": false
+            },
+            "source_invite_code": "PJ6Gjk6P",
+            "join_source_type": 5,
+            "inviter_id": "361732550106021890",
+            "join_source_application_id": null,
+            "join_source_channel_id": null
+        },
+        {
+            "member": {
+                "avatar": null,
+                "banner": null,
+                "communication_disabled_until": null,
+                "flags": 10,
+                "joined_at": "2024-05-04T14:09:22.834000+00:00",
+                "nick": null,
+                "pending": false,
+                "premium_since": null,
+                "roles": [
+                    "1148339024742854747",
+                    "1148338732089483285"
+                ],
+                "unusual_dm_activity_until": null,
+                "collectibles": null,
+                "display_name_styles": null,
+                "user": {
+                    "id": "1236315928111616203",
+                    "username": "jasmine_not_yours",
+                    "avatar": "483980ceddc3c9e4cc2f8ea65f2388a7",
+                    "discriminator": "0",
+                    "public_flags": 0,
+                    "flags": 0,
+                    "banner": null,
+                    "accent_color": null,
+                    "global_name": "\ud83c\udf08Jasmine\ud83c\udf2c",
+                    "avatar_decoration_data": null,
+                    "collectibles": null,
+                    "display_name_styles": null,
+                    "banner_color": null,
+                    "clan": null,
+                    "primary_guild": null
+                },
+                "mute": false,
+                "deaf": false
+            },
+            "source_invite_code": "7UyyNv63",
+            "join_source_type": 5,
+            "inviter_id": "674480528853958663",
+            "join_source_application_id": null,
+            "join_source_channel_id": null
+        },
+        {
+            "member": {
+                "avatar": null,
+                "banner": null,
+                "communication_disabled_until": null,
+                "flags": 10,
+                "joined_at": "2024-04-10T22:35:31.119000+00:00",
+                "nick": null,
+                "pending": false,
+                "premium_since": null,
+                "roles": [
+                    "1148339024742854747",
+                    "1148338732089483285"
+                ],
+                "unusual_dm_activity_until": null,
+                "collectibles": null,
+                "display_name_styles": null,
+                "user": {
+                    "id": "315481862153961472",
+                    "username": "fredi88",
+                    "avatar": "a3b16796ffa10a8ba6a5a7fd6d3aa07d",
+                    "discriminator": "0",
+                    "public_flags": 0,
+                    "flags": 0,
+                    "banner": null,
+                    "accent_color": null,
+                    "global_name": "fredi",
+                    "avatar_decoration_data": null,
+                    "collectibles": null,
+                    "display_name_styles": null,
+                    "banner_color": null,
+                    "clan": {
+                        "identity_guild_id": "1369538041005346876",
+                        "identity_enabled": true,
+                        "tag": "\u01b4aoi",
+                        "badge": "ec60c5e6d1f14d3bbff586e2e0b9e54e"
+                    },
+                    "primary_guild": {
+                        "identity_guild_id": "1369538041005346876",
+                        "identity_enabled": true,
+                        "tag": "\u01b4aoi",
+                        "badge": "ec60c5e6d1f14d3bbff586e2e0b9e54e"
+                    }
+                },
+                "mute": false,
+                "deaf": false
+            },
+            "source_invite_code": "xFdZtped",
+            "join_source_type": 5,
+            "inviter_id": "361732550106021890",
+            "join_source_application_id": null,
+            "join_source_channel_id": null
+        },
+        {
+            "member": {
+                "avatar": null,
+                "banner": null,
+                "communication_disabled_until": null,
+                "flags": 10,
+                "joined_at": "2024-04-08T12:05:34.399000+00:00",
+                "nick": "Azire",
+                "pending": false,
+                "premium_since": null,
+                "roles": [
+                    "1148339024742854747",
+                    "1148338732089483285"
+                ],
+                "unusual_dm_activity_until": null,
+                "collectibles": null,
+                "display_name_styles": null,
+                "user": {
+                    "id": "541240513546682380",
+                    "username": "razirethan",
+                    "avatar": "35b0a85f9e9a7bc87ee52815ffa4cfe7",
+                    "discriminator": "0",
+                    "public_flags": 64,
+                    "flags": 64,
+                    "banner": null,
+                    "accent_color": null,
+                    "global_name": "Azire99",
+                    "avatar_decoration_data": null,
+                    "collectibles": null,
+                    "display_name_styles": null,
+                    "banner_color": null,
+                    "clan": null,
+                    "primary_guild": null
+                },
+                "mute": false,
+                "deaf": false
+            },
+            "source_invite_code": "8vuEgURB",
+            "join_source_type": 5,
+            "inviter_id": "361732550106021890",
+            "join_source_application_id": null,
+            "join_source_channel_id": null
+        },
+        {
+            "member": {
+                "avatar": null,
+                "banner": null,
+                "communication_disabled_until": null,
+                "flags": 10,
+                "joined_at": "2024-04-04T09:10:44.701000+00:00",
+                "nick": null,
+                "pending": false,
+                "premium_since": null,
+                "roles": [
+                    "1148339024742854747",
+                    "1148338732089483285"
+                ],
+                "unusual_dm_activity_until": null,
+                "collectibles": null,
+                "display_name_styles": null,
+                "user": {
+                    "id": "541756768422854706",
+                    "username": "garion99",
+                    "avatar": "76c0b36b3211172caaa0e967c0cbe423",
+                    "discriminator": "0",
+                    "public_flags": 0,
+                    "flags": 0,
+                    "banner": null,
+                    "accent_color": null,
+                    "global_name": "Garion99",
+                    "avatar_decoration_data": null,
+                    "collectibles": null,
+                    "display_name_styles": null,
+                    "banner_color": null,
+                    "clan": null,
+                    "primary_guild": null
+                },
+                "mute": false,
+                "deaf": false
+            },
+            "source_invite_code": "4DHaHB5rSY",
+            "join_source_type": 5,
+            "inviter_id": "860692665770311690",
+            "join_source_application_id": null,
+            "join_source_channel_id": null
+        },
+        {
+            "member": {
+                "avatar": null,
+                "banner": null,
+                "communication_disabled_until": null,
+                "flags": 2,
+                "joined_at": "2024-03-31T05:13:15.031000+00:00",
+                "nick": "Mewcifer the Hehe bringer",
+                "pending": false,
+                "premium_since": null,
+                "roles": [
+                    "1353704855579000832",
+                    "1443891119518908518",
+                    "1441629741882019974",
+                    "1148339024742854747",
+                    "1443888044808736939",
+                    "1148338589130838256",
+                    "1148338732089483285",
+                    "1437398678406041721",
+                    "1234835712919081050",
+                    "1419631966965207163",
+                    "1441624639695622204",
+                    "1443887228899168319"
+                ],
+                "unusual_dm_activity_until": null,
+                "collectibles": null,
+                "display_name_styles": null,
+                "user": {
+                    "id": "386185608038711297",
+                    "username": "mewmewnis",
+                    "avatar": "cec6ceb658bf3f3f71c23709181444e0",
+                    "discriminator": "0",
+                    "public_flags": 0,
+                    "flags": 0,
+                    "banner": null,
+                    "accent_color": null,
+                    "global_name": "MewMew",
+                    "avatar_decoration_data": null,
+                    "collectibles": null,
+                    "display_name_styles": null,
+                    "banner_color": null,
+                    "clan": null,
+                    "primary_guild": null
+                },
+                "mute": false,
+                "deaf": false
+            },
+            "source_invite_code": "4DHaHB5rSY",
+            "join_source_type": 5,
+            "inviter_id": "860692665770311690",
+            "join_source_application_id": null,
+            "join_source_channel_id": null
+        },
+        {
+            "member": {
+                "avatar": null,
+                "banner": null,
+                "communication_disabled_until": null,
+                "flags": 0,
+                "joined_at": "2024-03-26T11:15:36.440000+00:00",
+                "nick": null,
+                "pending": false,
+                "premium_since": null,
+                "roles": [
+                    "1148339024742854747",
+                    "1148338732089483285"
+                ],
+                "unusual_dm_activity_until": null,
+                "collectibles": null,
+                "display_name_styles": null,
+                "user": {
+                    "id": "335520811605819392",
+                    "username": "spudlett0",
+                    "avatar": "09d1a4e2d2fcd5b1dc01d56e3728f803",
+                    "discriminator": "0",
+                    "public_flags": 256,
+                    "flags": 256,
+                    "banner": null,
+                    "accent_color": null,
+                    "global_name": "Spudlett0",
+                    "avatar_decoration_data": {
+                        "asset": "a_791bc9d1f97c17b8ab08814fbd2315a4",
+                        "sku_id": "1377856108282253333",
+                        "expires_at": null
+                    },
+                    "collectibles": null,
+                    "display_name_styles": null,
+                    "banner_color": null,
+                    "clan": null,
+                    "primary_guild": null
+                },
+                "mute": false,
+                "deaf": false
+            },
+            "source_invite_code": "VnuF8ntn",
+            "join_source_type": 5,
+            "inviter_id": "504721662139170816",
+            "join_source_application_id": null,
+            "join_source_channel_id": null
+        },
+        {
+            "member": {
+                "avatar": null,
+                "banner": null,
+                "communication_disabled_until": null,
+                "flags": 2,
+                "joined_at": "2024-03-25T22:06:08.757000+00:00",
+                "nick": null,
+                "pending": false,
+                "premium_since": null,
+                "roles": [
+                    "1148338732089483285"
+                ],
+                "unusual_dm_activity_until": null,
+                "collectibles": null,
+                "display_name_styles": null,
+                "user": {
+                    "id": "1177947406613090416",
+                    "username": "darkfireonyt_27429",
+                    "avatar": "89c9bec58fdcab8db1a3684f96618c38",
+                    "discriminator": "0",
+                    "public_flags": 0,
+                    "flags": 0,
+                    "banner": null,
+                    "accent_color": null,
+                    "global_name": "DarkfireOnYT",
+                    "avatar_decoration_data": null,
+                    "collectibles": null,
+                    "display_name_styles": null,
+                    "banner_color": null,
+                    "clan": null,
+                    "primary_guild": null
+                },
+                "mute": false,
+                "deaf": false
+            },
+            "source_invite_code": "4DHaHB5rSY",
+            "join_source_type": 5,
+            "inviter_id": "860692665770311690",
+            "join_source_application_id": null,
+            "join_source_channel_id": null
+        },
+        {
+            "member": {
+                "avatar": null,
+                "banner": null,
+                "communication_disabled_until": null,
+                "flags": 2,
+                "joined_at": "2024-03-20T17:32:02.456000+00:00",
+                "nick": "Enigma",
+                "pending": false,
+                "premium_since": null,
+                "roles": [
+                    "1148339024742854747",
+                    "1148338732089483285"
+                ],
+                "unusual_dm_activity_until": null,
+                "collectibles": null,
+                "display_name_styles": null,
+                "user": {
+                    "id": "711323187866107945",
+                    "username": "strateg4021",
+                    "avatar": "03ae595227d3fc60fc981161bf5edce5",
+                    "discriminator": "0",
+                    "public_flags": 0,
+                    "flags": 0,
+                    "banner": null,
+                    "accent_color": null,
+                    "global_name": null,
+                    "avatar_decoration_data": null,
+                    "collectibles": null,
+                    "display_name_styles": null,
+                    "banner_color": null,
+                    "clan": null,
+                    "primary_guild": null
+                },
+                "mute": false,
+                "deaf": false
+            },
+            "source_invite_code": "Zf6fP9Ux",
+            "join_source_type": 5,
+            "inviter_id": "361732550106021890",
+            "join_source_application_id": null,
+            "join_source_channel_id": null
+        },
+        {
+            "member": {
+                "avatar": null,
+                "banner": null,
+                "communication_disabled_until": null,
+                "flags": 0,
+                "joined_at": "2024-03-16T13:18:45.437000+00:00",
+                "nick": "Bul ~ Dataminer",
+                "pending": false,
+                "premium_since": null,
+                "roles": [
+                    "1148339024742854747",
+                    "1148338895633788959"
+                ],
+                "unusual_dm_activity_until": null,
+                "collectibles": null,
+                "display_name_styles": null,
+                "user": {
+                    "id": "127218761697722370",
+                    "username": "bulgurpund",
+                    "avatar": "a_1821d950978e6e2cc10254e8e88dd23c",
+                    "discriminator": "0",
+                    "public_flags": 128,
+                    "flags": 128,
+                    "banner": null,
+                    "accent_color": null,
+                    "global_name": "Bulgurpund",
+                    "avatar_decoration_data": {
+                        "asset": "a_fed43ab12698df65902ba06727e20c0e",
+                        "sku_id": "1144058844004233369",
+                        "expires_at": null
+                    },
+                    "collectibles": {
+                        "nameplate": {
+                            "sku_id": "1409983105577783410",
+                            "asset": "nameplates/special_events_2/nitro_rocketfuel_nameplate/",
+                            "label": "COLLECTIBLES_SEPTEMBER_2025_MARKETING_NAMEPLATE_A11Y",
+                            "palette": "violet"
+                        }
+                    },
+                    "display_name_styles": {
+                        "font_id": 8,
+                        "effect_id": 5,
+                        "colors": [
+                            1628845
+                        ]
+                    },
+                    "banner_color": null,
+                    "clan": {
+                        "identity_guild_id": "908477595883024395",
+                        "identity_enabled": true,
+                        "tag": "TML",
+                        "badge": "ec60c5e6d1f14d3bbff586e2e0b9e54e"
+                    },
+                    "primary_guild": {
+                        "identity_guild_id": "908477595883024395",
+                        "identity_enabled": true,
+                        "tag": "TML",
+                        "badge": "ec60c5e6d1f14d3bbff586e2e0b9e54e"
+                    }
+                },
+                "mute": false,
+                "deaf": false
+            },
+            "source_invite_code": "3ye4CbVC",
+            "join_source_type": 5,
+            "inviter_id": "361732550106021890",
+            "join_source_application_id": null,
+            "join_source_channel_id": null
+        },
+        {
+            "member": {
+                "avatar": null,
+                "banner": null,
+                "communication_disabled_until": null,
+                "flags": 2,
+                "joined_at": "2024-03-11T11:29:50.539000+00:00",
+                "nick": null,
+                "pending": false,
+                "premium_since": null,
+                "roles": [
+                    "1148338643258331177",
+                    "1148339024742854747",
+                    "1148338732089483285"
+                ],
+                "unusual_dm_activity_until": null,
+                "collectibles": null,
+                "display_name_styles": null,
+                "user": {
+                    "id": "110825611093626880",
+                    "username": "keqiing",
+                    "avatar": "c9630b93c3275e664a535410a8cb76cf",
+                    "discriminator": "0",
+                    "public_flags": 576,
+                    "flags": 576,
+                    "banner": null,
+                    "accent_color": null,
+                    "global_name": "natsuki",
+                    "avatar_decoration_data": null,
+                    "collectibles": null,
+                    "display_name_styles": null,
+                    "banner_color": null,
+                    "clan": {
+                        "identity_guild_id": "1035380212927574068",
+                        "identity_enabled": true,
+                        "tag": "\u9cf4\u6f6e",
+                        "badge": "88a174c666711ee779b7b8ae2d3c552a"
+                    },
+                    "primary_guild": {
+                        "identity_guild_id": "1035380212927574068",
+                        "identity_enabled": true,
+                        "tag": "\u9cf4\u6f6e",
+                        "badge": "88a174c666711ee779b7b8ae2d3c552a"
+                    }
+                },
+                "mute": false,
+                "deaf": false
+            },
+            "source_invite_code": "2fEwrN2sxa",
+            "join_source_type": 5,
+            "inviter_id": "860692665770311690",
+            "join_source_application_id": null,
+            "join_source_channel_id": null
+        },
+        {
+            "member": {
+                "avatar": null,
+                "banner": null,
+                "communication_disabled_until": null,
+                "flags": 2,
+                "joined_at": "2024-02-18T12:49:49.782000+00:00",
+                "nick": "MrFlamingo",
+                "pending": false,
+                "premium_since": null,
+                "roles": [
+                    "1148339024742854747",
+                    "1148338732089483285",
+                    "1148338895633788959"
+                ],
+                "unusual_dm_activity_until": null,
+                "collectibles": null,
+                "display_name_styles": null,
+                "user": {
+                    "id": "233940808154218496",
+                    "username": "oh.my.god",
+                    "avatar": "39d39a25e2a56e53d4ebc3eb872bb0f0",
+                    "discriminator": "0",
+                    "public_flags": 0,
+                    "flags": 0,
+                    "banner": null,
+                    "accent_color": null,
+                    "global_name": null,
+                    "avatar_decoration_data": null,
+                    "collectibles": null,
+                    "display_name_styles": null,
+                    "banner_color": null,
+                    "clan": null,
+                    "primary_guild": null
+                },
+                "mute": false,
+                "deaf": false
+            },
+            "source_invite_code": "s5Qun8m7",
+            "join_source_type": 5,
+            "inviter_id": "361732550106021890",
+            "join_source_application_id": null,
+            "join_source_channel_id": null
+        },
+        {
+            "member": {
+                "avatar": null,
+                "banner": null,
+                "communication_disabled_until": null,
+                "flags": 0,
+                "joined_at": "2024-02-16T19:42:18.900000+00:00",
+                "nick": null,
+                "pending": false,
+                "premium_since": null,
+                "roles": [
+                    "1148338732089483285"
+                ],
+                "unusual_dm_activity_until": null,
+                "collectibles": null,
+                "display_name_styles": null,
+                "user": {
+                    "id": "292228696675188736",
+                    "username": "diegolus",
+                    "avatar": "b4c104201442da101a354834b4e97a0c",
+                    "discriminator": "0",
+                    "public_flags": 0,
+                    "flags": 0,
+                    "banner": null,
+                    "accent_color": null,
+                    "global_name": "Diegolus",
+                    "avatar_decoration_data": null,
+                    "collectibles": null,
+                    "display_name_styles": null,
+                    "banner_color": null,
+                    "clan": null,
+                    "primary_guild": null
+                },
+                "mute": false,
+                "deaf": false
+            },
+            "source_invite_code": "2fEwrN2sxa",
+            "join_source_type": 5,
+            "inviter_id": "860692665770311690",
+            "join_source_application_id": null,
+            "join_source_channel_id": null
+        },
+        {
+            "member": {
+                "avatar": null,
+                "banner": null,
+                "communication_disabled_until": null,
+                "flags": 0,
+                "joined_at": "2024-02-15T14:10:21.681000+00:00",
+                "nick": null,
+                "pending": false,
+                "premium_since": null,
+                "roles": [
+                    "1148339024742854747",
+                    "1148338732089483285"
+                ],
+                "unusual_dm_activity_until": null,
+                "collectibles": null,
+                "display_name_styles": null,
+                "user": {
+                    "id": "738336010316021792",
+                    "username": "._.lorien._.",
+                    "avatar": "1aa1706f07172260389f9a1c897fd4a7",
+                    "discriminator": "0",
+                    "public_flags": 0,
+                    "flags": 0,
+                    "banner": null,
+                    "accent_color": null,
+                    "global_name": null,
+                    "avatar_decoration_data": null,
+                    "collectibles": null,
+                    "display_name_styles": null,
+                    "banner_color": null,
+                    "clan": null,
+                    "primary_guild": null
+                },
+                "mute": false,
+                "deaf": false
+            },
+            "source_invite_code": "2fEwrN2sxa",
+            "join_source_type": 5,
+            "inviter_id": "860692665770311690",
+            "join_source_application_id": null,
+            "join_source_channel_id": null
+        },
+        {
+            "member": {
+                "avatar": null,
+                "banner": null,
+                "communication_disabled_until": null,
+                "flags": 0,
+                "joined_at": "2024-02-14T22:11:16.107000+00:00",
+                "nick": null,
+                "pending": false,
+                "premium_since": null,
+                "roles": [
+                    "1148338732089483285",
+                    "1148338895633788959"
+                ],
+                "unusual_dm_activity_until": null,
+                "collectibles": null,
+                "display_name_styles": null,
+                "user": {
+                    "id": "1207089897391919117",
+                    "username": "novatempest_",
+                    "avatar": "c82b3fa769ed6e6ffdea579381ed5f5c",
+                    "discriminator": "0",
+                    "public_flags": 0,
+                    "flags": 0,
+                    "banner": null,
+                    "accent_color": null,
+                    "global_name": "NovaTempest",
+                    "avatar_decoration_data": null,
+                    "collectibles": null,
+                    "display_name_styles": null,
+                    "banner_color": null,
+                    "clan": null,
+                    "primary_guild": null
+                },
+                "mute": false,
+                "deaf": false
+            },
+            "source_invite_code": "cv5gSWBs",
+            "join_source_type": 5,
+            "inviter_id": "361732550106021890",
+            "join_source_application_id": null,
+            "join_source_channel_id": null
+        },
+        {
+            "member": {
+                "avatar": null,
+                "banner": null,
+                "communication_disabled_until": null,
+                "flags": 2,
+                "joined_at": "2024-02-12T20:42:41.569000+00:00",
+                "nick": null,
+                "pending": false,
+                "premium_since": null,
+                "roles": [
+                    "1148338732089483285"
+                ],
+                "unusual_dm_activity_until": null,
+                "collectibles": null,
+                "display_name_styles": null,
+                "user": {
+                    "id": "1163785819899830322",
+                    "username": "reya02406",
+                    "avatar": "274ccbe71b6116b8f80211358d9647a3",
+                    "discriminator": "0",
+                    "public_flags": 0,
+                    "flags": 0,
+                    "banner": null,
+                    "accent_color": null,
+                    "global_name": "THE temptress",
+                    "avatar_decoration_data": null,
+                    "collectibles": null,
+                    "display_name_styles": null,
+                    "banner_color": null,
+                    "clan": null,
+                    "primary_guild": null
+                },
+                "mute": false,
+                "deaf": false
+            },
+            "source_invite_code": "Dx9DTSPd",
+            "join_source_type": 5,
+            "inviter_id": "504721662139170816",
+            "join_source_application_id": null,
+            "join_source_channel_id": null
+        },
+        {
+            "member": {
+                "avatar": null,
+                "banner": null,
+                "communication_disabled_until": null,
+                "flags": 2,
+                "joined_at": "2024-02-12T13:56:25.375000+00:00",
+                "nick": "Kali",
+                "pending": false,
+                "premium_since": null,
+                "roles": [
+                    "1148339024742854747",
+                    "1148338732089483285"
+                ],
+                "unusual_dm_activity_until": null,
+                "collectibles": null,
+                "display_name_styles": null,
+                "user": {
+                    "id": "216552674638692353",
+                    "username": "lightblade89",
+                    "avatar": "33c5efd22da78b43e64ff90f3f2b27f4",
+                    "discriminator": "0",
+                    "public_flags": 0,
+                    "flags": 0,
+                    "banner": null,
+                    "accent_color": null,
+                    "global_name": "kalizara",
+                    "avatar_decoration_data": null,
+                    "collectibles": null,
+                    "display_name_styles": null,
+                    "banner_color": null,
+                    "clan": null,
+                    "primary_guild": null
+                },
+                "mute": false,
+                "deaf": false
+            },
+            "source_invite_code": "YRwUvSDN",
+            "join_source_type": 5,
+            "inviter_id": "361732550106021890",
+            "join_source_application_id": null,
+            "join_source_channel_id": null
+        },
+        {
+            "member": {
+                "avatar": null,
+                "banner": null,
+                "communication_disabled_until": null,
+                "flags": 2,
+                "joined_at": "2024-02-11T19:39:11.419000+00:00",
+                "nick": null,
+                "pending": false,
+                "premium_since": null,
+                "roles": [
+                    "1148338732089483285"
+                ],
+                "unusual_dm_activity_until": null,
+                "collectibles": null,
+                "display_name_styles": null,
+                "user": {
+                    "id": "1153022678693855272",
+                    "username": "erik00015",
+                    "avatar": "f7f2e9361e8a54ce6e72580ac7b967af",
+                    "discriminator": "0",
+                    "public_flags": 0,
+                    "flags": 0,
+                    "banner": null,
+                    "accent_color": null,
+                    "global_name": "Erik",
+                    "avatar_decoration_data": null,
+                    "collectibles": null,
+                    "display_name_styles": null,
+                    "banner_color": null,
+                    "clan": null,
+                    "primary_guild": null
+                },
+                "mute": false,
+                "deaf": false
+            },
+            "source_invite_code": "Dx9DTSPd",
+            "join_source_type": 5,
+            "inviter_id": "504721662139170816",
+            "join_source_application_id": null,
+            "join_source_channel_id": null
+        },
+        {
+            "member": {
+                "avatar": null,
+                "banner": null,
+                "communication_disabled_until": null,
+                "flags": 2,
+                "joined_at": "2024-02-11T18:15:57.779000+00:00",
+                "nick": "Rasvelg",
+                "pending": false,
+                "premium_since": null,
+                "roles": [
+                    "1148339024742854747",
+                    "1148338732089483285",
+                    "1441629741882019974"
+                ],
+                "unusual_dm_activity_until": null,
+                "collectibles": null,
+                "display_name_styles": null,
+                "user": {
+                    "id": "214739342793375746",
+                    "username": "hrasvelg",
+                    "avatar": "51bcf1fb8e0d53a70b8e8c6555470bb6",
+                    "discriminator": "0",
+                    "public_flags": 0,
+                    "flags": 0,
+                    "banner": null,
+                    "accent_color": null,
+                    "global_name": "Simba",
+                    "avatar_decoration_data": null,
+                    "collectibles": null,
+                    "display_name_styles": null,
+                    "banner_color": null,
+                    "clan": {
+                        "identity_guild_id": "724723626753916980",
+                        "identity_enabled": true,
+                        "tag": "ACOM",
+                        "badge": "52a2de77c3e4db38e3cde9f5a4a6d901"
+                    },
+                    "primary_guild": {
+                        "identity_guild_id": "724723626753916980",
+                        "identity_enabled": true,
+                        "tag": "ACOM",
+                        "badge": "52a2de77c3e4db38e3cde9f5a4a6d901"
+                    }
+                },
+                "mute": false,
+                "deaf": false
+            },
+            "source_invite_code": "kBj6gQxJ",
+            "join_source_type": 5,
+            "inviter_id": "504721662139170816",
+            "join_source_application_id": null,
+            "join_source_channel_id": null
+        },
+        {
+            "member": {
+                "avatar": null,
+                "banner": null,
+                "communication_disabled_until": null,
+                "flags": 2,
+                "joined_at": "2024-02-11T18:02:11.482000+00:00",
+                "nick": null,
+                "pending": false,
+                "premium_since": null,
+                "roles": [
+                    "1148339024742854747",
+                    "1148338732089483285"
+                ],
+                "unusual_dm_activity_until": null,
+                "collectibles": null,
+                "display_name_styles": null,
+                "user": {
+                    "id": "424609309943398420",
+                    "username": "kasperholger",
+                    "avatar": null,
+                    "discriminator": "0",
+                    "public_flags": 0,
+                    "flags": 0,
+                    "banner": null,
+                    "accent_color": null,
+                    "global_name": "KasperHolger",
+                    "avatar_decoration_data": null,
+                    "collectibles": null,
+                    "display_name_styles": null,
+                    "banner_color": null,
+                    "clan": null,
+                    "primary_guild": null
+                },
+                "mute": false,
+                "deaf": false
+            },
+            "source_invite_code": "Dx9DTSPd",
+            "join_source_type": 5,
+            "inviter_id": "504721662139170816",
+            "join_source_application_id": null,
+            "join_source_channel_id": null
+        },
+        {
+            "member": {
+                "avatar": null,
+                "banner": null,
+                "communication_disabled_until": null,
+                "flags": 0,
+                "joined_at": "2024-02-09T07:03:51.454000+00:00",
+                "nick": "Rainy",
+                "pending": false,
+                "premium_since": null,
+                "roles": [
+                    "1148339024742854747",
+                    "1148338732089483285"
+                ],
+                "unusual_dm_activity_until": null,
+                "collectibles": null,
+                "display_name_styles": null,
+                "user": {
+                    "id": "633990886195331103",
+                    "username": "rainy35",
+                    "avatar": "2b7636f5136354b68933b5f3d6755177",
+                    "discriminator": "0",
+                    "public_flags": 128,
+                    "flags": 128,
+                    "banner": null,
+                    "accent_color": null,
+                    "global_name": "Rainy",
+                    "avatar_decoration_data": null,
+                    "collectibles": null,
+                    "display_name_styles": null,
+                    "banner_color": null,
+                    "clan": null,
+                    "primary_guild": null
+                },
+                "mute": false,
+                "deaf": false
+            },
+            "source_invite_code": "nhxup7rn",
+            "join_source_type": 5,
+            "inviter_id": "361732550106021890",
+            "join_source_application_id": null,
+            "join_source_channel_id": null
+        },
+        {
+            "member": {
+                "avatar": null,
+                "banner": null,
+                "communication_disabled_until": null,
+                "flags": 0,
+                "joined_at": "2024-02-06T13:00:45.985000+00:00",
+                "nick": null,
+                "pending": false,
+                "premium_since": null,
+                "roles": [
+                    "1148339024742854747",
+                    "1148338732089483285",
+                    "1148338895633788959"
+                ],
+                "unusual_dm_activity_until": null,
+                "collectibles": null,
+                "display_name_styles": null,
+                "user": {
+                    "id": "220231197882712065",
+                    "username": "elisabelo",
+                    "avatar": "c97bc26f74e31c7b4ad2599e80e871ea",
+                    "discriminator": "0",
+                    "public_flags": 0,
+                    "flags": 0,
+                    "banner": null,
+                    "accent_color": null,
+                    "global_name": "Darion/Ophia",
+                    "avatar_decoration_data": null,
+                    "collectibles": null,
+                    "display_name_styles": null,
+                    "banner_color": null,
+                    "clan": {
+                        "identity_guild_id": "261157716792311818",
+                        "identity_enabled": true,
+                        "tag": "TEA",
+                        "badge": "d83749f0ec49d8336455d7f60114cbe5"
+                    },
+                    "primary_guild": {
+                        "identity_guild_id": "261157716792311818",
+                        "identity_enabled": true,
+                        "tag": "TEA",
+                        "badge": "d83749f0ec49d8336455d7f60114cbe5"
+                    }
+                },
+                "mute": false,
+                "deaf": false
+            },
+            "source_invite_code": "DZKgfNX8",
+            "join_source_type": 5,
+            "inviter_id": "361732550106021890",
+            "join_source_application_id": null,
+            "join_source_channel_id": null
+        },
+        {
+            "member": {
+                "avatar": null,
+                "banner": null,
+                "communication_disabled_until": null,
+                "flags": 2,
+                "joined_at": "2024-02-05T12:47:15.105000+00:00",
+                "nick": "BellaJoule",
+                "pending": false,
+                "premium_since": null,
+                "roles": [
+                    "1234835712919081050",
+                    "1148339024742854747",
+                    "1148338732089483285"
+                ],
+                "unusual_dm_activity_until": null,
+                "collectibles": null,
+                "display_name_styles": null,
+                "user": {
+                    "id": "530115393646231552",
+                    "username": "toastietess",
+                    "avatar": "6af4897e9d6f36191f42752b2f41ee44",
+                    "discriminator": "0",
+                    "public_flags": 0,
+                    "flags": 0,
+                    "banner": null,
+                    "accent_color": null,
+                    "global_name": "ToastieTess",
+                    "avatar_decoration_data": null,
+                    "collectibles": null,
+                    "display_name_styles": null,
+                    "banner_color": null,
+                    "clan": null,
+                    "primary_guild": null
+                },
+                "mute": false,
+                "deaf": false
+            },
+            "source_invite_code": "gab8PtHZ",
+            "join_source_type": 5,
+            "inviter_id": "860692665770311690",
+            "join_source_application_id": null,
+            "join_source_channel_id": null
+        },
+        {
+            "member": {
+                "avatar": null,
+                "banner": null,
+                "communication_disabled_until": null,
+                "flags": 2,
+                "joined_at": "2024-02-04T14:30:53.341000+00:00",
+                "nick": null,
+                "pending": false,
+                "premium_since": null,
+                "roles": [
+                    "1148338732089483285",
+                    "1234835712919081050",
+                    "1148339024742854747",
+                    "1148338895633788959",
+                    "1443887228899168319"
+                ],
+                "unusual_dm_activity_until": null,
+                "collectibles": null,
+                "display_name_styles": null,
+                "user": {
+                    "id": "195925023238782976",
+                    "username": "killernico",
+                    "avatar": "c69fab1d60e7dab0edec962439507344",
+                    "discriminator": "0",
+                    "public_flags": 0,
+                    "flags": 0,
+                    "banner": null,
+                    "accent_color": null,
+                    "global_name": "Killernico",
+                    "avatar_decoration_data": null,
+                    "collectibles": null,
+                    "display_name_styles": null,
+                    "banner_color": null,
+                    "clan": null,
+                    "primary_guild": null
+                },
+                "mute": false,
+                "deaf": false
+            },
+            "source_invite_code": "4fQaUKEc",
+            "join_source_type": 5,
+            "inviter_id": "361732550106021890",
+            "join_source_application_id": null,
+            "join_source_channel_id": null
+        },
+        {
+            "member": {
+                "avatar": null,
+                "banner": null,
+                "communication_disabled_until": null,
+                "flags": 2,
+                "joined_at": "2024-02-03T16:21:00.766000+00:00",
+                "nick": "Gnomello",
+                "pending": false,
+                "premium_since": null,
+                "roles": [
+                    "1148339024742854747",
+                    "1148338732089483285"
+                ],
+                "unusual_dm_activity_until": null,
+                "collectibles": null,
+                "display_name_styles": null,
+                "user": {
+                    "id": "732677742771830825",
+                    "username": "colonnellowither",
+                    "avatar": "e4a3511c1b5b80a0b39d009e74432280",
+                    "discriminator": "0",
+                    "public_flags": 0,
+                    "flags": 0,
+                    "banner": null,
+                    "accent_color": null,
+                    "global_name": null,
+                    "avatar_decoration_data": null,
+                    "collectibles": null,
+                    "display_name_styles": null,
+                    "banner_color": null,
+                    "clan": null,
+                    "primary_guild": null
+                },
+                "mute": false,
+                "deaf": false
+            },
+            "source_invite_code": "gab8PtHZ",
+            "join_source_type": 5,
+            "inviter_id": "860692665770311690",
+            "join_source_application_id": null,
+            "join_source_channel_id": null
+        },
+        {
+            "member": {
+                "avatar": null,
+                "banner": null,
+                "communication_disabled_until": null,
+                "flags": 0,
+                "joined_at": "2024-02-03T01:12:03.587000+00:00",
+                "nick": "PrimoMoll",
+                "pending": false,
+                "premium_since": null,
+                "roles": [
+                    "1148338732089483285",
+                    "1148338895633788959"
+                ],
+                "unusual_dm_activity_until": null,
+                "collectibles": null,
+                "display_name_styles": null,
+                "user": {
+                    "id": "405489423342632962",
+                    "username": "keithm.worth",
+                    "avatar": "f84230edb885fdc7c88e5fd2fd981c78",
+                    "discriminator": "0",
+                    "public_flags": 0,
+                    "flags": 0,
+                    "banner": null,
+                    "accent_color": null,
+                    "global_name": "Keith M. Worth",
+                    "avatar_decoration_data": null,
+                    "collectibles": null,
+                    "display_name_styles": null,
+                    "banner_color": null,
+                    "clan": null,
+                    "primary_guild": null
+                },
+                "mute": false,
+                "deaf": false
+            },
+            "source_invite_code": "NpNAu5Dc",
+            "join_source_type": 5,
+            "inviter_id": "361732550106021890",
+            "join_source_application_id": null,
+            "join_source_channel_id": null
+        },
+        {
+            "member": {
+                "avatar": null,
+                "banner": null,
+                "communication_disabled_until": null,
+                "flags": 2,
+                "joined_at": "2024-02-02T15:12:51.406000+00:00",
+                "nick": null,
+                "pending": false,
+                "premium_since": null,
+                "roles": [
+                    "1148339024742854747",
+                    "1148338732089483285",
+                    "1148338895633788959"
+                ],
+                "unusual_dm_activity_until": null,
+                "collectibles": null,
+                "display_name_styles": null,
+                "user": {
+                    "id": "1202981841100087328",
+                    "username": "elanahaig",
+                    "avatar": "71591f1776c57550370d42c35a0848ed",
+                    "discriminator": "0",
+                    "public_flags": 0,
+                    "flags": 0,
+                    "banner": null,
+                    "accent_color": null,
+                    "global_name": "Elana Haig",
+                    "avatar_decoration_data": null,
+                    "collectibles": null,
+                    "display_name_styles": null,
+                    "banner_color": null,
+                    "clan": null,
+                    "primary_guild": null
+                },
+                "mute": false,
+                "deaf": false
+            },
+            "source_invite_code": "EyzuQhwH",
+            "join_source_type": 5,
+            "inviter_id": "361732550106021890",
+            "join_source_application_id": null,
+            "join_source_channel_id": null
+        },
+        {
+            "member": {
+                "avatar": null,
+                "banner": null,
+                "communication_disabled_until": null,
+                "flags": 0,
+                "joined_at": "2024-02-02T11:16:03.194000+00:00",
+                "nick": "Johnny",
+                "pending": false,
+                "premium_since": null,
+                "roles": [
+                    "1148338732089483285",
+                    "1148338895633788959"
+                ],
+                "unusual_dm_activity_until": null,
+                "collectibles": null,
+                "display_name_styles": null,
+                "user": {
+                    "id": "1202933713906962442",
+                    "username": "jo_ow.",
+                    "avatar": "1628fc11e7961d85181295493426b775",
+                    "discriminator": "0",
+                    "public_flags": 0,
+                    "flags": 0,
+                    "banner": null,
+                    "accent_color": null,
+                    "global_name": "Jo_o",
+                    "avatar_decoration_data": null,
+                    "collectibles": null,
+                    "display_name_styles": null,
+                    "banner_color": null,
+                    "clan": null,
+                    "primary_guild": null
+                },
+                "mute": false,
+                "deaf": false
+            },
+            "source_invite_code": "FAFYgA34",
+            "join_source_type": 5,
+            "inviter_id": "361732550106021890",
+            "join_source_application_id": null,
+            "join_source_channel_id": null
+        },
+        {
+            "member": {
+                "avatar": null,
+                "banner": null,
+                "communication_disabled_until": null,
+                "flags": 0,
+                "joined_at": "2024-02-02T04:49:18.379000+00:00",
+                "nick": null,
+                "pending": false,
+                "premium_since": null,
+                "roles": [
+                    "1148338732089483285"
+                ],
+                "unusual_dm_activity_until": null,
+                "collectibles": null,
+                "display_name_styles": null,
+                "user": {
+                    "id": "1202784828865646623",
+                    "username": "candidamonica",
+                    "avatar": "6c5996770c985bcd6e5b68131ff2ba04",
+                    "discriminator": "0",
+                    "public_flags": 0,
+                    "flags": 0,
+                    "banner": null,
+                    "accent_color": null,
+                    "global_name": "Candida",
+                    "avatar_decoration_data": null,
+                    "collectibles": null,
+                    "display_name_styles": null,
+                    "banner_color": null,
+                    "clan": null,
+                    "primary_guild": null
+                },
+                "mute": false,
+                "deaf": false
+            },
+            "source_invite_code": "cXZaHqK3",
+            "join_source_type": 5,
+            "inviter_id": "361732550106021890",
+            "join_source_application_id": null,
+            "join_source_channel_id": null
+        },
+        {
+            "member": {
+                "avatar": null,
+                "banner": null,
+                "communication_disabled_until": null,
+                "flags": 0,
+                "joined_at": "2024-01-31T13:56:55.895000+00:00",
+                "nick": null,
+                "pending": false,
+                "premium_since": null,
+                "roles": [
+                    "1148339024742854747",
+                    "1148338732089483285"
+                ],
+                "unusual_dm_activity_until": null,
+                "collectibles": null,
+                "display_name_styles": null,
+                "user": {
+                    "id": "1202225842735022111",
+                    "username": "eriu_niliac_08466",
+                    "avatar": "79ee349b6511e2000af8a32fb8a6974e",
+                    "discriminator": "0",
+                    "public_flags": 0,
+                    "flags": 0,
+                    "banner": null,
+                    "accent_color": null,
+                    "global_name": "\u00c9riu",
+                    "avatar_decoration_data": null,
+                    "collectibles": null,
+                    "display_name_styles": null,
+                    "banner_color": null,
+                    "clan": null,
+                    "primary_guild": null
+                },
+                "mute": false,
+                "deaf": false
+            },
+            "source_invite_code": "4n6HMkEt",
+            "join_source_type": 5,
+            "inviter_id": "272392238305116162",
+            "join_source_application_id": null,
+            "join_source_channel_id": null
+        },
+        {
+            "member": {
+                "avatar": null,
+                "banner": null,
+                "communication_disabled_until": null,
+                "flags": 0,
+                "joined_at": "2024-01-31T08:18:45.422000+00:00",
+                "nick": null,
+                "pending": false,
+                "premium_since": null,
+                "roles": [
+                    "1148339024742854747",
+                    "1201938737991516180",
+                    "1148338732089483285",
+                    "1148338895633788959"
+                ],
+                "unusual_dm_activity_until": null,
+                "collectibles": null,
+                "display_name_styles": null,
+                "user": {
+                    "id": "147345468538617856",
+                    "username": "sylvienyxaura",
+                    "avatar": "a_371ad6545a596131be4cf72ef836b62a",
+                    "discriminator": "0",
+                    "public_flags": 128,
+                    "flags": 128,
+                    "banner": null,
+                    "accent_color": null,
+                    "global_name": "Sylvia",
+                    "avatar_decoration_data": {
+                        "asset": "a_3e1fc3c7ee2e34e8176f4737427e8f4f",
+                        "sku_id": "1212570343567261736",
+                        "expires_at": null
+                    },
+                    "collectibles": null,
+                    "display_name_styles": {
+                        "font_id": 10,
+                        "effect_id": 4,
+                        "colors": [
+                            8193823
+                        ]
+                    },
+                    "banner_color": null,
+                    "clan": {
+                        "identity_guild_id": "1211516809857990707",
+                        "identity_enabled": true,
+                        "tag": "Ga\u33d4a",
+                        "badge": "856cecbf8055036b98cf05fd54cd8872"
+                    },
+                    "primary_guild": {
+                        "identity_guild_id": "1211516809857990707",
+                        "identity_enabled": true,
+                        "tag": "Ga\u33d4a",
+                        "badge": "856cecbf8055036b98cf05fd54cd8872"
+                    }
+                },
+                "mute": false,
+                "deaf": false
+            },
+            "source_invite_code": "Pp5gHDJu",
+            "join_source_type": 5,
+            "inviter_id": "361732550106021890",
+            "join_source_application_id": null,
+            "join_source_channel_id": null
+        },
+        {
+            "member": {
+                "avatar": null,
+                "banner": null,
+                "communication_disabled_until": null,
+                "flags": 0,
+                "joined_at": "2024-01-24T17:02:13.330000+00:00",
+                "nick": "Topaz",
+                "pending": false,
+                "premium_since": null,
+                "roles": [
+                    "1148339024742854747",
+                    "1148338732089483285"
+                ],
+                "unusual_dm_activity_until": null,
+                "collectibles": null,
+                "display_name_styles": null,
+                "user": {
+                    "id": "176063664237969408",
+                    "username": "zacharyrh",
+                    "avatar": "0b23bf8be298ae72adf072d421512820",
+                    "discriminator": "0",
+                    "public_flags": 0,
+                    "flags": 0,
+                    "banner": null,
+                    "accent_color": null,
+                    "global_name": "Zachary",
+                    "avatar_decoration_data": null,
+                    "collectibles": null,
+                    "display_name_styles": null,
+                    "banner_color": null,
+                    "clan": null,
+                    "primary_guild": null
+                },
+                "mute": false,
+                "deaf": false
+            },
+            "source_invite_code": "aFuTdVPj",
+            "join_source_type": 5,
+            "inviter_id": "361732550106021890",
+            "join_source_application_id": null,
+            "join_source_channel_id": null
+        },
+        {
+            "member": {
+                "avatar": null,
+                "banner": null,
+                "communication_disabled_until": null,
+                "flags": 2,
+                "joined_at": "2024-01-24T11:16:43.260000+00:00",
+                "nick": null,
+                "pending": false,
+                "premium_since": null,
+                "roles": [
+                    "1443894817959706754",
+                    "1435907380503122020",
+                    "1441629741882019974",
+                    "1443888044808736939",
+                    "1443888053058797709",
+                    "1442953429373947984",
+                    "1442953180122976306",
+                    "1443891320266424402",
+                    "1201938737991516180",
+                    "1148338732089483285",
+                    "1443895778237218867",
+                    "1443895863717003284",
+                    "1234835712919081050",
+                    "1148339024742854747",
+                    "1441624639695622204",
+                    "1148338895633788959"
+                ],
+                "unusual_dm_activity_until": null,
+                "collectibles": null,
+                "display_name_styles": null,
+                "user": {
+                    "id": "1199671231989948437",
+                    "username": "whiplash_be",
+                    "avatar": "31624488b95d1524adf77ab814e132cb",
+                    "discriminator": "0",
+                    "public_flags": 0,
+                    "flags": 0,
+                    "banner": null,
+                    "accent_color": null,
+                    "global_name": "Whiplash",
+                    "avatar_decoration_data": null,
+                    "collectibles": null,
+                    "display_name_styles": null,
+                    "banner_color": null,
+                    "clan": {
+                        "identity_guild_id": "1176606162569932860",
+                        "identity_enabled": true,
+                        "tag": "DEUS",
+                        "badge": "d2b8a11f11730feee94ce3ade605905f"
+                    },
+                    "primary_guild": {
+                        "identity_guild_id": "1176606162569932860",
+                        "identity_enabled": true,
+                        "tag": "DEUS",
+                        "badge": "d2b8a11f11730feee94ce3ade605905f"
+                    }
+                },
+                "mute": false,
+                "deaf": false
+            },
+            "source_invite_code": "GjZ5Jwrb",
+            "join_source_type": 5,
+            "inviter_id": "361732550106021890",
+            "join_source_application_id": null,
+            "join_source_channel_id": null
+        },
+        {
+            "member": {
+                "avatar": null,
+                "banner": null,
+                "communication_disabled_until": null,
+                "flags": 2,
+                "joined_at": "2024-01-04T22:41:46.296000+00:00",
+                "nick": null,
+                "pending": false,
+                "premium_since": null,
+                "roles": [
+                    "1443895792854110242",
+                    "1443891119518908518",
+                    "1441629741882019974",
+                    "1443888044808736939",
+                    "1148338589130838256",
+                    "1442953429373947984",
+                    "1443891320266424402",
+                    "1201938737991516180",
+                    "1148338732089483285",
+                    "1437398678406041721",
+                    "1148339024742854747",
+                    "1441624639695622204",
+                    "1443887228899168319"
+                ],
+                "unusual_dm_activity_until": null,
+                "collectibles": null,
+                "display_name_styles": null,
+                "user": {
+                    "id": "366129140539326466",
+                    "username": "caoimhinr",
+                    "avatar": "fe0ebf1ff7ba46dfbea9cc06c26260ab",
+                    "discriminator": "0",
+                    "public_flags": 0,
+                    "flags": 0,
+                    "banner": null,
+                    "accent_color": null,
+                    "global_name": "caoimhinr",
+                    "avatar_decoration_data": null,
+                    "collectibles": null,
+                    "display_name_styles": null,
+                    "banner_color": null,
+                    "clan": null,
+                    "primary_guild": null
+                },
+                "mute": false,
+                "deaf": false
+            },
+            "source_invite_code": "K498asrr",
+            "join_source_type": 5,
+            "inviter_id": "361732550106021890",
+            "join_source_application_id": null,
+            "join_source_channel_id": null
+        },
+        {
+            "member": {
+                "avatar": null,
+                "banner": null,
+                "communication_disabled_until": null,
+                "flags": 0,
+                "joined_at": "2023-12-19T23:16:43.254000+00:00",
+                "nick": null,
+                "pending": false,
+                "premium_since": null,
+                "roles": [
+                    "1148339024742854747",
+                    "1148338732089483285"
+                ],
+                "unusual_dm_activity_until": null,
+                "collectibles": null,
+                "display_name_styles": null,
+                "user": {
+                    "id": "352562428816392209",
+                    "username": "benaz04",
+                    "avatar": "53264d327c2484f15346bec31ff4aacd",
+                    "discriminator": "0",
+                    "public_flags": 0,
+                    "flags": 0,
+                    "banner": null,
+                    "accent_color": null,
+                    "global_name": "Benaz04",
+                    "avatar_decoration_data": null,
+                    "collectibles": null,
+                    "display_name_styles": null,
+                    "banner_color": null,
+                    "clan": null,
+                    "primary_guild": null
+                },
+                "mute": false,
+                "deaf": false
+            },
+            "source_invite_code": "b2TyPadK",
+            "join_source_type": 5,
+            "inviter_id": "1147089848423952425",
+            "join_source_application_id": null,
+            "join_source_channel_id": null
+        },
+        {
+            "member": {
+                "avatar": null,
+                "banner": null,
+                "communication_disabled_until": null,
+                "flags": 0,
+                "joined_at": "2023-12-19T23:11:54.970000+00:00",
+                "nick": null,
+                "pending": false,
+                "premium_since": null,
+                "roles": [
+                    "1148339024742854747",
+                    "1148338732089483285"
+                ],
+                "unusual_dm_activity_until": null,
+                "collectibles": null,
+                "display_name_styles": null,
+                "user": {
+                    "id": "514742839293247499",
+                    "username": "espo_zaraki_15",
+                    "avatar": "944aa149c7a9891b1ac0ef52d5a00a22",
+                    "discriminator": "0",
+                    "public_flags": 0,
+                    "flags": 0,
+                    "banner": null,
+                    "accent_color": null,
+                    "global_name": "Gami_15",
+                    "avatar_decoration_data": null,
+                    "collectibles": null,
+                    "display_name_styles": null,
+                    "banner_color": null,
+                    "clan": null,
+                    "primary_guild": null
+                },
+                "mute": false,
+                "deaf": false
+            },
+            "source_invite_code": "b2TyPadK",
+            "join_source_type": 5,
+            "inviter_id": "1147089848423952425",
+            "join_source_application_id": null,
+            "join_source_channel_id": null
+        },
+        {
+            "member": {
+                "avatar": null,
+                "banner": null,
+                "communication_disabled_until": null,
+                "flags": 2,
+                "joined_at": "2023-11-22T21:30:33.580000+00:00",
+                "nick": null,
+                "pending": false,
+                "premium_since": null,
+                "roles": [
+                    "1148339024742854747",
+                    "1148338732089483285"
+                ],
+                "unusual_dm_activity_until": null,
+                "collectibles": null,
+                "display_name_styles": null,
+                "user": {
+                    "id": "1174059127606091776",
+                    "username": "angel.hitomi",
+                    "avatar": "009adb350453e84fde1802f6e1edf0f0",
+                    "discriminator": "0",
+                    "public_flags": 0,
+                    "flags": 0,
+                    "banner": null,
+                    "accent_color": null,
+                    "global_name": "Merlin",
+                    "avatar_decoration_data": null,
+                    "collectibles": null,
+                    "display_name_styles": null,
+                    "banner_color": null,
+                    "clan": null,
+                    "primary_guild": null
+                },
+                "mute": false,
+                "deaf": false
+            },
+            "source_invite_code": "UCnFX5j4",
+            "join_source_type": 5,
+            "inviter_id": "361732550106021890",
+            "join_source_application_id": null,
+            "join_source_channel_id": null
+        },
+        {
+            "member": {
+                "avatar": null,
+                "banner": null,
+                "communication_disabled_until": null,
+                "flags": 0,
+                "joined_at": "2023-11-22T19:09:16.072000+00:00",
+                "nick": null,
+                "pending": false,
+                "premium_since": null,
+                "roles": [
+                    "1173388268776198154",
+                    "1148339024742854747",
+                    "1148338732089483285"
+                ],
+                "unusual_dm_activity_until": null,
+                "collectibles": null,
+                "display_name_styles": null,
+                "user": {
+                    "id": "335900093360242690",
+                    "username": "orangeviiking",
+                    "avatar": "ac812adb076c2d9f5382683dfa24efc1",
+                    "discriminator": "0",
+                    "public_flags": 0,
+                    "flags": 0,
+                    "banner": null,
+                    "accent_color": null,
+                    "global_name": "Autumn's Chapter \ud83c\udf42",
+                    "avatar_decoration_data": null,
+                    "collectibles": null,
+                    "display_name_styles": null,
+                    "banner_color": null,
+                    "clan": null,
+                    "primary_guild": null
+                },
+                "mute": false,
+                "deaf": false
+            },
+            "source_invite_code": "Xsc7yuvc",
+            "join_source_type": 5,
+            "inviter_id": "793162846376165416",
+            "join_source_application_id": null,
+            "join_source_channel_id": null
+        },
+        {
+            "member": {
+                "avatar": null,
+                "banner": null,
+                "communication_disabled_until": null,
+                "flags": 2,
+                "joined_at": "2023-11-14T21:18:25.473000+00:00",
+                "nick": null,
+                "pending": false,
+                "premium_since": null,
+                "roles": [
+                    "1148339024742854747",
+                    "1148338732089483285"
+                ],
+                "unusual_dm_activity_until": null,
+                "collectibles": null,
+                "display_name_styles": null,
+                "user": {
+                    "id": "275687729990205451",
+                    "username": "dom2905",
+                    "avatar": "c60e08dad07ba3310a9442ef6ae8af3c",
+                    "discriminator": "0",
+                    "public_flags": 128,
+                    "flags": 128,
+                    "banner": null,
+                    "accent_color": null,
+                    "global_name": "Dom",
+                    "avatar_decoration_data": null,
+                    "collectibles": null,
+                    "display_name_styles": null,
+                    "banner_color": null,
+                    "clan": {
+                        "identity_guild_id": "542985647502393346",
+                        "identity_enabled": true,
+                        "tag": "DCS",
+                        "badge": "878c62b6694a4f5931104f766191bec7"
+                    },
+                    "primary_guild": {
+                        "identity_guild_id": "542985647502393346",
+                        "identity_enabled": true,
+                        "tag": "DCS",
+                        "badge": "878c62b6694a4f5931104f766191bec7"
+                    }
+                },
+                "mute": false,
+                "deaf": false
+            },
+            "source_invite_code": "FCYDkM63",
+            "join_source_type": 5,
+            "inviter_id": "361732550106021890",
+            "join_source_application_id": null,
+            "join_source_channel_id": null
+        },
+        {
+            "member": {
+                "avatar": "0aad6fc36051c04115c9db4e98a985df",
+                "banner": "67c65134eb4aa6649aada4914d52ee99",
+                "communication_disabled_until": null,
+                "flags": 2,
+                "joined_at": "2023-10-29T14:25:54.944000+00:00",
+                "nick": "Aqua (\u30fb\u03c9\u30fb)",
+                "pending": false,
+                "premium_since": null,
+                "roles": [
+                    "1148338643258331177",
+                    "1437398678406041721",
+                    "1148339024742854747",
+                    "1148338732089483285"
+                ],
+                "unusual_dm_activity_until": null,
+                "collectibles": null,
+                "display_name_styles": null,
+                "user": {
+                    "id": "809205258873602080",
+                    "username": "cypher2199",
+                    "avatar": "2bb2e51f9b4b34703da618c422977a5b",
+                    "discriminator": "0",
+                    "public_flags": 0,
+                    "flags": 0,
+                    "banner": null,
+                    "accent_color": null,
+                    "global_name": "Cypher",
+                    "avatar_decoration_data": null,
+                    "collectibles": null,
+                    "display_name_styles": null,
+                    "banner_color": null,
+                    "clan": null,
+                    "primary_guild": null
+                },
+                "mute": false,
+                "deaf": false
+            },
+            "source_invite_code": "Rt6T2cAk",
+            "join_source_type": 5,
+            "inviter_id": "361732550106021890",
+            "join_source_application_id": null,
+            "join_source_channel_id": null
+        },
+        {
+            "member": {
+                "avatar": null,
+                "banner": null,
+                "communication_disabled_until": null,
+                "flags": 2,
+                "joined_at": "2023-10-23T16:13:44.946000+00:00",
+                "nick": null,
+                "pending": false,
+                "premium_since": null,
+                "roles": [
+                    "1234835712919081050",
+                    "1148339024742854747",
+                    "1148338732089483285",
+                    "1148338895633788959"
+                ],
+                "unusual_dm_activity_until": null,
+                "collectibles": null,
+                "display_name_styles": null,
+                "user": {
+                    "id": "120287966496030720",
+                    "username": "viscen_vas_arlesburgh",
+                    "avatar": "fcf8dd799d2147f7ced12969f3be8624",
+                    "discriminator": "0",
+                    "public_flags": 0,
+                    "flags": 0,
+                    "banner": null,
+                    "accent_color": null,
+                    "global_name": "Viscen vas Arlesburgh",
+                    "avatar_decoration_data": null,
+                    "collectibles": null,
+                    "display_name_styles": null,
+                    "banner_color": null,
+                    "clan": {
+                        "identity_guild_id": "1256774485210693632",
+                        "identity_enabled": true,
+                        "tag": "ERB",
+                        "badge": "b46cdb078d53bff5c8b215d8273e03c9"
+                    },
+                    "primary_guild": {
+                        "identity_guild_id": "1256774485210693632",
+                        "identity_enabled": true,
+                        "tag": "ERB",
+                        "badge": "b46cdb078d53bff5c8b215d8273e03c9"
+                    }
+                },
+                "mute": false,
+                "deaf": false
+            },
+            "source_invite_code": "2wA4J7FX",
+            "join_source_type": 5,
+            "inviter_id": "260093347098656770",
+            "join_source_application_id": null,
+            "join_source_channel_id": null
+        },
+        {
+            "member": {
+                "avatar": null,
+                "banner": null,
+                "communication_disabled_until": null,
+                "flags": 2,
+                "joined_at": "2023-10-19T20:00:36.287000+00:00",
+                "nick": "Ryan Gosling",
+                "pending": false,
+                "premium_since": null,
+                "roles": [
+                    "1148339173653229688",
+                    "1234835712919081050",
+                    "1148338732089483285"
+                ],
+                "unusual_dm_activity_until": null,
+                "collectibles": null,
+                "display_name_styles": null,
+                "user": {
+                    "id": "831385087328124938",
+                    "username": "kitsuneryaz",
+                    "avatar": "a6475701bb98c0578e35cb2c98bc09b0",
+                    "discriminator": "0",
+                    "public_flags": 0,
+                    "flags": 0,
+                    "banner": null,
+                    "accent_color": null,
+                    "global_name": "KitsuneRyaz",
+                    "avatar_decoration_data": null,
+                    "collectibles": {
+                        "nameplate": {
+                            "sku_id": "1377377712162738196",
+                            "asset": "nameplates/nameplates_v2/sword_of_legend/",
+                            "label": "COLLECTIBLES_NAMEPLATES_V2_SWORD_OF_LEGEND_A11Y",
+                            "palette": "cobalt"
+                        }
+                    },
+                    "display_name_styles": {
+                        "font_id": 12,
+                        "effect_id": 2,
+                        "colors": [
+                            14966527,
+                            2522592
+                        ]
+                    },
+                    "banner_color": null,
+                    "clan": null,
+                    "primary_guild": null
+                },
+                "mute": false,
+                "deaf": false
+            },
+            "source_invite_code": "GZBhBVr4",
+            "join_source_type": 5,
+            "inviter_id": "260093347098656770",
+            "join_source_application_id": null,
+            "join_source_channel_id": null
+        },
+        {
+            "member": {
+                "avatar": null,
+                "banner": null,
+                "communication_disabled_until": null,
+                "flags": 2,
+                "joined_at": "2023-10-18T09:04:46.758000+00:00",
+                "nick": null,
+                "pending": false,
+                "premium_since": null,
+                "roles": [
+                    "1148339024742854747"
+                ],
+                "unusual_dm_activity_until": null,
+                "collectibles": null,
+                "display_name_styles": null,
+                "user": {
+                    "id": "177665346067496961",
+                    "username": "magicalpiglet",
+                    "avatar": "c7ce16e73a261ea0ed8ec59ab173bf49",
+                    "discriminator": "0",
+                    "public_flags": 0,
+                    "flags": 0,
+                    "banner": null,
+                    "accent_color": null,
+                    "global_name": "Arcani",
+                    "avatar_decoration_data": {
+                        "asset": "a_6fb2e33e9721f0c5d3ac4eef3f572e9f",
+                        "sku_id": "1346987105028407307",
+                        "expires_at": null
+                    },
+                    "collectibles": {
+                        "nameplate": {
+                            "sku_id": "1417311919429128312",
+                            "asset": "nameplates/nameplate_bonanza/berry_bunny/",
+                            "label": "COLLECTIBLES_NAMEPLATE_BONANZA_BERRY_BUNNY_NP_A11Y",
+                            "palette": "berry"
+                        }
+                    },
+                    "display_name_styles": null,
+                    "banner_color": null,
+                    "clan": null,
+                    "primary_guild": null
+                },
+                "mute": false,
+                "deaf": false
+            },
+            "source_invite_code": "fyAEYDgt",
+            "join_source_type": 5,
+            "inviter_id": "260093347098656770",
+            "join_source_application_id": null,
+            "join_source_channel_id": null
+        },
+        {
+            "member": {
+                "avatar": null,
+                "banner": null,
+                "communication_disabled_until": null,
+                "flags": 2,
+                "joined_at": "2023-10-17T12:25:17.147000+00:00",
+                "nick": "Vienna",
+                "pending": false,
+                "premium_since": null,
+                "roles": [
+                    "1437398678406041721",
+                    "1148339024742854747",
+                    "1148338732089483285"
+                ],
+                "unusual_dm_activity_until": null,
+                "collectibles": null,
+                "display_name_styles": null,
+                "user": {
+                    "id": "786969719420092477",
+                    "username": "saturrrnsrings",
+                    "avatar": "c3828c45d590b3569c25f8855c443190",
+                    "discriminator": "0",
+                    "public_flags": 0,
+                    "flags": 0,
+                    "banner": null,
+                    "accent_color": null,
+                    "global_name": "ivan",
+                    "avatar_decoration_data": null,
+                    "collectibles": null,
+                    "display_name_styles": null,
+                    "banner_color": null,
+                    "clan": {
+                        "identity_guild_id": "974102561554587738",
+                        "identity_enabled": true,
+                        "tag": "EXRP",
+                        "badge": "57105dd5d54ebb9faef5e1b90c3768e1"
+                    },
+                    "primary_guild": {
+                        "identity_guild_id": "974102561554587738",
+                        "identity_enabled": true,
+                        "tag": "EXRP",
+                        "badge": "57105dd5d54ebb9faef5e1b90c3768e1"
+                    }
+                },
+                "mute": false,
+                "deaf": false
+            },
+            "source_invite_code": "9p9XAwD5",
+            "join_source_type": 5,
+            "inviter_id": "260093347098656770",
+            "join_source_application_id": null,
+            "join_source_channel_id": null
+        },
+        {
+            "member": {
+                "avatar": null,
+                "banner": null,
+                "communication_disabled_until": null,
+                "flags": 0,
+                "joined_at": "2023-10-15T19:18:23.212000+00:00",
+                "nick": "Tarnished",
+                "pending": false,
+                "premium_since": null,
+                "roles": [
+                    "1148339024742854747",
+                    "1148338732089483285"
+                ],
+                "unusual_dm_activity_until": null,
+                "collectibles": null,
+                "display_name_styles": null,
+                "user": {
+                    "id": "554341779374080001",
+                    "username": "carmichael2739",
+                    "avatar": "3b2b0861f9cfbf1a68481d8d31b42463",
+                    "discriminator": "0",
+                    "public_flags": 0,
+                    "flags": 0,
+                    "banner": null,
+                    "accent_color": null,
+                    "global_name": "Carmichael",
+                    "avatar_decoration_data": null,
+                    "collectibles": null,
+                    "display_name_styles": null,
+                    "banner_color": null,
+                    "clan": null,
+                    "primary_guild": null
+                },
+                "mute": false,
+                "deaf": false
+            },
+            "source_invite_code": "R3qyMpyT",
+            "join_source_type": 5,
+            "inviter_id": "361732550106021890",
+            "join_source_application_id": null,
+            "join_source_channel_id": null
+        },
+        {
+            "member": {
+                "avatar": null,
+                "banner": null,
+                "communication_disabled_until": null,
+                "flags": 2,
+                "joined_at": "2023-10-15T00:46:07.231000+00:00",
+                "nick": "THE Lulu",
+                "pending": false,
+                "premium_since": null,
+                "roles": [
+                    "1443891119518908518",
+                    "1441629741882019974",
+                    "1161035196112568454",
+                    "1443888044808736939",
+                    "1443888053058797709",
+                    "1442953429373947984",
+                    "1443891039009112115",
+                    "1201938737991516180",
+                    "1148338732089483285",
+                    "1234835712919081050",
+                    "1148339024742854747",
+                    "1441624639695622204",
+                    "1443887228899168319"
+                ],
+                "unusual_dm_activity_until": null,
+                "collectibles": null,
+                "display_name_styles": null,
+                "user": {
+                    "id": "303609780813955072",
+                    "username": "lukelucasss",
+                    "avatar": "700b1fa34b03ab3ee5f1fba890a1cbb9",
+                    "discriminator": "0",
+                    "public_flags": 0,
+                    "flags": 0,
+                    "banner": null,
+                    "accent_color": null,
+                    "global_name": "LukeLucasss",
+                    "avatar_decoration_data": null,
+                    "collectibles": null,
+                    "display_name_styles": null,
+                    "banner_color": null,
+                    "clan": null,
+                    "primary_guild": null
+                },
+                "mute": false,
+                "deaf": false
+            },
+            "source_invite_code": "YbFrVv2R",
+            "join_source_type": 5,
+            "inviter_id": "260093347098656770",
+            "join_source_application_id": null,
+            "join_source_channel_id": null
+        },
+        {
+            "member": {
+                "avatar": null,
+                "banner": null,
+                "communication_disabled_until": null,
+                "flags": 0,
+                "joined_at": "2023-10-05T22:43:27.072000+00:00",
+                "nick": null,
+                "pending": false,
+                "premium_since": null,
+                "roles": [
+                    "1148339024742854747",
+                    "1148338732089483285"
+                ],
+                "unusual_dm_activity_until": null,
+                "collectibles": null,
+                "display_name_styles": null,
+                "user": {
+                    "id": "179913270403006466",
+                    "username": "aprilfool1993",
+                    "avatar": "3c71098ed4e6b39f4081a4646941c62e",
+                    "discriminator": "0",
+                    "public_flags": 0,
+                    "flags": 0,
+                    "banner": null,
+                    "accent_color": null,
+                    "global_name": "Aprilfool",
+                    "avatar_decoration_data": null,
+                    "collectibles": null,
+                    "display_name_styles": null,
+                    "banner_color": null,
+                    "clan": null,
+                    "primary_guild": null
+                },
+                "mute": false,
+                "deaf": false
+            },
+            "source_invite_code": "XvfyhfmH",
+            "join_source_type": 0,
+            "inviter_id": null,
+            "join_source_application_id": null,
+            "join_source_channel_id": null
+        },
+        {
+            "member": {
+                "avatar": null,
+                "banner": null,
+                "communication_disabled_until": null,
+                "flags": 0,
+                "joined_at": "2023-09-30T22:55:12.045000+00:00",
+                "nick": "Drakiepoo",
+                "pending": false,
+                "premium_since": null,
+                "roles": [
+                    "1148339024742854747",
+                    "1148338732089483285"
+                ],
+                "unusual_dm_activity_until": null,
+                "collectibles": null,
+                "display_name_styles": null,
+                "user": {
+                    "id": "405764017206984705",
+                    "username": "zbzeub",
+                    "avatar": "259747701ee4b67473cdf5b1dd162d97",
+                    "discriminator": "0",
+                    "public_flags": 0,
+                    "flags": 0,
+                    "banner": null,
+                    "accent_color": null,
+                    "global_name": "Galand",
+                    "avatar_decoration_data": null,
+                    "collectibles": null,
+                    "display_name_styles": null,
+                    "banner_color": null,
+                    "clan": null,
+                    "primary_guild": null
+                },
+                "mute": false,
+                "deaf": false
+            },
+            "source_invite_code": "yGbzAM7R",
+            "join_source_type": 0,
+            "inviter_id": null,
+            "join_source_application_id": null,
+            "join_source_channel_id": null
+        },
+        {
+            "member": {
+                "avatar": null,
+                "banner": null,
+                "communication_disabled_until": null,
+                "flags": 2,
+                "joined_at": "2023-09-29T13:56:18.330000+00:00",
+                "nick": "ruby",
+                "pending": false,
+                "premium_since": null,
+                "roles": [
+                    "1148339024742854747",
+                    "1148338732089483285"
+                ],
+                "unusual_dm_activity_until": null,
+                "collectibles": null,
+                "display_name_styles": null,
+                "user": {
+                    "id": "578935653820268544",
+                    "username": "thebeast97.",
+                    "avatar": "fdd7a0474a752407e9920bf1f65cbd86",
+                    "discriminator": "0",
+                    "public_flags": 0,
+                    "flags": 0,
+                    "banner": null,
+                    "accent_color": null,
+                    "global_name": "thebeast",
+                    "avatar_decoration_data": {
+                        "asset": "a_60a411feecc41683bb4989f36393ad51",
+                        "sku_id": "1432208254422749215",
+                        "expires_at": 1767916800
+                    },
+                    "collectibles": null,
+                    "display_name_styles": null,
+                    "banner_color": null,
+                    "clan": null,
+                    "primary_guild": null
+                },
+                "mute": false,
+                "deaf": false
+            },
+            "source_invite_code": "eZjCgDkH",
+            "join_source_type": 0,
+            "inviter_id": null,
+            "join_source_application_id": null,
+            "join_source_channel_id": null
+        },
+        {
+            "member": {
+                "avatar": null,
+                "banner": null,
+                "communication_disabled_until": null,
+                "flags": 2,
+                "joined_at": "2023-09-25T11:38:55.024000+00:00",
+                "nick": null,
+                "pending": false,
+                "premium_since": null,
+                "roles": [
+                    "1148338643258331177",
+                    "1148338732089483285",
+                    "1437398678406041721",
+                    "1234835712919081050",
+                    "1148339024742854747"
+                ],
+                "unusual_dm_activity_until": null,
+                "collectibles": null,
+                "display_name_styles": null,
+                "user": {
+                    "id": "1152727116656422994",
+                    "username": "true_dragonkween",
+                    "avatar": "884f62df3d588647c801fab1c2bcd3e4",
+                    "discriminator": "0",
+                    "public_flags": 0,
+                    "flags": 0,
+                    "banner": null,
+                    "accent_color": null,
+                    "global_name": "Xerxes",
+                    "avatar_decoration_data": null,
+                    "collectibles": null,
+                    "display_name_styles": null,
+                    "banner_color": null,
+                    "clan": null,
+                    "primary_guild": null
+                },
+                "mute": false,
+                "deaf": false
+            },
+            "source_invite_code": "nxFrx4zT",
+            "join_source_type": 0,
+            "inviter_id": null,
+            "join_source_application_id": null,
+            "join_source_channel_id": null
+        },
+        {
+            "member": {
+                "avatar": null,
+                "banner": null,
+                "communication_disabled_until": null,
+                "flags": 0,
+                "joined_at": "2023-09-24T16:01:29.498000+00:00",
+                "nick": null,
+                "pending": false,
+                "premium_since": null,
+                "roles": [
+                    "1148339024742854747",
+                    "1148338732089483285"
+                ],
+                "unusual_dm_activity_until": null,
+                "collectibles": null,
+                "display_name_styles": null,
+                "user": {
+                    "id": "263778293277261825",
+                    "username": "coldwarkidz_",
+                    "avatar": "dcd3b0b6251e6d936b178fe8fb0fd18d",
+                    "discriminator": "0",
+                    "public_flags": 0,
+                    "flags": 0,
+                    "banner": null,
+                    "accent_color": null,
+                    "global_name": null,
+                    "avatar_decoration_data": null,
+                    "collectibles": null,
+                    "display_name_styles": {
+                        "font_id": 8,
+                        "effect_id": 3,
+                        "colors": [
+                            8521029
+                        ]
+                    },
+                    "banner_color": null,
+                    "clan": {
+                        "identity_guild_id": "389461058504491010",
+                        "identity_enabled": true,
+                        "tag": "PYLY",
+                        "badge": "1c8f8efb11de25463d853de6f864ffc6"
+                    },
+                    "primary_guild": {
+                        "identity_guild_id": "389461058504491010",
+                        "identity_enabled": true,
+                        "tag": "PYLY",
+                        "badge": "1c8f8efb11de25463d853de6f864ffc6"
+                    }
+                },
+                "mute": false,
+                "deaf": false
+            },
+            "source_invite_code": "cK37zs3s",
+            "join_source_type": 0,
+            "inviter_id": null,
+            "join_source_application_id": null,
+            "join_source_channel_id": null
+        },
+        {
+            "member": {
+                "avatar": null,
+                "banner": null,
+                "communication_disabled_until": null,
+                "flags": 0,
+                "joined_at": "2023-09-24T14:27:31.094000+00:00",
+                "nick": null,
+                "pending": false,
+                "premium_since": null,
+                "roles": [
+                    "1148339024742854747",
+                    "1148338732089483285",
+                    "1148338895633788959"
+                ],
+                "unusual_dm_activity_until": null,
+                "collectibles": null,
+                "display_name_styles": null,
+                "user": {
+                    "id": "380414434209693697",
+                    "username": "mr_z_for_short",
+                    "avatar": "6631f0a6ecbc553bfd8d3b0f86018d41",
+                    "discriminator": "0",
+                    "public_flags": 0,
+                    "flags": 0,
+                    "banner": null,
+                    "accent_color": null,
+                    "global_name": "MrZ",
+                    "avatar_decoration_data": null,
+                    "collectibles": null,
+                    "display_name_styles": null,
+                    "banner_color": null,
+                    "clan": {
+                        "identity_guild_id": "389461058504491010",
+                        "identity_enabled": true,
+                        "tag": "PYLY",
+                        "badge": "1c8f8efb11de25463d853de6f864ffc6"
+                    },
+                    "primary_guild": {
+                        "identity_guild_id": "389461058504491010",
+                        "identity_enabled": true,
+                        "tag": "PYLY",
+                        "badge": "1c8f8efb11de25463d853de6f864ffc6"
+                    }
+                },
+                "mute": false,
+                "deaf": false
+            },
+            "source_invite_code": "tYFhBghB",
+            "join_source_type": 0,
+            "inviter_id": null,
+            "join_source_application_id": null,
+            "join_source_channel_id": null
+        },
+        {
+            "member": {
+                "avatar": null,
+                "banner": null,
+                "communication_disabled_until": null,
+                "flags": 0,
+                "joined_at": "2023-09-24T11:17:30.329000+00:00",
+                "nick": null,
+                "pending": false,
+                "premium_since": null,
+                "roles": [
+                    "1148339024742854747",
+                    "1148338732089483285"
+                ],
+                "unusual_dm_activity_until": null,
+                "collectibles": null,
+                "display_name_styles": null,
+                "user": {
+                    "id": "272517302627336192",
+                    "username": "_.elodie._",
+                    "avatar": "9271123251b2c96763b27e0d97cc6922",
+                    "discriminator": "0",
+                    "public_flags": 256,
+                    "flags": 256,
+                    "banner": null,
+                    "accent_color": null,
+                    "global_name": "Elodie",
+                    "avatar_decoration_data": null,
+                    "collectibles": {
+                        "nameplate": {
+                            "sku_id": "1377377712129179840",
+                            "asset": "nameplates/nameplates_v2/cozy_cat/",
+                            "label": "COLLECTIBLES_NAMEPLATES_V2_COZY_CAT_A11Y",
+                            "palette": "berry"
+                        }
+                    },
+                    "display_name_styles": null,
+                    "banner_color": null,
+                    "clan": {
+                        "identity_guild_id": "880334497516769310",
+                        "identity_enabled": true,
+                        "tag": "HATE",
+                        "badge": "4f25524787fd4a78abbe4cf889599ea7"
+                    },
+                    "primary_guild": {
+                        "identity_guild_id": "880334497516769310",
+                        "identity_enabled": true,
+                        "tag": "HATE",
+                        "badge": "4f25524787fd4a78abbe4cf889599ea7"
+                    }
+                },
+                "mute": false,
+                "deaf": false
+            },
+            "source_invite_code": "cK37zs3s",
+            "join_source_type": 0,
+            "inviter_id": null,
+            "join_source_application_id": null,
+            "join_source_channel_id": null
+        },
+        {
+            "member": {
+                "avatar": null,
+                "banner": null,
+                "communication_disabled_until": null,
+                "flags": 2,
+                "joined_at": "2023-09-24T11:17:29.443000+00:00",
+                "nick": "Flora",
+                "pending": false,
+                "premium_since": null,
+                "roles": [],
+                "unusual_dm_activity_until": null,
+                "collectibles": null,
+                "display_name_styles": null,
+                "user": {
+                    "id": "1129913980270424085",
+                    "username": "flortje",
+                    "avatar": "3b8a5a37762aedc8058e57a46124e386",
+                    "discriminator": "0",
+                    "public_flags": 0,
+                    "flags": 0,
+                    "banner": null,
+                    "accent_color": null,
+                    "global_name": "Minifleur",
+                    "avatar_decoration_data": null,
+                    "collectibles": null,
+                    "display_name_styles": null,
+                    "banner_color": null,
+                    "clan": null,
+                    "primary_guild": null
+                },
+                "mute": false,
+                "deaf": false
+            },
+            "source_invite_code": "cK37zs3s",
+            "join_source_type": 0,
+            "inviter_id": null,
+            "join_source_application_id": null,
+            "join_source_channel_id": null
+        },
+        {
+            "member": {
+                "avatar": null,
+                "banner": null,
+                "communication_disabled_until": null,
+                "flags": 0,
+                "joined_at": "2023-09-20T09:38:19.211000+00:00",
+                "nick": null,
+                "pending": false,
+                "premium_since": null,
+                "roles": [
+                    "1153988502602661932",
+                    "1153993226399793213"
+                ],
+                "unusual_dm_activity_until": null,
+                "collectibles": null,
+                "display_name_styles": null,
+                "user": {
+                    "id": "736888501026422855",
+                    "username": "Tempo",
+                    "avatar": "9cf9193be87fd11d3b44426d00b85549",
+                    "discriminator": "1917",
+                    "public_flags": 65536,
+                    "flags": 65536,
+                    "bot": true,
+                    "banner": null,
+                    "accent_color": null,
+                    "global_name": null,
+                    "avatar_decoration_data": null,
+                    "collectibles": null,
+                    "display_name_styles": null,
+                    "banner_color": null,
+                    "clan": null,
+                    "primary_guild": null
+                },
+                "mute": false,
+                "deaf": true
+            },
+            "source_invite_code": null,
+            "join_source_type": 0,
+            "inviter_id": null,
+            "join_source_application_id": null,
+            "join_source_channel_id": null
+        },
+        {
+            "member": {
+                "avatar": null,
+                "banner": null,
+                "communication_disabled_until": null,
+                "flags": 0,
+                "joined_at": "2023-09-19T15:15:58.862000+00:00",
+                "nick": null,
+                "pending": false,
+                "premium_since": null,
+                "roles": [
+                    "1148339024742854747",
+                    "1148338732089483285"
+                ],
+                "unusual_dm_activity_until": null,
+                "collectibles": null,
+                "display_name_styles": null,
+                "user": {
+                    "id": "473512590648279040",
+                    "username": "goblinslayer8050",
+                    "avatar": "a5a9666d70d2c595b76f17b61b138922",
+                    "discriminator": "0",
+                    "public_flags": 0,
+                    "flags": 0,
+                    "banner": null,
+                    "accent_color": null,
+                    "global_name": "BimbrownikPL",
+                    "avatar_decoration_data": {
+                        "asset": "a_60a411feecc41683bb4989f36393ad51",
+                        "sku_id": "1432208254422749215",
+                        "expires_at": 1767916800
+                    },
+                    "collectibles": null,
+                    "display_name_styles": null,
+                    "banner_color": null,
+                    "clan": null,
+                    "primary_guild": null
+                },
+                "mute": false,
+                "deaf": false
+            },
+            "source_invite_code": "SYJT4krP",
+            "join_source_type": 0,
+            "inviter_id": null,
+            "join_source_application_id": null,
+            "join_source_channel_id": null
+        },
+        {
+            "member": {
+                "avatar": null,
+                "banner": null,
+                "communication_disabled_until": null,
+                "flags": 2,
+                "joined_at": "2023-09-19T03:21:34.260000+00:00",
+                "nick": "Sammie - \u30b5\u30e1\u30a4",
+                "pending": false,
+                "premium_since": null,
+                "roles": [
+                    "1148339173653229688",
+                    "1148338643258331177",
+                    "1148338732089483285"
+                ],
+                "unusual_dm_activity_until": null,
+                "collectibles": null,
+                "display_name_styles": null,
+                "user": {
+                    "id": "860692665770311690",
+                    "username": "seleritz",
+                    "avatar": "d3fd5e85cb3e83908d704b9aa0d42ddf",
+                    "discriminator": "0",
+                    "public_flags": 0,
+                    "flags": 0,
+                    "banner": null,
+                    "accent_color": null,
+                    "global_name": "Seleris",
+                    "avatar_decoration_data": {
+                        "asset": "a_05414fc1ea1b2cce5fc5ea3fc241c878",
+                        "sku_id": "1428085489285599233",
+                        "expires_at": 1766710800
+                    },
+                    "collectibles": null,
+                    "display_name_styles": null,
+                    "banner_color": null,
+                    "clan": null,
+                    "primary_guild": null
+                },
+                "mute": false,
+                "deaf": false
+            },
+            "source_invite_code": "SYJT4krP",
+            "join_source_type": 0,
+            "inviter_id": null,
+            "join_source_application_id": null,
+            "join_source_channel_id": null
+        },
+        {
+            "member": {
+                "avatar": null,
+                "banner": null,
+                "communication_disabled_until": null,
+                "flags": 0,
+                "joined_at": "2023-09-18T22:52:33.397000+00:00",
+                "nick": "Carl",
+                "pending": false,
+                "premium_since": null,
+                "roles": [
+                    "1153463603136057397",
+                    "1153993226399793213"
+                ],
+                "unusual_dm_activity_until": null,
+                "collectibles": null,
+                "display_name_styles": null,
+                "user": {
+                    "id": "235148962103951360",
+                    "username": "Carl-bot",
+                    "avatar": "ed3dac3b6e7a851df781632a4295fcb9",
+                    "discriminator": "1536",
+                    "public_flags": 65536,
+                    "flags": 65536,
+                    "bot": true,
+                    "banner": null,
+                    "accent_color": null,
+                    "global_name": null,
+                    "avatar_decoration_data": null,
+                    "collectibles": null,
+                    "display_name_styles": null,
+                    "banner_color": null,
+                    "clan": null,
+                    "primary_guild": null
+                },
+                "mute": false,
+                "deaf": false
+            },
+            "source_invite_code": null,
+            "join_source_type": 0,
+            "inviter_id": null,
+            "join_source_application_id": null,
+            "join_source_channel_id": null
+        },
+        {
+            "member": {
+                "avatar": null,
+                "banner": null,
+                "communication_disabled_until": null,
+                "flags": 2,
+                "joined_at": "2023-09-18T22:17:11.736000+00:00",
+                "nick": "Icharus Noir",
+                "pending": false,
+                "premium_since": null,
+                "roles": [
+                    "1441629741882019974",
+                    "1161035196112568454",
+                    "1148338643258331177",
+                    "1173388268776198154",
+                    "1148338732089483285",
+                    "1437398678406041721",
+                    "1234835712919081050",
+                    "1148339024742854747",
+                    "1148338895633788959"
+                ],
+                "unusual_dm_activity_until": null,
+                "collectibles": null,
+                "display_name_styles": null,
+                "user": {
+                    "id": "245706261511798784",
+                    "username": "qauzzix",
+                    "avatar": "592ad9a0510a7863c2a198b9e90b1f50",
+                    "discriminator": "0",
+                    "public_flags": 0,
+                    "flags": 0,
+                    "banner": null,
+                    "accent_color": null,
+                    "global_name": "Qauzzix",
+                    "avatar_decoration_data": null,
+                    "collectibles": null,
+                    "display_name_styles": null,
+                    "banner_color": null,
+                    "clan": null,
+                    "primary_guild": null
+                },
+                "mute": false,
+                "deaf": false
+            },
+            "source_invite_code": "4DsKhn4B",
+            "join_source_type": 0,
+            "inviter_id": null,
+            "join_source_application_id": null,
+            "join_source_channel_id": null
+        },
+        {
+            "member": {
+                "avatar": null,
+                "banner": null,
+                "communication_disabled_until": null,
+                "flags": 0,
+                "joined_at": "2023-09-18T21:41:06.656000+00:00",
+                "nick": null,
+                "pending": false,
+                "premium_since": null,
+                "roles": [
+                    "1148339024742854747",
+                    "1148338732089483285",
+                    "1148338895633788959"
+                ],
+                "unusual_dm_activity_until": null,
+                "collectibles": null,
+                "display_name_styles": null,
+                "user": {
+                    "id": "626481946943422471",
+                    "username": "tasharoli",
+                    "avatar": "92f128318a5d6bd5656305adcc1d2c32",
+                    "discriminator": "0",
+                    "public_flags": 0,
+                    "flags": 0,
+                    "banner": null,
+                    "accent_color": null,
+                    "global_name": "Tasharoli",
+                    "avatar_decoration_data": null,
+                    "collectibles": null,
+                    "display_name_styles": null,
+                    "banner_color": null,
+                    "clan": null,
+                    "primary_guild": null
+                },
+                "mute": false,
+                "deaf": false
+            },
+            "source_invite_code": "fPRnaVg6",
+            "join_source_type": 0,
+            "inviter_id": null,
+            "join_source_application_id": null,
+            "join_source_channel_id": null
+        },
+        {
+            "member": {
+                "avatar": null,
+                "banner": null,
+                "communication_disabled_until": null,
+                "flags": 2,
+                "joined_at": "2023-09-18T20:58:57.783000+00:00",
+                "nick": null,
+                "pending": false,
+                "premium_since": null,
+                "roles": [
+                    "1435907380503122020",
+                    "1443891119518908518",
+                    "1441629741882019974",
+                    "1161035196112568454",
+                    "1148338643258331177",
+                    "1148338895633788959",
+                    "1443888044808736939",
+                    "1148338589130838256",
+                    "1442953429373947984",
+                    "1443891320266424402",
+                    "1201938737991516180",
+                    "1148338732089483285",
+                    "1443895863717003284",
+                    "1437398678406041721",
+                    "1234835712919081050",
+                    "1148339024742854747",
+                    "1441624639695622204",
+                    "1443887228899168319"
+                ],
+                "unusual_dm_activity_until": null,
+                "collectibles": null,
+                "display_name_styles": null,
+                "user": {
+                    "id": "504721662139170816",
+                    "username": "foxdie67",
+                    "avatar": "b49e00833a86ff775b0f43e851c7fd20",
+                    "discriminator": "0",
+                    "public_flags": 0,
+                    "flags": 0,
+                    "banner": null,
+                    "accent_color": null,
+                    "global_name": "Foxdie",
+                    "avatar_decoration_data": null,
+                    "collectibles": null,
+                    "display_name_styles": null,
+                    "banner_color": null,
+                    "clan": null,
+                    "primary_guild": null
+                },
+                "mute": false,
+                "deaf": false
+            },
+            "source_invite_code": "j2SGgghK",
+            "join_source_type": 0,
+            "inviter_id": null,
+            "join_source_application_id": null,
+            "join_source_channel_id": null
+        },
+        {
+            "member": {
+                "avatar": null,
+                "banner": null,
+                "communication_disabled_until": null,
+                "flags": 2,
+                "joined_at": "2023-09-18T20:56:40.119000+00:00",
+                "nick": null,
+                "pending": false,
+                "premium_since": null,
+                "roles": [
+                    "1441629741882019974",
+                    "1148338643258331177",
+                    "1148338732089483285",
+                    "1148339024742854747",
+                    "1148338895633788959"
+                ],
+                "unusual_dm_activity_until": null,
+                "collectibles": null,
+                "display_name_styles": null,
+                "user": {
+                    "id": "674480528853958663",
+                    "username": "ebna_facks_world",
+                    "avatar": "ef46c6ebdb18e6272a18d5f92cab77db",
+                    "discriminator": "0",
+                    "public_flags": 0,
+                    "flags": 0,
+                    "banner": null,
+                    "accent_color": null,
+                    "global_name": "SimonSlay",
+                    "avatar_decoration_data": null,
+                    "collectibles": null,
+                    "display_name_styles": null,
+                    "banner_color": null,
+                    "clan": null,
+                    "primary_guild": null
+                },
+                "mute": false,
+                "deaf": false
+            },
+            "source_invite_code": "fPRnaVg6",
+            "join_source_type": 0,
+            "inviter_id": null,
+            "join_source_application_id": null,
+            "join_source_channel_id": null
+        },
+        {
+            "member": {
+                "avatar": null,
+                "banner": null,
+                "communication_disabled_until": null,
+                "flags": 0,
+                "joined_at": "2023-09-18T20:53:15.115000+00:00",
+                "nick": null,
+                "pending": false,
+                "premium_since": null,
+                "roles": [
+                    "1148338732089483285",
+                    "1148338895633788959"
+                ],
+                "unusual_dm_activity_until": null,
+                "collectibles": null,
+                "display_name_styles": null,
+                "user": {
+                    "id": "288465804738035724",
+                    "username": "schatje1991",
+                    "avatar": "179271f8e00d362d995143dea7048f7e",
+                    "discriminator": "0",
+                    "public_flags": 0,
+                    "flags": 0,
+                    "banner": null,
+                    "accent_color": null,
+                    "global_name": "Schatje",
+                    "avatar_decoration_data": null,
+                    "collectibles": null,
+                    "display_name_styles": null,
+                    "banner_color": null,
+                    "clan": null,
+                    "primary_guild": null
+                },
+                "mute": false,
+                "deaf": false
+            },
+            "source_invite_code": "fPRnaVg6",
+            "join_source_type": 0,
+            "inviter_id": null,
+            "join_source_application_id": null,
+            "join_source_channel_id": null
+        },
+        {
+            "member": {
+                "avatar": null,
+                "banner": null,
+                "communication_disabled_until": null,
+                "flags": 0,
+                "joined_at": "2023-09-18T18:51:00.528000+00:00",
+                "nick": "Veldanava(alt)",
+                "pending": false,
+                "premium_since": null,
+                "roles": [
+                    "1148339024742854747",
+                    "1148338732089483285",
+                    "1148338895633788959"
+                ],
+                "unusual_dm_activity_until": null,
+                "collectibles": null,
+                "display_name_styles": null,
+                "user": {
+                    "id": "809310821175918602",
+                    "username": "notnightmare7072",
+                    "avatar": "657103f8e1f1fab4d150b96f567decf1",
+                    "discriminator": "0",
+                    "public_flags": 0,
+                    "flags": 0,
+                    "banner": null,
+                    "accent_color": null,
+                    "global_name": "not nightmare",
+                    "avatar_decoration_data": null,
+                    "collectibles": null,
+                    "display_name_styles": null,
+                    "banner_color": null,
+                    "clan": null,
+                    "primary_guild": null
+                },
+                "mute": false,
+                "deaf": false
+            },
+            "source_invite_code": "DgcPqjHv",
+            "join_source_type": 0,
+            "inviter_id": null,
+            "join_source_application_id": null,
+            "join_source_channel_id": null
+        },
+        {
+            "member": {
+                "avatar": null,
+                "banner": null,
+                "communication_disabled_until": null,
+                "flags": 2,
+                "joined_at": "2023-09-17T15:33:23.387000+00:00",
+                "nick": "The Shy Duke of the North",
+                "pending": false,
+                "premium_since": "2025-11-19T13:48:53.688000+00:00",
+                "roles": [
+                    "1443891119518908518",
+                    "1441629741882019974",
+                    "1443888044808736939",
+                    "1443891264503283852",
+                    "1208722200501162095",
+                    "1148338589130838256",
+                    "1443895863717003284",
+                    "1148338732089483285",
+                    "1437398678406041721",
+                    "1148339024742854747",
+                    "1443887228899168319"
+                ],
+                "unusual_dm_activity_until": null,
+                "collectibles": null,
+                "display_name_styles": null,
+                "user": {
+                    "id": "272392238305116162",
+                    "username": "zniked",
+                    "avatar": "0cbd18647d1ec28fefbeae03e080faa3",
+                    "discriminator": "0",
+                    "public_flags": 128,
+                    "flags": 128,
+                    "banner": null,
+                    "accent_color": null,
+                    "global_name": "zNikeD",
+                    "avatar_decoration_data": null,
+                    "collectibles": null,
+                    "display_name_styles": null,
+                    "banner_color": null,
+                    "clan": null,
+                    "primary_guild": null
+                },
+                "mute": false,
+                "deaf": false
+            },
+            "source_invite_code": "mTSUVrS2",
+            "join_source_type": 0,
+            "inviter_id": null,
+            "join_source_application_id": null,
+            "join_source_channel_id": null
+        },
+        {
+            "member": {
+                "avatar": null,
+                "banner": null,
+                "communication_disabled_until": null,
+                "flags": 2,
+                "joined_at": "2023-09-16T16:53:09.667000+00:00",
+                "nick": "Veldanava (Sam)",
+                "pending": false,
+                "premium_since": null,
+                "roles": [
+                    "1161035196112568454",
+                    "1173388268776198154",
+                    "1148338732089483285",
+                    "1148339024742854747",
+                    "1148338895633788959"
+                ],
+                "unusual_dm_activity_until": null,
+                "collectibles": null,
+                "display_name_styles": null,
+                "user": {
+                    "id": "328248400027975680",
+                    "username": "nightmare_nightmare_nightmare",
+                    "avatar": "3631a43c8b984961cb9606e07a66d175",
+                    "discriminator": "0",
+                    "public_flags": 0,
+                    "flags": 0,
+                    "banner": null,
+                    "accent_color": null,
+                    "global_name": "Samir",
+                    "avatar_decoration_data": {
+                        "asset": "a_4418dd1489a3bb2502758886c5f8cbf3",
+                        "sku_id": "1427760915998314568",
+                        "expires_at": 1766365200
+                    },
+                    "collectibles": null,
+                    "display_name_styles": null,
+                    "banner_color": null,
+                    "clan": {
+                        "identity_guild_id": "146042879998033920",
+                        "identity_enabled": true,
+                        "tag": "b\ua51bpu",
+                        "badge": "14e404897dcd80b4d21696dc93e3ab7d"
+                    },
+                    "primary_guild": {
+                        "identity_guild_id": "146042879998033920",
+                        "identity_enabled": true,
+                        "tag": "b\ua51bpu",
+                        "badge": "14e404897dcd80b4d21696dc93e3ab7d"
+                    }
+                },
+                "mute": false,
+                "deaf": false
+            },
+            "source_invite_code": "mTSUVrS2",
+            "join_source_type": 0,
+            "inviter_id": null,
+            "join_source_application_id": null,
+            "join_source_channel_id": null
+        },
+        {
+            "member": {
+                "avatar": null,
+                "banner": null,
+                "communication_disabled_until": null,
+                "flags": 2,
+                "joined_at": "2023-09-16T16:23:34.422000+00:00",
+                "nick": null,
+                "pending": false,
+                "premium_since": "2025-10-22T11:57:14.489000+00:00",
+                "roles": [
+                    "1161035196112568454",
+                    "1208722200501162095",
+                    "1148338732089483285",
+                    "1148339024742854747",
+                    "1148338895633788959"
+                ],
+                "unusual_dm_activity_until": null,
+                "collectibles": null,
+                "display_name_styles": null,
+                "user": {
+                    "id": "298037169623400448",
+                    "username": "aakezz",
+                    "avatar": "a_2feac89d9002898b21fa837cc93f0c5d",
+                    "discriminator": "0",
+                    "public_flags": 0,
+                    "flags": 0,
+                    "banner": null,
+                    "accent_color": null,
+                    "global_name": "Akezz",
+                    "avatar_decoration_data": {
+                        "asset": "a_2a1b840bb86581cea41005faa75355a3",
+                        "sku_id": "1386849676875141292",
+                        "expires_at": null
+                    },
+                    "collectibles": {
+                        "nameplate": {
+                            "sku_id": "1417311919454425269",
+                            "asset": "nameplates/nameplate_bonanza/the_same_duck/",
+                            "label": "COLLECTIBLES_NAMEPLATE_BONANZA_THE_SAME_DUCK_NP_A11Y",
+                            "palette": "forest"
+                        }
+                    },
+                    "display_name_styles": {
+                        "font_id": 11,
+                        "effect_id": 2,
+                        "colors": [
+                            7183099,
+                            6082490
+                        ]
+                    },
+                    "banner_color": null,
+                    "clan": {
+                        "identity_guild_id": "809856101326913567",
+                        "identity_enabled": true,
+                        "tag": "Maji",
+                        "badge": "7f8f9af96f2a1549f4d7ba59fe43f44a"
+                    },
+                    "primary_guild": {
+                        "identity_guild_id": "809856101326913567",
+                        "identity_enabled": true,
+                        "tag": "Maji",
+                        "badge": "7f8f9af96f2a1549f4d7ba59fe43f44a"
+                    }
+                },
+                "mute": false,
+                "deaf": false
+            },
+            "source_invite_code": "mTSUVrS2",
+            "join_source_type": 0,
+            "inviter_id": null,
+            "join_source_application_id": null,
+            "join_source_channel_id": null
+        },
+        {
+            "member": {
+                "avatar": null,
+                "banner": null,
+                "communication_disabled_until": null,
+                "flags": 2,
+                "joined_at": "2023-09-16T15:52:07.752000+00:00",
+                "nick": "Olisbolis",
+                "pending": false,
+                "premium_since": null,
+                "roles": [
+                    "1148339024742854747",
+                    "1148338732089483285"
+                ],
+                "unusual_dm_activity_until": null,
+                "collectibles": null,
+                "display_name_styles": null,
+                "user": {
+                    "id": "142967549770989568",
+                    "username": "eggen4428",
+                    "avatar": "ce8f75c5e60de6af2f0f36c6652887be",
+                    "discriminator": "0",
+                    "public_flags": 0,
+                    "flags": 0,
+                    "banner": null,
+                    "accent_color": null,
+                    "global_name": "Eggen",
+                    "avatar_decoration_data": null,
+                    "collectibles": null,
+                    "display_name_styles": null,
+                    "banner_color": null,
+                    "clan": null,
+                    "primary_guild": null
+                },
+                "mute": false,
+                "deaf": false
+            },
+            "source_invite_code": "WZeRQhbK",
+            "join_source_type": 0,
+            "inviter_id": null,
+            "join_source_application_id": null,
+            "join_source_channel_id": null
+        },
+        {
+            "member": {
+                "avatar": null,
+                "banner": null,
+                "communication_disabled_until": null,
+                "flags": 0,
+                "joined_at": "2023-09-16T14:34:40.592000+00:00",
+                "nick": "ScotTheNuggie",
+                "pending": false,
+                "premium_since": null,
+                "roles": [
+                    "1148339024742854747",
+                    "1148338732089483285"
+                ],
+                "unusual_dm_activity_until": null,
+                "collectibles": null,
+                "display_name_styles": null,
+                "user": {
+                    "id": "1068268546460745899",
+                    "username": "bandofthehawk0844",
+                    "avatar": "7296576b6c0cceaa4219a11a55e33ae4",
+                    "discriminator": "0",
+                    "public_flags": 0,
+                    "flags": 0,
+                    "banner": null,
+                    "accent_color": null,
+                    "global_name": "Scott",
+                    "avatar_decoration_data": null,
+                    "collectibles": null,
+                    "display_name_styles": null,
+                    "banner_color": null,
+                    "clan": {
+                        "identity_guild_id": "754136780495650876",
+                        "identity_enabled": true,
+                        "tag": "DCAY",
+                        "badge": "63e73420b29232f4460f24dbdcfe36c5"
+                    },
+                    "primary_guild": {
+                        "identity_guild_id": "754136780495650876",
+                        "identity_enabled": true,
+                        "tag": "DCAY",
+                        "badge": "63e73420b29232f4460f24dbdcfe36c5"
+                    }
+                },
+                "mute": false,
+                "deaf": false
+            },
+            "source_invite_code": "D6ZqQFGk",
+            "join_source_type": 0,
+            "inviter_id": null,
+            "join_source_application_id": null,
+            "join_source_channel_id": null
+        },
+        {
+            "member": {
+                "avatar": null,
+                "banner": null,
+                "communication_disabled_until": null,
+                "flags": 2,
+                "joined_at": "2023-09-16T14:25:45.508000+00:00",
+                "nick": "FlyingFox",
+                "pending": false,
+                "premium_since": null,
+                "roles": [
+                    "1173388268776198154",
+                    "1148339024742854747",
+                    "1148338732089483285",
+                    "1234835712919081050"
+                ],
+                "unusual_dm_activity_until": null,
+                "collectibles": null,
+                "display_name_styles": null,
+                "user": {
+                    "id": "568523701801189379",
+                    "username": "sadielaura",
+                    "avatar": "e0a941483cebe0cdacd9a988d06657dc",
+                    "discriminator": "0",
+                    "public_flags": 0,
+                    "flags": 0,
+                    "banner": null,
+                    "accent_color": null,
+                    "global_name": "SadieLaura",
+                    "avatar_decoration_data": null,
+                    "collectibles": null,
+                    "display_name_styles": null,
+                    "banner_color": null,
+                    "clan": null,
+                    "primary_guild": null
+                },
+                "mute": false,
+                "deaf": false
+            },
+            "source_invite_code": "fPRnaVg6",
+            "join_source_type": 0,
+            "inviter_id": null,
+            "join_source_application_id": null,
+            "join_source_channel_id": null
+        },
+        {
+            "member": {
+                "avatar": null,
+                "banner": null,
+                "communication_disabled_until": null,
+                "flags": 0,
+                "joined_at": "2023-09-06T12:47:38.635000+00:00",
+                "nick": null,
+                "pending": false,
+                "premium_since": null,
+                "roles": [
+                    "1148339024742854747",
+                    "1148338732089483285"
+                ],
+                "unusual_dm_activity_until": null,
+                "collectibles": null,
+                "display_name_styles": null,
+                "user": {
+                    "id": "107048867249283072",
+                    "username": "the7killer.",
+                    "avatar": "6aa902c25c4e7acc05be68c10f5b796f",
+                    "discriminator": "0",
+                    "public_flags": 0,
+                    "flags": 0,
+                    "banner": null,
+                    "accent_color": null,
+                    "global_name": "The7killer",
+                    "avatar_decoration_data": null,
+                    "collectibles": null,
+                    "display_name_styles": null,
+                    "banner_color": null,
+                    "clan": null,
+                    "primary_guild": null
+                },
+                "mute": false,
+                "deaf": false
+            },
+            "source_invite_code": "srWkZG4T",
+            "join_source_type": 0,
+            "inviter_id": null,
+            "join_source_application_id": null,
+            "join_source_channel_id": null
+        },
+        {
+            "member": {
+                "avatar": null,
+                "banner": null,
+                "communication_disabled_until": null,
+                "flags": 0,
+                "joined_at": "2023-09-06T11:33:12.226000+00:00",
+                "nick": "Tolerant",
+                "pending": false,
+                "premium_since": null,
+                "roles": [
+                    "1148339024742854747"
+                ],
+                "unusual_dm_activity_until": null,
+                "collectibles": null,
+                "display_name_styles": null,
+                "user": {
+                    "id": "275366499303292928",
+                    "username": "tolerantmindworks",
+                    "avatar": "d76e95313cdebfd3f0e365c076e394a5",
+                    "discriminator": "0",
+                    "public_flags": 0,
+                    "flags": 0,
+                    "banner": null,
+                    "accent_color": null,
+                    "global_name": "TolerantMindworks",
+                    "avatar_decoration_data": null,
+                    "collectibles": null,
+                    "display_name_styles": null,
+                    "banner_color": null,
+                    "clan": null,
+                    "primary_guild": null
+                },
+                "mute": false,
+                "deaf": false
+            },
+            "source_invite_code": "pxRErZBm",
+            "join_source_type": 0,
+            "inviter_id": null,
+            "join_source_application_id": null,
+            "join_source_channel_id": null
+        },
+        {
+            "member": {
+                "avatar": null,
+                "banner": null,
+                "communication_disabled_until": null,
+                "flags": 0,
+                "joined_at": "2023-09-06T07:29:39.577000+00:00",
+                "nick": null,
+                "pending": false,
+                "premium_since": null,
+                "roles": [
+                    "1173388268776198154",
+                    "1148339024742854747",
+                    "1148338732089483285"
+                ],
+                "unusual_dm_activity_until": null,
+                "collectibles": null,
+                "display_name_styles": null,
+                "user": {
+                    "id": "898859009753362492",
+                    "username": "abdulkebabmaker",
+                    "avatar": "dc10d5703fae358614cbf1787da22eca",
+                    "discriminator": "0",
+                    "public_flags": 0,
+                    "flags": 0,
+                    "banner": null,
+                    "accent_color": null,
+                    "global_name": "Jhin",
+                    "avatar_decoration_data": {
+                        "asset": "a_be6c77adcaa4aa3ed641f6c78de0dbb8",
+                        "sku_id": "1432427447093039205",
+                        "expires_at": 1768003200
+                    },
+                    "collectibles": null,
+                    "display_name_styles": null,
+                    "banner_color": null,
+                    "clan": {
+                        "identity_guild_id": "1290755608412291134",
+                        "identity_enabled": true,
+                        "tag": "MOBS",
+                        "badge": "8084d59ab2c97476363c0eb9c88c8486"
+                    },
+                    "primary_guild": {
+                        "identity_guild_id": "1290755608412291134",
+                        "identity_enabled": true,
+                        "tag": "MOBS",
+                        "badge": "8084d59ab2c97476363c0eb9c88c8486"
+                    }
+                },
+                "mute": false,
+                "deaf": false
+            },
+            "source_invite_code": "phy8bM2m",
+            "join_source_type": 0,
+            "inviter_id": null,
+            "join_source_application_id": null,
+            "join_source_channel_id": null
+        },
+        {
+            "member": {
+                "avatar": null,
+                "banner": null,
+                "communication_disabled_until": null,
+                "flags": 0,
+                "joined_at": "2023-09-05T01:20:04.669000+00:00",
+                "nick": "Bogey (Xerxes)",
+                "pending": false,
+                "premium_since": null,
+                "roles": [
+                    "1148339024742854747",
+                    "1148338732089483285",
+                    "1148338895633788959"
+                ],
+                "unusual_dm_activity_until": null,
+                "collectibles": null,
+                "display_name_styles": null,
+                "user": {
+                    "id": "279862240004407301",
+                    "username": "aeeraeluqre",
+                    "avatar": "7cc3613d639bf8a997128e0a67d6bc7b",
+                    "discriminator": "0",
+                    "public_flags": 0,
+                    "flags": 0,
+                    "banner": null,
+                    "accent_color": null,
+                    "global_name": "Aeeraeluqre",
+                    "avatar_decoration_data": null,
+                    "collectibles": null,
+                    "display_name_styles": null,
+                    "banner_color": null,
+                    "clan": null,
+                    "primary_guild": null
+                },
+                "mute": false,
+                "deaf": false
+            },
+            "source_invite_code": "WDnJcuaY",
+            "join_source_type": 0,
+            "inviter_id": null,
+            "join_source_application_id": null,
+            "join_source_channel_id": null
+        },
+        {
+            "member": {
+                "avatar": null,
+                "banner": null,
+                "communication_disabled_until": null,
+                "flags": 2,
+                "joined_at": "2023-09-04T18:14:09.331000+00:00",
+                "nick": "Mushle~",
+                "pending": false,
+                "premium_since": null,
+                "roles": [
+                    "1148339024742854747",
+                    "1148338732089483285"
+                ],
+                "unusual_dm_activity_until": null,
+                "collectibles": null,
+                "display_name_styles": null,
+                "user": {
+                    "id": "1147089848423952425",
+                    "username": "mushle_",
+                    "avatar": "deda738c40d4732febcbba367040e840",
+                    "discriminator": "0",
+                    "public_flags": 0,
+                    "flags": 0,
+                    "banner": null,
+                    "accent_color": null,
+                    "global_name": "Mushy",
+                    "avatar_decoration_data": null,
+                    "collectibles": null,
+                    "display_name_styles": null,
+                    "banner_color": null,
+                    "clan": null,
+                    "primary_guild": null
+                },
+                "mute": false,
+                "deaf": false
+            },
+            "source_invite_code": "phy8bM2m",
+            "join_source_type": 0,
+            "inviter_id": null,
+            "join_source_application_id": null,
+            "join_source_channel_id": null
+        },
+        {
+            "member": {
+                "avatar": null,
+                "banner": null,
+                "communication_disabled_until": null,
+                "flags": 0,
+                "joined_at": "2023-09-04T16:49:24.880000+00:00",
+                "nick": "Sarah\ud83e\udd5e\u2744",
+                "pending": false,
+                "premium_since": null,
+                "roles": [
+                    "1153766929115402337",
+                    "1148338732089483285",
+                    "1441629741882019974",
+                    "1148338895633788959"
+                ],
+                "unusual_dm_activity_until": null,
+                "collectibles": null,
+                "display_name_styles": null,
+                "user": {
+                    "id": "260093347098656770",
+                    "username": "vaxeifangirl",
+                    "avatar": "7374eecd1e1bcece5efaf26ceb9758ae",
+                    "discriminator": "0",
+                    "public_flags": 64,
+                    "flags": 64,
+                    "banner": null,
+                    "accent_color": null,
+                    "global_name": "\u997c\u5b50 \ud83c\udfb7\ud83d\udc1b",
+                    "avatar_decoration_data": {
+                        "asset": "a_950aea7686c5674b4e2f5df0830d153b",
+                        "sku_id": "1144057737475534889",
+                        "expires_at": null
+                    },
+                    "collectibles": null,
+                    "display_name_styles": null,
+                    "banner_color": null,
+                    "clan": {
+                        "identity_guild_id": "237671001096192001",
+                        "identity_enabled": true,
+                        "tag": "BMC",
+                        "badge": "6473797948e6d36a991e425c8b7c353c"
+                    },
+                    "primary_guild": {
+                        "identity_guild_id": "237671001096192001",
+                        "identity_enabled": true,
+                        "tag": "BMC",
+                        "badge": "6473797948e6d36a991e425c8b7c353c"
+                    }
+                },
+                "mute": false,
+                "deaf": false
+            },
+            "source_invite_code": "phy8bM2m",
+            "join_source_type": 0,
+            "inviter_id": null,
+            "join_source_application_id": null,
+            "join_source_channel_id": null
+        },
+        {
+            "member": {
+                "avatar": null,
+                "banner": null,
+                "communication_disabled_until": null,
+                "flags": 2,
+                "joined_at": "2023-09-04T16:17:08.998000+00:00",
+                "nick": "Thorny Jas",
+                "pending": false,
+                "premium_since": "2025-10-22T11:51:10.283000+00:00",
+                "roles": [
+                    "1441629741882019974",
+                    "1161035196112568454",
+                    "1148339024742854747",
+                    "1208722200501162095",
+                    "1148338732089483285",
+                    "1234835712919081050",
+                    "1419631966965207163"
+                ],
+                "unusual_dm_activity_until": null,
+                "collectibles": null,
+                "display_name_styles": {
+                    "font_id": 10,
+                    "effect_id": 4,
+                    "colors": [
+                        1726770
+                    ]
+                },
+                "user": {
+                    "id": "361732550106021890",
+                    "username": "nomadicjas",
+                    "avatar": "96dd473c479a421e0f74c0ed560a87d0",
+                    "discriminator": "0",
+                    "public_flags": 256,
+                    "flags": 256,
+                    "banner": null,
+                    "accent_color": null,
+                    "global_name": "Thorny Jas",
+                    "avatar_decoration_data": null,
+                    "collectibles": null,
+                    "display_name_styles": {
+                        "font_id": 7,
+                        "effect_id": 4,
+                        "colors": [
+                            1726770
+                        ]
+                    },
+                    "banner_color": null,
+                    "clan": {
+                        "identity_guild_id": "348060277989965844",
+                        "identity_enabled": true,
+                        "tag": "ANVL",
+                        "badge": "2d9908aeb26b0c8d246dbd97f8258a72"
+                    },
+                    "primary_guild": {
+                        "identity_guild_id": "348060277989965844",
+                        "identity_enabled": true,
+                        "tag": "ANVL",
+                        "badge": "2d9908aeb26b0c8d246dbd97f8258a72"
+                    }
+                },
+                "mute": false,
+                "deaf": false
+            },
+            "source_invite_code": null,
+            "join_source_type": 0,
+            "inviter_id": null,
+            "join_source_application_id": null,
+            "join_source_channel_id": null
+        }
+    ],
+    "page_result_count": 98,
+    "total_result_count": 98
+}

@@ -32,6 +32,9 @@ client.on('messageCreate', async message => {
             case `${COMMAND_OPERATOR}help`:
                 await handleHelp(message);
                 break;
+            case `${COMMAND_OPERATOR}members`:
+                await handleMembers(message);
+                break;
             default:
                 if (message.content.startsWith(`${COMMAND_OPERATOR}xemidan`))
                     await handleXemidan(message)
@@ -114,28 +117,28 @@ async function handleGPTResponse(message, mode = 'drama') {
     }
 }
 
-async function respondTo(targetMessage, mode = 'drama', modifiers = null) {
+async function respondTo(message, mode = 'drama', modifiers = null) {
     switch (mode) {
         case 'drama':
-            await respondWithDrama(targetMessage);
+            await respondWithDrama(message);
             break;
         case 'sweet':
-            await respondWithSweetness(targetMessage);
+            await respondWithSweetness(message);
             break;
         case 'jas':
-            await respondWithJas(targetMessage, modifiers);
+            await respondWithJas(message, modifiers);
             break;
     }
 }
 
-async function respondWithJas(targetMessage, modifiers = null) {
+async function respondWithJas(message, modifiers = null) {
     // Send a temporary reply to let user know generation is in progress
     //const placeholderMessage = await targetMessage.channel.send(prompts.placeholderMessage);
 
     try {
 
-        const friend = targetMessage.author;
-        const targetContent = targetMessage.content;
+        const friend = message.author;
+        const targetContent = message.content;
 
         const prompt = prompts.buildJasPrompt(targetContent, friend.username);
         console.log('Jas Prompt:', prompt);
@@ -149,14 +152,14 @@ async function respondWithJas(targetMessage, modifiers = null) {
         // Split responses if OpenAI returns multiple lines
         const responses = generatedText.split(/\n/).filter(line => line.trim().length > 0);
 
-        await targetMessage.channel.send({
+        await message.channel.send({
             content: `${responses[0]}`,
-            reply: { messageReference: targetMessage.id }
+            reply: { messageReference: message.id }
         });
 
         // Post the rest normally with small delays
         for (let i = 1; i < responses.length; i++) {
-            await targetMessage.channel.send(`${responses[i]}`);
+            await message.channel.send(`${responses[i]}`);
             await new Promise(r => setTimeout(r, 1000 + Math.random() * 2000));
         }
     } catch (err) {
@@ -165,14 +168,14 @@ async function respondWithJas(targetMessage, modifiers = null) {
     }
 }
 
-async function respondWithDrama(targetMessage) {
+async function respondWithDrama(message) {
     // Send a temporary reply to let user know generation is in progress
-    const placeholderMessage = await targetMessage.channel.send(prompts.placeholderMessage);
+    const placeholderMessage = await message.channel.send(prompts.placeholderMessage);
 
     try {
 
-        const offender = targetMessage.author;
-        const targetContent = targetMessage.content;
+        const offender = message.author;
+        const targetContent = message.content;
 
         const prompt = prompts.buildDramaPrompt(targetContent, offender.username);
         const generatedText = await llms.callAzureOpenAI(prompt);
@@ -185,14 +188,14 @@ async function respondWithDrama(targetMessage) {
         // Split responses if OpenAI returns multiple lines
         const responses = generatedText.split(/\n/).filter(line => line.trim().length > 0);
 
-        await targetMessage.channel.send({
+        await message.channel.send({
             content: `${responses[0]}`,
-            reply: { messageReference: targetMessage.id }
+            reply: { messageReference: message.id }
         });
 
         // Post the rest normally with small delays
         for (let i = 1; i < responses.length; i++) {
-            await targetMessage.channel.send(`${responses[i]}`);
+            await message.channel.send(`${responses[i]}`);
             await new Promise(r => setTimeout(r, 1000 + Math.random() * 2000));
         }
     } catch (err) {
@@ -201,14 +204,14 @@ async function respondWithDrama(targetMessage) {
     }
 }
 
-async function respondWithSweetness(targetMessage) {
+async function respondWithSweetness(message) {
     // Send a temporary reply to let user know generation is in progress
-    const placeholderMessage = await targetMessage.channel.send("Get ready... ⏳");
+    const placeholderMessage = await message.channel.send("Get ready... ⏳");
 
     try {
 
-        const offender = targetMessage.author;
-        const targetContent = targetMessage.content;
+        const offender = message.author;
+        const targetContent = message.content;
 
         console.log('targetContent:', targetContent);
 
@@ -254,19 +257,42 @@ sweet and playful, but only use the user's name in the first reply.
         // Split responses if OpenAI returns multiple lines
         const responses = generatedText.split(/\n/).filter(line => line.trim().length > 0);
 
-        await targetMessage.channel.send({
+        await message.channel.send({
             content: `${responses[0]}`,
-            reply: { messageReference: targetMessage.id }
+            reply: { messageReference: message.id }
         });
 
         // Post the rest normally with small delays
         for (let i = 1; i < responses.length; i++) {
-            await targetMessage.channel.send(`${responses[i]}`);
+            await message.channel.send(`${responses[i]}`);
             await new Promise(r => setTimeout(r, 1000 + Math.random() * 2000));
         }
     } catch (err) {
         console.error(err);
         await placeholderMessage.edit(`Error generating code: ${err.message}`);
+    }
+}
+
+async function handleMembers(message) {
+    // Read the JSON file
+    const rawData = fs.readFileSync('data/members.json', 'utf8');
+    const data = JSON.parse(rawData);
+
+    // Extract usernames
+    const usernames = data.members.map(m => m.member.user.username);
+
+    // Discord messages have a 2000 character limit, so we split if needed
+    const chunkSize = 1900; // leave room for formatting
+    let chunk = '';
+    for (const name of usernames) {
+        if ((chunk + name + '\n').length > chunkSize) {
+            await message.channel.send('```' + chunk + '```');
+            chunk = '';
+        }
+        chunk += name + '\n';
+    }
+    if (chunk.length > 0) {
+        await message.channel.send('```' + chunk + '```');
     }
 }
 
