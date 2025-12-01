@@ -3,7 +3,7 @@ const client = require('./discordClient');
 const server = require('./web/server');
 const commands = require("./commands.js");
 const axios = require('axios');
-const prompts = require("./prompts.js");
+const prompts = require("./data/prompts.js");
 const { buildLLMPrompt } = require('./promptBuilder');
 
 const COMMAND_OPERATOR = '$'
