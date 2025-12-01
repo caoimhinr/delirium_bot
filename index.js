@@ -5,6 +5,7 @@ const commands = require("./commands.js");
 const axios = require('axios');
 const prompts = require("./data/prompts.js");
 const llms = require('./llm/endpoints.js');
+const fs = require('fs');
 const { buildLLMPrompt } = require('./promptBuilder');
 
 const COMMAND_OPERATOR = '$'
