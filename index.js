@@ -3,6 +3,7 @@ const client = require('./discordClient');
 const server = require('./web/server');
 const commands = require("./commands.js");
 const axios = require('axios');
+const prompts = require("./prompts.js");
 const { buildLLMPrompt } = require('./promptBuilder');
 
 const COMMAND_OPERATOR = '$'
@@ -133,17 +134,17 @@ async function respondWithDrama(targetMessage) {
         console.log('targetContent:', targetContent);
 
         // Build prompt for Azure OpenAI
-        const prompt = `
-You are a dramatic and sassy Discord bot. 
-You see the following message from a user:
+//         const prompt = `
+// You are a dramatic and sassy Discord bot. 
+// You see the following message from a user:
 
-"${targetContent}" 
+// "${targetContent}" 
 
-Generate 2 to 3 short antagonizing replies directed at the user ${offender.username}, 
-as if you are taking offense to what they said. Each reply should be one sentence, 
-funny and playful, but only use the user's name in the first reply. Use :axe:, :beaver: and :maple_leaf: emojis where appropriate.
-`;
-
+// Generate 2 to 3 short antagonizing replies directed at the user ${offender.username}, 
+// as if you are taking offense to what they said. Each reply should be one sentence, 
+// funny and playful, but only use the user's name in the first reply. Use :axe:, :beaver: and :maple_leaf: emojis where appropriate.
+// `;
+const prompt = prompts.buildDramaPrompt(targetContent, offender.username);
         // Call Azure OpenAI
         const response = await axios.post(
             process.env.AZURE_OPENAI_ENDPOINT,
