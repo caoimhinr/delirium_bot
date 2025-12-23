@@ -46,6 +46,8 @@ client.on('messageCreate', async message => {
                     await handleGPTResponse(message, 'drama')
                 if (message.content.startsWith(`${COMMAND_OPERATOR}sweet`))
                     await handleGPTResponse(message, 'sweet')
+                if (message.content.startsWith(`${COMMAND_OPERATOR}pricecheck`))
+                    await handlePriceCheck(message);
         }
     }
 });
@@ -61,7 +63,7 @@ async function handlePriceCheck(message) {
     const messageThread = message.channel.isThread() ? message.channel : null;
     const steamLinkRegex = /https?:\/\/store\.steampowered\.com\/app\/(\d+)/gi;
     let targetMessage = message;
-    
+
     if (message.reference) {
         targetMessage = await message.channel.messages.fetch(message.reference.messageId);
     }
