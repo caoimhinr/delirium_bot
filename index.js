@@ -72,6 +72,8 @@ async function handlePriceCheck(message) {
             console.log(`Found Steam app ID: ${appId}`);
             const price = await getSteamPrice(appId);
             message.channel.send(`Current price for this game: ${price}`);
+            const low = await getHistoricalLow(appId);
+            message.channel.send(`Historical low for this game: ${low}`);
         });
     }
     return;
@@ -83,31 +85,67 @@ async function handlePriceCheck(message) {
 }
 
 async function getSteamPrice(appId) {
-    const url = "https://store.steampowered.com/api/appdetails";
-
-    const response = await axios.get(url, {
-        params: {
-            appids: appId,
-            cc: "be", // 🇪🇺 Germany (EUR)
-            l: "en"
+    const response = await axios.get(
+        "https://store.steampowered.com/api/appdetails",
+        {
+            params: {
+                appids: appId,
+                cc: "de", // 🇪🇺 Germany (EUR)
+                l: "en"
+            }
         }
-    });
+    );
 
     const appData = response.data[appId];
 
     if (!appData || !appData.success) {
-        return "Unavailable";
+        return {
+            text: "Unavailable"
+        };
     }
 
     const priceInfo = appData.data.price_overview;
 
     if (!priceInfo) {
-        return "Free or not for sale";
+        return {
+            text: "Free or not for sale"
+        };
     }
 
-    return `${(priceInfo.final / 100).toFixed(2)} ${priceInfo.currency}`;
+    const finalPrice = (priceInfo.final / 100).toFixed(2);
+    const originalPrice = (priceInfo.initial / 100).toFixed(2);
+    const discount = priceInfo.discount_percent;
+
+    return {
+        text:
+            discount > 0
+                ? `~~${originalPrice}~~ **${finalPrice} ${priceInfo.currency}** (-${discount}%)`
+                : `**${finalPrice} ${priceInfo.currency}**`,
+        discount
+    };
 }
 
+async function getHistoricalLow(appId) {
+    const response = await axios.get(
+        "https://api.isthereanydeal.com/v01/game/lowest/",
+        {
+            params: {
+                key: process.env.ITAD_API_KEY,
+                plains: `steam:${appId}`,
+                country: "DE"
+            }
+        }
+    );
+
+    const data = response.data.data[`steam:${appId}`];
+
+    if (!data) return null;
+
+    return {
+        price: data.price.toFixed(2),
+        currency: data.currency
+    };
+}
 
 async function handleHelp(message) {
     let helpText = "**Available Commands:**\n\n";
