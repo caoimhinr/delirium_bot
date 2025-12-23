@@ -19,7 +19,7 @@ You see this message from a user asking for a pricecheck on a game called ${game
 Generate 2–3 short antagonizing replies directed at ${offenderUsername},
 as if you’re belittling them for being interested in this game.
 Only use the username in the FIRST reply if necessary.
-Use the price info ${price} in your replies.
+Use the price info ${price} in your replies, but only once.
 `,
     buildJasPrompt: (targetContent, username, modifiers = null) => {
         let member = findMember(username);
