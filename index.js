@@ -5,7 +5,6 @@ const commands = require("./commands.js");
 const axios = require('axios');
 const prompts = require("./data/prompts.js");
 const llms = require('./llm/endpoints.js');
-const fetch = require('node-fetch');
 const fs = require('fs');
 const { buildLLMPrompt } = require('./promptBuilder');
 
@@ -83,15 +82,31 @@ async function handlePriceCheck(message) {
 }
 
 async function getSteamPrice(appId) {
-    const url = `https://store.steampowered.com/api/appdetails?appids=${appId}&cc=us&l=en`;
-    const res = await fetch(url);
-    const data = await res.json();
-    if (data[appId].success) {
-        const priceInfo = data[appId].data.price_overview;
-        return priceInfo ? `${priceInfo.final / 100} ${priceInfo.currency}` : 'Free or unavailable';
+    const url = "https://store.steampowered.com/api/appdetails";
+
+    const response = await axios.get(url, {
+        params: {
+            appids: appId,
+            cc: "be", // 🇪🇺 Germany (EUR)
+            l: "en"
+        }
+    });
+
+    const appData = response.data[appId];
+
+    if (!appData || !appData.success) {
+        return "Unavailable";
     }
-    return 'Could not fetch price';
+
+    const priceInfo = appData.data.price_overview;
+
+    if (!priceInfo) {
+        return "Free or not for sale";
+    }
+
+    return `${(priceInfo.final / 100).toFixed(2)} ${priceInfo.currency}`;
 }
+
 
 async function handleHelp(message) {
     let helpText = "**Available Commands:**\n\n";
