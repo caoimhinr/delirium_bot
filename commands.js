@@ -16,8 +16,12 @@ module.exports = {
         example: "$sweet 20"
     },
     members: {
-      description: "Lists all members from the server file.",
-        example: "$members"  
+        description: "Lists all members from the server file.",
+        example: "$members"
+    },
+    pricecheck: {
+        description: "Checks the price of a given item.",
+        example: "$pricecheck [item name]"
     },
     help: {
         description: "Shows this help menu.",

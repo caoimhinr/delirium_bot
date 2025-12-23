@@ -5,6 +5,7 @@ const commands = require("./commands.js");
 const axios = require('axios');
 const prompts = require("./data/prompts.js");
 const llms = require('./llm/endpoints.js');
+const fetch = require('node-fetch');
 const fs = require('fs');
 const { buildLLMPrompt } = require('./promptBuilder');
 
@@ -36,6 +37,9 @@ client.on('messageCreate', async message => {
             case `${COMMAND_OPERATOR}members`:
                 await handleMembers(message);
                 break;
+            case `${COMMAND_OPERATOR}pricecheck`:
+                await handlePriceCheck(message);
+                break;
             default:
                 if (message.content.startsWith(`${COMMAND_OPERATOR}xemidan`))
                     await handleXemidan(message)
@@ -51,6 +55,42 @@ client.login(process.env.DISCORD_TOKEN);
 
 async function handlePing(message) {
     message.channel.send('Pong!');
+}
+
+async function handlePriceCheck(message) {
+    const forumChannel = guild.channels.cache.get('1442337698470690917');
+    const messageThread = message.channel.isThread() ? message.channel : null;
+    const steamLinkRegex = /https?:\/\/store\.steampowered\.com\/app\/(\d+)/gi;
+
+    if (!message.reference) {
+        message.channel.send("Please reply to a message containing Steam links to check prices.");
+        return;
+    }
+
+    const matches = [...message.reference.content.matchAll(steamLinkRegex)];
+    matches.forEach(async match => {
+        const appId = match[1];
+        console.log(`Found Steam app ID: ${appId}`);
+        const price = await getSteamPrice(appId);
+        thread.send(`Current price for this game: ${price}`);
+    });
+    return;
+
+    const allThreads = await forumChannel.threads.fetchActive();
+    allThreads.forEach(async thread => {
+        await checkSteamContent(thread);
+    });
+}
+
+async function getSteamPrice(appId) {
+    const url = `https://store.steampowered.com/api/appdetails?appids=${appId}&cc=us&l=en`;
+    const res = await fetch(url);
+    const data = await res.json();
+    if (data[appId].success) {
+        const priceInfo = data[appId].data.price_overview;
+        return priceInfo ? `${priceInfo.final / 100} ${priceInfo.currency}` : 'Free or unavailable';
+    }
+    return 'Could not fetch price';
 }
 
 async function handleHelp(message) {
