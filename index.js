@@ -60,22 +60,22 @@ async function handlePriceCheck(message) {
     // const forumChannel = guild.channels.cache.get('1442337698470690917');
     const messageThread = message.channel.isThread() ? message.channel : null;
     const steamLinkRegex = /https?:\/\/store\.steampowered\.com\/app\/(\d+)/gi;
-
-    if (!message.reference) {
-        message.channel.send("Please reply to a message containing Steam links to check prices.");
-        return;
-    } else {
-        const targetMessage = await message.channel.messages.fetch(message.reference.messageId);
-        const matches = [...targetMessage.content.matchAll(steamLinkRegex)];
-        matches.forEach(async match => {
-            const appId = match[1];
-            console.log(`Found Steam app ID: ${appId}`);
-            const price = await getSteamPrice(appId);
-            message.channel.send(`Current price for this game: ${price.text}`);
-            // const low = await getHistoricalLow(appId);
-            // message.channel.send(`Historical low for this game: ${low}`);
-        });
+    let targetMessage = message;
+    
+    if (message.reference) {
+        targetMessage = await message.channel.messages.fetch(message.reference.messageId);
     }
+
+    const matches = [...targetMessage.content.matchAll(steamLinkRegex)];
+    matches.forEach(async match => {
+        const appId = match[1];
+        console.log(`Found Steam app ID: ${appId}`);
+        const price = await getSteamPrice(appId);
+        message.channel.send(`Current price for this game: ${price.text}`);
+        // const low = await getHistoricalLow(appId);
+        // message.channel.send(`Historical low for this game: ${low}`);
+    });
+
     return;
 
     const allThreads = await forumChannel.threads.fetchActive();
