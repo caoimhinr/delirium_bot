@@ -64,15 +64,16 @@ async function handlePriceCheck(message) {
     if (!message.reference) {
         message.channel.send("Please reply to a message containing Steam links to check prices.");
         return;
+    } else {
+        const targetMessage = await message.channel.messages.fetch(message.reference.messageId);
+        const matches = [...targetMessage.content.matchAll(steamLinkRegex)];
+        matches.forEach(async match => {
+            const appId = match[1];
+            console.log(`Found Steam app ID: ${appId}`);
+            const price = await getSteamPrice(appId);
+            message.channel.send(`Current price for this game: ${price}`);
+        });
     }
-
-    const matches = [...message.reference.content.matchAll(steamLinkRegex)];
-    matches.forEach(async match => {
-        const appId = match[1];
-        console.log(`Found Steam app ID: ${appId}`);
-        const price = await getSteamPrice(appId);
-        thread.send(`Current price for this game: ${price}`);
-    });
     return;
 
     const allThreads = await forumChannel.threads.fetchActive();
