@@ -57,7 +57,7 @@ async function handlePing(message) {
 }
 
 async function handlePriceCheck(message) {
-    const forumChannel = guild.channels.cache.get('1442337698470690917');
+    // const forumChannel = guild.channels.cache.get('1442337698470690917');
     const messageThread = message.channel.isThread() ? message.channel : null;
     const steamLinkRegex = /https?:\/\/store\.steampowered\.com\/app\/(\d+)/gi;
 
