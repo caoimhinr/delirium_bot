@@ -71,9 +71,9 @@ async function handlePriceCheck(message) {
             const appId = match[1];
             console.log(`Found Steam app ID: ${appId}`);
             const price = await getSteamPrice(appId);
-            message.channel.send(`Current price for this game: ${price}`);
-            const low = await getHistoricalLow(appId);
-            message.channel.send(`Historical low for this game: ${low}`);
+            message.channel.send(`Current price for this game: ${price.text}`);
+            // const low = await getHistoricalLow(appId);
+            // message.channel.send(`Historical low for this game: ${low}`);
         });
     }
     return;
