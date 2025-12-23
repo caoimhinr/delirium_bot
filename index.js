@@ -45,8 +45,10 @@ client.on('messageCreate', async message => {
                 if (message.content.startsWith(`${COMMAND_OPERATOR}drama`))
                     await handleGPTResponse(message, 'drama')
                 if (message.content.startsWith(`${COMMAND_OPERATOR}sweet`))
-                    await handleGPTResponse(message, 'sweet')
-                if (message.content.startsWith(`${COMMAND_OPERATOR}pricecheck`))
+                    await handleGPTResponse(message, 'sweet')                
+                if (message.content.startsWith(`${COMMAND_OPERATOR}pricecheck drama`))
+                    await handlePriceCheck(message, true);
+                else if (message.content.startsWith(`${COMMAND_OPERATOR}pricecheck`))
                     await handlePriceCheck(message);
         }
     }
@@ -58,7 +60,7 @@ async function handlePing(message) {
     message.channel.send('Pong!');
 }
 
-async function handlePriceCheck(message) {
+async function handlePriceCheck(message, drama = false) {
     // const forumChannel = guild.channels.cache.get('1442337698470690917');
     const messageThread = message.channel.isThread() ? message.channel : null;
     const steamLinkRegex = /https?:\/\/store\.steampowered\.com\/app\/(\d+)/gi;
@@ -71,9 +73,45 @@ async function handlePriceCheck(message) {
     const matches = [...targetMessage.content.matchAll(steamLinkRegex)];
     matches.forEach(async match => {
         const appId = match[1];
-        console.log(`Found Steam app ID: ${appId}`);
         const price = await getSteamPrice(appId);
-        message.channel.send(`Current price for this game: ${price.text}`);
+        if (!drama)
+            message.channel.send(`Current price for this game: ${price.text}`);
+        else {
+            const placeholderMessage = await message.channel.send(prompts.placeholderMessage);
+
+            try {
+
+                const offender = message.author;
+                const gameName = price.data.name;
+                const gameDesc = stripHtml(price.data.detailed_description);
+
+                const prompt = prompts.buildPriceCheckPrompt(offender.username, gameName, gameDesc, price.text);
+                const generatedText = await llms.callAzureOpenAI(prompt);
+                await placeholderMessage.delete().catch(() => { });
+
+                if (!generatedText) {
+                    return message.channel.send(prompts.backupMessage);
+                }
+
+                // Split responses if OpenAI returns multiple lines
+                const responses = generatedText.split(/\n/).filter(line => line.trim().length > 0);
+
+                await message.channel.send({
+                    content: `${responses[0]}`,
+                    reply: { messageReference: message.id }
+                });
+
+                // Post the rest normally with small delays
+                for (let i = 1; i < responses.length; i++) {
+                    await message.channel.send(`${responses[i]}`);
+                    await new Promise(r => setTimeout(r, 1000 + Math.random() * 2000));
+                }
+            } catch (err) {
+                console.error(err);
+                await placeholderMessage.edit(`Error generating code: ${err.message}`);
+            }
+        }
+
         // const low = await getHistoricalLow(appId);
         // message.channel.send(`Historical low for this game: ${low}`);
     });
@@ -84,6 +122,12 @@ async function handlePriceCheck(message) {
     allThreads.forEach(async thread => {
         await checkSteamContent(thread);
     });
+}
+
+function stripHtml(html) {
+    if (!html) return '';
+    // Replace all tags with nothing
+    return html.replace(/<[^>]*>/g, '').replace(/\s+/g, ' ').trim();
 }
 
 async function getSteamPrice(appId) {
@@ -123,7 +167,8 @@ async function getSteamPrice(appId) {
             discount > 0
                 ? `~~${originalPrice}~~ **${finalPrice} ${priceInfo.currency}** (-${discount}%)`
                 : `**${finalPrice} ${priceInfo.currency}**`,
-        discount
+        discount,
+        data: appData.data
     };
 }
 

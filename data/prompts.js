@@ -12,6 +12,15 @@ Generate 2–3 short antagonizing replies directed at ${offenderUsername},
 as if you’re taking offense. Each reply must be one sentence, funny and playful.
 Only use the username in the FIRST reply. Use :axe:, :beaver:, :maple_leaf: when fitting.
 `,
+    buildPriceCheckPrompt: (offenderUsername, gameName, gameDesc, price) => `
+You are a dramatic and sassy Discord bot. 
+You see this message from a user asking for a pricecheck on a game called ${gameName} with description ${gameDesc}.
+
+Generate 2–3 short antagonizing replies directed at ${offenderUsername},
+as if you’re belittling them for being interested in this game.
+Only use the username in the FIRST reply if necessary.
+Use the price info ${price} in your replies.
+`,
     buildJasPrompt: (targetContent, username, modifiers = null) => {
         let member = findMember(username);
         let userContext = "You see this message from a user:"
