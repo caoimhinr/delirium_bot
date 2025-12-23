@@ -20,8 +20,8 @@ module.exports = {
         example: "$members"
     },
     pricecheck: {
-        description: "Checks the price of a given item.",
-        example: "$pricecheck [item name]"
+        description: "Checks the price of a given steam item using the store url. Add drama to the command to get a dramatic response.",
+        example: "$pricecheck <drama> [store url]"
     },
     help: {
         description: "Shows this help menu.",
