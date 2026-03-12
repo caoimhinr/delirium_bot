@@ -237,22 +237,36 @@ async function waitForActionSelection(promptMessage, channel, userId, emojiOptio
 async function waitForSpecificReaction(message, userId, emojiOptions) {
     const normalizedOptions = emojiOptions.map(normalizeEmoji);
 
-    try {
-        const reactionCollection = await message.awaitReactions({
-            filter: (reaction, user) => {
-                const normalizedReaction = normalizeEmoji(reaction.emoji.name || '');
-                return user.id === userId && normalizedOptions.includes(normalizedReaction);
-            },
-            max: 1,
-            time: 120000,
-            errors: ['time']
+    const collector = message.createReactionCollector({
+        filter: (reaction, user) => {
+            const normalizedReaction = normalizeEmoji(reaction.emoji.name || '');
+            return !user.bot && normalizedOptions.includes(normalizedReaction);
+        },
+        time: 120000
+    });
+
+    return new Promise(resolve => {
+        let settled = false;
+
+        collector.on('collect', async (reaction, user) => {
+            if (user.id !== userId) {
+                await reaction.users.remove(user.id).catch(() => {});
+                return;
+            }
+
+            if (settled) return;
+            settled = true;
+            collector.stop('selected');
+            resolve(reaction.emoji.name || null);
         });
 
-        const reaction = reactionCollection.first();
-        return reaction?.emoji?.name || null;
-    } catch {
-        return null;
-    }
+        collector.on('end', (_, reason) => {
+            if (settled) return;
+            settled = true;
+            if (reason === 'time') resolve(null);
+            else resolve(null);
+        });
+    });
 }
 
 function normalizeEmoji(value) {
@@ -286,9 +300,8 @@ async function waitForDescriptionOrSkip(promptMessage, channel, userId) {
         const reactionCollector = promptMessage.createReactionCollector({
             filter: (reaction, user) => {
                 const normalizedReaction = normalizeEmoji(reaction.emoji.name || '');
-                return user.id === userId && [normalizeEmoji(checkEmoji), normalizeEmoji(cancelEmoji)].includes(normalizedReaction);
+                return !user.bot && [normalizeEmoji(checkEmoji), normalizeEmoji(cancelEmoji)].includes(normalizedReaction);
             },
-            max: 1,
             time: 120000
         });
 
@@ -298,7 +311,12 @@ async function waitForDescriptionOrSkip(promptMessage, channel, userId) {
             time: 120000
         });
 
-        reactionCollector.on('collect', reaction => {
+        reactionCollector.on('collect', async (reaction, user) => {
+            if (user.id !== userId) {
+                await reaction.users.remove(user.id).catch(() => {});
+                return;
+            }
+
             if (finished) return;
             finished = true;
             cleanup();
