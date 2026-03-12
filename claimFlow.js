@@ -21,7 +21,7 @@ async function startClaimFlow(message) {
     const prompt = await message.channel.send({
         content: [
             `## Claim registration for ${message.author.username}`,
-            'React to choose an event:',
+            'Reply with the number of the event you want to claim, or react to choose:',
             ...events.map((event, index) => `${index + 1}. ${event.name}`),
             '',
             'Use ❌ to cancel.'
@@ -30,11 +30,11 @@ async function startClaimFlow(message) {
 
     const maxOptions = Math.min(events.length, numberEmojis.length);
     for (let i = 0; i < maxOptions; i++) {
-        await prompt.react(numberEmojis[i]);
+        await prompt.react(numberEmojis[i]).catch(err => console.error('Failed to add reaction:', err.message));
     }
-    await prompt.react(cancelEmoji);
+    await prompt.react(cancelEmoji).catch(err => console.error('Failed to add cancel reaction:', err.message));
 
-    const selectedIndex = await waitForReactionChoice(prompt, message.author.id, maxOptions);
+    const selectedIndex = await waitForEventSelection(prompt, message.channel, message.author.id, maxOptions);
     if (selectedIndex === null) {
         await message.channel.send('Claim flow cancelled or timed out.');
         return;
@@ -70,22 +70,22 @@ async function startClaimFlow(message) {
                 `You already have ${existingClaims.length} claim(s) for **${selectedEvent.name}** as yourself or your guild.`,
                 ...existingClaims.map(claim => `• #${claim.id} — Phase ${claim.phase} — ${claim.description || 'No description'}`),
                 '',
-                `React ${editEmoji} to edit your latest claim or ${plusEmoji} to create a new one.`,
-                `React ${cancelEmoji} to cancel.`
+                `Reply \`edit\` to edit your latest claim, \`new\` to create a new one, or react with ${editEmoji}/${plusEmoji}.`,
+                `React ${cancelEmoji} or reply \`cancel\` to cancel.`
             ].join('\n')
         });
 
-        await existingPrompt.react(editEmoji);
-        await existingPrompt.react(plusEmoji);
-        await existingPrompt.react(cancelEmoji);
+        await existingPrompt.react(editEmoji).catch(() => {});
+        await existingPrompt.react(plusEmoji).catch(() => {});
+        await existingPrompt.react(cancelEmoji).catch(() => {});
 
-        const action = await waitForSpecificReaction(existingPrompt, message.author.id, [editEmoji, plusEmoji, cancelEmoji]);
-        if (!action || action === cancelEmoji) {
+        const action = await waitForActionSelection(existingPrompt, message.channel, message.author.id, [editEmoji, plusEmoji, cancelEmoji]);
+        if (!action || action === cancelEmoji || action === 'cancel') {
             await message.channel.send('Claim flow cancelled.');
             return;
         }
 
-        if (action === editEmoji) {
+        if (action === editEmoji || action === 'edit') {
             claimToEdit = existingClaims[existingClaims.length - 1];
         }
     }
@@ -103,9 +103,9 @@ async function startClaimFlow(message) {
         return;
     }
 
-    const descriptionPrompt = await message.channel.send('Reply with a description for this claim, or react with ✅ on this message to skip the description.');
-    await descriptionPrompt.react(checkEmoji);
-    await descriptionPrompt.react(cancelEmoji);
+    const descriptionPrompt = await message.channel.send('Reply with a description for this claim, or react with ✅ on this message to skip the description. You can also reply `skip`.');
+    await descriptionPrompt.react(checkEmoji).catch(() => {});
+    await descriptionPrompt.react(cancelEmoji).catch(() => {});
 
     const descriptionResult = await waitForDescriptionOrSkip(descriptionPrompt, message.channel, message.author.id);
     if (!descriptionResult || descriptionResult.cancelled) {
@@ -148,12 +148,55 @@ function formatClaimsList(eventName, claims) {
     ].join('\n');
 }
 
-async function waitForReactionChoice(message, userId, optionCount) {
-    const validEmojis = numberEmojis.slice(0, optionCount);
-    const emoji = await waitForSpecificReaction(message, userId, [...validEmojis, cancelEmoji]);
+async function waitForEventSelection(promptMessage, channel, userId, optionCount) {
+    const reactionPromise = waitForSpecificReaction(promptMessage, userId, [...numberEmojis.slice(0, optionCount), cancelEmoji]);
+    const replyPromise = waitForReply(channel, userId);
 
-    if (!emoji || emoji === cancelEmoji) return null;
-    return validEmojis.findIndex(validEmoji => normalizeEmoji(validEmoji) === normalizeEmoji(emoji));
+    const result = await Promise.race([
+        reactionPromise.then(emoji => ({ type: 'reaction', value: emoji })),
+        replyPromise.then(msg => ({ type: 'reply', value: msg }))
+    ]);
+
+    if (!result) return null;
+
+    if (result.type === 'reaction') {
+        if (!result.value || normalizeEmoji(result.value) === normalizeEmoji(cancelEmoji)) return null;
+        return numberEmojis.slice(0, optionCount).findIndex(validEmoji => normalizeEmoji(validEmoji) === normalizeEmoji(result.value));
+    }
+
+    const content = result.value?.content?.trim().toLowerCase();
+    if (!content) return null;
+    if (content === 'cancel') return null;
+
+    const parsed = parseInt(content, 10);
+    if (Number.isInteger(parsed) && parsed >= 1 && parsed <= optionCount) {
+        return parsed - 1;
+    }
+
+    return null;
+}
+
+async function waitForActionSelection(promptMessage, channel, userId, emojiOptions) {
+    const reactionPromise = waitForSpecificReaction(promptMessage, userId, emojiOptions);
+    const replyPromise = waitForReply(channel, userId);
+
+    const result = await Promise.race([
+        reactionPromise.then(emoji => ({ type: 'reaction', value: emoji })),
+        replyPromise.then(msg => ({ type: 'reply', value: msg }))
+    ]);
+
+    if (!result) return null;
+
+    if (result.type === 'reaction') {
+        return result.value || null;
+    }
+
+    const content = result.value?.content?.trim().toLowerCase();
+    if (['edit', 'new', 'cancel'].includes(content)) {
+        return content;
+    }
+
+    return null;
 }
 
 async function waitForSpecificReaction(message, userId, emojiOptions) {
@@ -235,7 +278,14 @@ async function waitForDescriptionOrSkip(promptMessage, channel, userId) {
             if (finished) return;
             finished = true;
             cleanup();
-            resolve({ description: msg.content.trim() || null });
+            const value = msg.content.trim().toLowerCase();
+            if (value === 'cancel') {
+                resolve({ cancelled: true });
+            } else if (value === 'skip') {
+                resolve({ description: null });
+            } else {
+                resolve({ description: msg.content.trim() || null });
+            }
         });
 
         const timeout = () => {
