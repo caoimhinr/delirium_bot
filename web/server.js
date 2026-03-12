@@ -13,6 +13,7 @@ const SETTINGS_FILE = path.join(__dirname, 'guildSettings.json');
 const AUTHORIZED_MEMBERS_FILE = path.join(__dirname, '..', 'data', 'authorizedMembers.json');
 const ADMIN_ROLE_ID = process.env.ADMIN_ROLE_ID;
 const GUILD_ID = process.env.GUILD_ID;
+let client;
 
 passport.serializeUser((user, done) => done(null, user));
 passport.deserializeUser((obj, done) => done(null, obj));
@@ -30,6 +31,7 @@ function start(loggedInClient) {
     const app = express();
     const PORT = process.env.PORT || 3000;
 
+    app.set('trust proxy', 1);
     app.use(express.static(path.join(__dirname, 'public')));
     app.engine('html', require('ejs').renderFile);
     app.set('view engine', 'html');
@@ -40,7 +42,12 @@ function start(loggedInClient) {
     app.use(session({
         secret: process.env.SESSION_SECRET || 'keyboardcat',
         resave: false,
-        saveUninitialized: false
+        saveUninitialized: false,
+        cookie: {
+            httpOnly: true,
+            sameSite: 'lax',
+            secure: String(process.env.COOKIE_SECURE || '').toLowerCase() === 'true'
+        }
     }));
     app.use(passport.initialize());
     app.use(passport.session());
@@ -53,7 +60,12 @@ function start(loggedInClient) {
         (req, res) => res.redirect('/settings')
     );
     app.get('/logout', (req, res) => {
-        req.logout(() => res.redirect('/'));
+        req.logout(() => {
+            req.session.destroy(() => {
+                res.clearCookie('connect.sid');
+                res.redirect('/');
+            });
+        });
     });
 
     app.get('/settings', ensureAuthorized, async (req, res) => {
