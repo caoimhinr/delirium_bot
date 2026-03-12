@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>DeliriumBot Maintenance</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+    <h1>Maintenance</h1>
+    <p><a href="/settings">Settings</a> · <a href="/logout">Logout</a></p>
+
+    <div class="grid two-col">
+        <section class="panel">
+            <h2>Events</h2>
+            <form method="POST" action="/maintenance/events">
+                <label>Name</label>
+                <input type="text" name="name" required>
+                <button type="submit">Add Event</button>
+            </form>
+            <ul class="record-list">
+                <% events.forEach(event => { %>
+                    <li>
+                        <span>#<%= event.id %> — <%= event.name %></span>
+                        <form method="POST" action="/maintenance/events/<%= event.id %>/delete">
+                            <button type="submit" class="danger">Delete</button>
+                        </form>
+                    </li>
+                <% }) %>
+            </ul>
+        </section>
+
+        <section class="panel">
+            <h2>Guilds</h2>
+            <form method="POST" action="/maintenance/guilds">
+                <label>ID</label>
+                <input type="text" name="id" required>
+                <label>Name</label>
+                <input type="text" name="name" required>
+                <label>Server</label>
+                <input type="text" name="server" required>
+                <button type="submit">Save Guild</button>
+            </form>
+            <ul class="record-list">
+                <% guilds.forEach(guild => { %>
+                    <li>
+                        <span><%= guild.name %> (<%= guild.id %>) — <%= guild.server %></span>
+                        <form method="POST" action="/maintenance/guilds/<%= guild.id %>/delete">
+                            <button type="submit" class="danger">Delete</button>
+                        </form>
+                    </li>
+                <% }) %>
+            </ul>
+        </section>
+    </div>
+
+    <div class="grid two-col">
+        <section class="panel">
+            <h2>Members</h2>
+            <form method="POST" action="/maintenance/members">
+                <label>ID</label>
+                <input type="text" name="id" required>
+                <label>Guild ID</label>
+                <input type="text" name="guild_id">
+                <label>Name</label>
+                <input type="text" name="name" required>
+                <label>IGN</label>
+                <input type="text" name="ign">
+                <button type="submit">Save Member</button>
+            </form>
+            <ul class="record-list">
+                <% members.forEach(member => { %>
+                    <li>
+                        <span><%= member.name %> (<%= member.id %>) — Guild: <%= member.guild_name || member.guild_id || 'None' %> — IGN: <%= member.ign || 'N/A' %></span>
+                        <form method="POST" action="/maintenance/members/<%= member.id %>/delete">
+                            <button type="submit" class="danger">Delete</button>
+                        </form>
+                    </li>
+                <% }) %>
+            </ul>
+        </section>
+
+        <section class="panel">
+            <h2>Claims</h2>
+            <ul class="record-list">
+                <% claims.forEach(claim => { %>
+                    <li>
+                        <span>#<%= claim.id %> — <%= claim.event_name %> — <%= claim.guild_name %> / <%= claim.member_name %> — Phase <%= claim.phase %> — <%= claim.description || 'No description' %></span>
+                        <form method="POST" action="/maintenance/claims/<%= claim.id %>/delete">
+                            <button type="submit" class="danger">Delete</button>
+                        </form>
+                    </li>
+                <% }) %>
+            </ul>
+        </section>
+    </div>
+</body>
+</html>

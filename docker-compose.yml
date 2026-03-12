@@ -1,0 +1,42 @@
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: delirium-bot
+    restart: unless-stopped
+    env_file:
+      - .env
+    environment:
+      NODE_ENV: production
+      PORT: ${PORT:-3000}
+      DATABASE_URL: postgres://${POSTGRES_USER:-delirium}:${POSTGRES_PASSWORD:-delirium_password}@postgres:5432/${POSTGRES_DB:-delirium_bot}
+    depends_on:
+      postgres:
+        condition: service_healthy
+    ports:
+      - "${PORT:-3000}:${PORT:-3000}"
+    volumes:
+      - ./web/guildSettings.json:/app/web/guildSettings.json
+
+  postgres:
+    image: postgres:16-alpine
+    container_name: delirium-postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: ${POSTGRES_DB:-delirium_bot}
+      POSTGRES_USER: ${POSTGRES_USER:-delirium}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-delirium_password}
+    ports:
+      - "${POSTGRES_PORT:-5432}:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER:-delirium} -d ${POSTGRES_DB:-delirium_bot}"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 10s
+
+volumes:
+  postgres_data:

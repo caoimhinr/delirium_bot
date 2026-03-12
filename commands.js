@@ -23,9 +23,12 @@ module.exports = {
         description: "Checks the price of a given steam item using the store url. Add drama to the command to get a dramatic response.",
         example: "$pricecheck <drama> [store url]"
     },
+    claim: {
+        description: "Starts an interactive claim flow for an event using reactions and replies.",
+        example: "$claim"
+    },
     help: {
         description: "Shows this help menu.",
         example: "$help"
-    },
-    // Add more commands here in the same format
+    }
 };
