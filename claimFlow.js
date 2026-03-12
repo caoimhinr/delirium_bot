@@ -1,4 +1,3 @@
-const { Events } = require('discord.js');
 const claimService = require('./claimService');
 
 const numberEmojis = ['1️⃣', '2️⃣', '3️⃣', '4️⃣', '5️⃣', '6️⃣', '7️⃣', '8️⃣', '9️⃣', '🔟'];
@@ -15,7 +14,7 @@ async function startClaimFlow(message) {
 
     const events = await claimService.listEvents();
     if (!events.length) {
-        await message.reply('No events are configured yet.');
+        await message.reply('No events are configured yet. Add them in /maintenance first.');
         return;
     }
 
@@ -29,18 +28,24 @@ async function startClaimFlow(message) {
         ].join('\n')
     });
 
-    for (let i = 0; i < Math.min(events.length, numberEmojis.length); i++) {
+    const maxOptions = Math.min(events.length, numberEmojis.length);
+    for (let i = 0; i < maxOptions; i++) {
         await prompt.react(numberEmojis[i]);
     }
     await prompt.react(cancelEmoji);
 
-    const selectedIndex = await waitForReactionChoice(prompt, message.author.id, events.length);
+    const selectedIndex = await waitForReactionChoice(prompt, message.author.id, maxOptions);
     if (selectedIndex === null) {
         await message.channel.send('Claim flow cancelled or timed out.');
         return;
     }
 
     const selectedEvent = events[selectedIndex];
+    if (!selectedEvent) {
+        await message.channel.send('Invalid event selection.');
+        return;
+    }
+
     const guildId = message.guild.id;
     const guildName = message.guild.name;
     const serverName = message.guild.name;
@@ -85,7 +90,7 @@ async function startClaimFlow(message) {
         }
     }
 
-    const phasePrompt = await message.channel.send('Reply with the phase number for this claim.');
+    await message.channel.send('Reply with the phase number for this claim.');
     const phaseReply = await waitForReply(message.channel, message.author.id);
     if (!phaseReply) {
         await message.channel.send('Claim flow timed out while waiting for phase.');
@@ -144,26 +149,36 @@ function formatClaimsList(eventName, claims) {
 }
 
 async function waitForReactionChoice(message, userId, optionCount) {
-    const validEmojis = numberEmojis.slice(0, optionCount).concat(cancelEmoji);
-    const emoji = await waitForSpecificReaction(message, userId, validEmojis);
+    const validEmojis = numberEmojis.slice(0, optionCount);
+    const emoji = await waitForSpecificReaction(message, userId, [...validEmojis, cancelEmoji]);
 
     if (!emoji || emoji === cancelEmoji) return null;
-    return numberEmojis.indexOf(emoji);
+    return validEmojis.findIndex(validEmoji => normalizeEmoji(validEmoji) === normalizeEmoji(emoji));
 }
 
 async function waitForSpecificReaction(message, userId, emojiOptions) {
+    const normalizedOptions = emojiOptions.map(normalizeEmoji);
+
     try {
-        const reaction = await message.awaitReactions({
-            filter: (reaction, user) => user.id === userId && emojiOptions.includes(reaction.emoji.name),
+        const reactionCollection = await message.awaitReactions({
+            filter: (reaction, user) => {
+                const normalizedReaction = normalizeEmoji(reaction.emoji.name || '');
+                return user.id === userId && normalizedOptions.includes(normalizedReaction);
+            },
             max: 1,
             time: 120000,
             errors: ['time']
         });
 
-        return reaction.first()?.emoji.name || null;
+        const reaction = reactionCollection.first();
+        return reaction?.emoji?.name || null;
     } catch {
         return null;
     }
+}
+
+function normalizeEmoji(value) {
+    return (value || '').replace(/\uFE0F/g, '');
 }
 
 async function waitForReply(channel, userId) {
@@ -191,7 +206,10 @@ async function waitForDescriptionOrSkip(promptMessage, channel, userId) {
         };
 
         const reactionCollector = promptMessage.createReactionCollector({
-            filter: (reaction, user) => user.id === userId && [checkEmoji, cancelEmoji].includes(reaction.emoji.name),
+            filter: (reaction, user) => {
+                const normalizedReaction = normalizeEmoji(reaction.emoji.name || '');
+                return user.id === userId && [normalizeEmoji(checkEmoji), normalizeEmoji(cancelEmoji)].includes(normalizedReaction);
+            },
             max: 1,
             time: 120000
         });
@@ -206,7 +224,7 @@ async function waitForDescriptionOrSkip(promptMessage, channel, userId) {
             if (finished) return;
             finished = true;
             cleanup();
-            if (reaction.emoji.name === cancelEmoji) {
+            if (normalizeEmoji(reaction.emoji.name) === normalizeEmoji(cancelEmoji)) {
                 resolve({ cancelled: true });
             } else {
                 resolve({ description: null });

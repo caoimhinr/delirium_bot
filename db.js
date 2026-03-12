@@ -73,14 +73,6 @@ async function initDb() {
     await query(`
         CREATE INDEX IF NOT EXISTS idx_claims_guild_id ON claims(guild_id);
     `);
-
-    const defaultEvents = ['Castle Siege', 'Guild Raid', 'World Boss'];
-    for (const eventName of defaultEvents) {
-        await query(
-            'INSERT INTO events (name) VALUES ($1) ON CONFLICT (name) DO NOTHING',
-            [eventName]
-        );
-    }
 }
 
 module.exports = {
