@@ -7,7 +7,7 @@ const prompts = require('./data/prompts.js');
 const llms = require('./llm/endpoints.js');
 const fs = require('fs');
 const db = require('./db');
-const { startClaimFlow } = require('./claimFlow');
+const { startClaimFlow, startClaimsListFlow, isUserInActiveClaimFlow } = require('./claimFlow');
 
 const COMMAND_OPERATOR = '$';
 
@@ -27,6 +27,12 @@ client.once('clientReady', async () => {
 
 client.on('messageCreate', async message => {
     if (message.author.bot) return;
+
+    if (isUserInActiveClaimFlow(message.channel.id, message.author.id) &&
+        message.content !== `${COMMAND_OPERATOR}claim` &&
+        message.content !== `${COMMAND_OPERATOR}claims`) {
+        return;
+    }
 
     if (message.mentions.has(client.user)) {
         await respondTo(message, 'jas');
@@ -50,6 +56,9 @@ client.on('messageCreate', async message => {
             return;
         case `${COMMAND_OPERATOR}claim`:
             await startClaimFlow(message);
+            return;
+        case `${COMMAND_OPERATOR}claims`:
+            await startClaimsListFlow(message);
             return;
         default:
             if (message.content.startsWith(`${COMMAND_OPERATOR}xemidan`))

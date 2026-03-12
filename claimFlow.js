@@ -5,136 +5,171 @@ const plusEmoji = '➕';
 const editEmoji = '✏️';
 const checkEmoji = '✅';
 const cancelEmoji = '❌';
+const activeClaimFlows = new Set();
 
 async function startClaimFlow(message) {
-    if (!message.guild) {
-        await message.reply('Claims can only be created inside a server.');
+    return runClaimSelectionFlow(message, { listOnly: false });
+}
+
+async function startClaimsListFlow(message) {
+    return runClaimSelectionFlow(message, { listOnly: true });
+}
+
+async function runClaimSelectionFlow(message, options = {}) {
+    const { listOnly = false } = options;
+    const userKey = getFlowKey(message.channel.id, message.author.id);
+
+    if (activeClaimFlows.has(userKey)) {
+        await message.reply('You already have an active claim flow in this channel. Finish it or wait for it to timeout.');
         return;
     }
 
-    const events = await claimService.listEvents();
-    if (!events.length) {
-        await message.reply('No events are configured yet. Add them in /maintenance first.');
-        return;
-    }
+    activeClaimFlows.add(userKey);
 
-    const prompt = await message.channel.send({
-        content: [
-            `## Claim registration for ${message.author.username}`,
-            'Reply with the number of the event you want to claim, or react to choose:',
-            ...events.map((event, index) => `${index + 1}. ${event.name}`),
-            '',
-            'Use ❌ to cancel.'
-        ].join('\n')
-    });
+    try {
+        if (!message.guild) {
+            await message.reply('Claims can only be used inside a server.');
+            return;
+        }
 
-    const maxOptions = Math.min(events.length, numberEmojis.length);
-    for (let i = 0; i < maxOptions; i++) {
-        await prompt.react(numberEmojis[i]).catch(err => console.error('Failed to add reaction:', err.message));
-    }
-    await prompt.react(cancelEmoji).catch(err => console.error('Failed to add cancel reaction:', err.message));
+        const events = await claimService.listEvents();
+        if (!events.length) {
+            await message.reply('No events are configured yet. Add them in /maintenance first.');
+            return;
+        }
 
-    const selectedIndex = await waitForEventSelection(prompt, message.channel, message.author.id, maxOptions);
-    if (selectedIndex === null) {
-        await message.channel.send('Claim flow cancelled or timed out.');
-        return;
-    }
-
-    const selectedEvent = events[selectedIndex];
-    if (!selectedEvent) {
-        await message.channel.send('Invalid event selection.');
-        return;
-    }
-
-    const guildId = message.guild.id;
-    const guildName = message.guild.name;
-    const serverName = message.guild.name;
-    const memberId = message.author.id;
-    const memberName = message.member?.displayName || message.author.username;
-
-    await claimService.ensureGuildRecord({ guildId, guildName, serverName });
-    await claimService.ensureMemberRecord({ memberId, guildId, memberName });
-
-    const existingClaims = await claimService.getMemberClaimsForEvent(selectedEvent.id, memberId, guildId);
-    const allClaims = await claimService.listClaimsForEvent(selectedEvent.id);
-
-    await message.channel.send({
-        content: formatClaimsList(selectedEvent.name, allClaims)
-    });
-
-    let claimToEdit = null;
-
-    if (existingClaims.length > 0) {
-        const existingPrompt = await message.channel.send({
+        const prompt = await message.channel.send({
             content: [
-                `You already have ${existingClaims.length} claim(s) for **${selectedEvent.name}** as yourself or your guild.`,
-                ...existingClaims.map(claim => `• #${claim.id} — Phase ${claim.phase} — ${claim.description || 'No description'}`),
+                `## ${listOnly ? 'Claim list' : 'Claim registration'} for ${message.author.username}`,
+                'Reply with the number of the event you want to choose, or react to choose:',
+                ...events.map((event, index) => `${index + 1}. ${event.name}`),
                 '',
-                `Reply \`edit\` to edit your latest claim, \`new\` to create a new one, or react with ${editEmoji}/${plusEmoji}.`,
-                `React ${cancelEmoji} or reply \`cancel\` to cancel.`
+                'Use ❌ to cancel.'
             ].join('\n')
         });
 
-        await existingPrompt.react(editEmoji).catch(() => {});
-        await existingPrompt.react(plusEmoji).catch(() => {});
-        await existingPrompt.react(cancelEmoji).catch(() => {});
+        const maxOptions = Math.min(events.length, numberEmojis.length);
+        for (let i = 0; i < maxOptions; i++) {
+            await prompt.react(numberEmojis[i]).catch(err => console.error('Failed to add reaction:', err.message));
+        }
+        await prompt.react(cancelEmoji).catch(err => console.error('Failed to add cancel reaction:', err.message));
 
-        const action = await waitForActionSelection(existingPrompt, message.channel, message.author.id, [editEmoji, plusEmoji, cancelEmoji]);
-        if (!action || action === cancelEmoji || action === 'cancel') {
+        const selectedIndex = await waitForEventSelection(prompt, message.channel, message.author.id, maxOptions);
+        if (selectedIndex === null) {
+            await message.channel.send('Claim flow cancelled or timed out.');
+            return;
+        }
+
+        const selectedEvent = events[selectedIndex];
+        if (!selectedEvent) {
+            await message.channel.send('Invalid event selection.');
+            return;
+        }
+
+        const guildId = message.guild.id;
+        const guildName = message.guild.name;
+        const serverName = message.guild.name;
+        const memberId = message.author.id;
+        const memberName = message.member?.displayName || message.author.username;
+
+        await claimService.ensureGuildRecord({ guildId, guildName, serverName });
+        await claimService.ensureMemberRecord({ memberId, guildId, memberName });
+
+        const existingClaims = await claimService.getMemberClaimsForEvent(selectedEvent.id, memberId, guildId);
+        const allClaims = await claimService.listClaimsForEvent(selectedEvent.id);
+
+        await message.channel.send({
+            content: formatClaimsList(selectedEvent.name, allClaims)
+        });
+
+        if (listOnly) {
+            return;
+        }
+
+        let claimToEdit = null;
+
+        if (existingClaims.length > 0) {
+            const existingPrompt = await message.channel.send({
+                content: [
+                    `You already have ${existingClaims.length} claim(s) for **${selectedEvent.name}** as yourself or your guild.`,
+                    ...existingClaims.map(claim => `• #${claim.id} — Phase ${claim.phase} — ${claim.description || 'No description'}`),
+                    '',
+                    `Reply \`edit\` to edit your latest claim, \`new\` to create a new one, or react with ${editEmoji}/${plusEmoji}.`,
+                    `React ${cancelEmoji} or reply \`cancel\` to cancel.`
+                ].join('\n')
+            });
+
+            await existingPrompt.react(editEmoji).catch(() => {});
+            await existingPrompt.react(plusEmoji).catch(() => {});
+            await existingPrompt.react(cancelEmoji).catch(() => {});
+
+            const action = await waitForActionSelection(existingPrompt, message.channel, message.author.id, [editEmoji, plusEmoji, cancelEmoji]);
+            if (!action || action === cancelEmoji || action === 'cancel') {
+                await message.channel.send('Claim flow cancelled.');
+                return;
+            }
+
+            if (action === editEmoji || action === 'edit') {
+                claimToEdit = existingClaims[existingClaims.length - 1];
+            }
+        }
+
+        await message.channel.send('Reply with the phase number for this claim.');
+        const phaseReply = await waitForReply(message.channel, message.author.id);
+        if (!phaseReply) {
+            await message.channel.send('Claim flow timed out while waiting for phase.');
+            return;
+        }
+
+        const phase = parseInt(phaseReply.content.trim(), 10);
+        if (!Number.isInteger(phase)) {
+            await message.channel.send('Phase must be an integer. Claim flow cancelled.');
+            return;
+        }
+
+        const descriptionPrompt = await message.channel.send('Reply with a description for this claim, or react with ✅ on this message to skip the description. You can also reply `skip`.');
+        await descriptionPrompt.react(checkEmoji).catch(() => {});
+        await descriptionPrompt.react(cancelEmoji).catch(() => {});
+
+        const descriptionResult = await waitForDescriptionOrSkip(descriptionPrompt, message.channel, message.author.id);
+        if (!descriptionResult || descriptionResult.cancelled) {
             await message.channel.send('Claim flow cancelled.');
             return;
         }
 
-        if (action === editEmoji || action === 'edit') {
-            claimToEdit = existingClaims[existingClaims.length - 1];
+        const description = descriptionResult.description;
+
+        let savedClaim;
+        if (claimToEdit) {
+            savedClaim = await claimService.updateClaim(claimToEdit.id, { phase, description });
+        } else {
+            savedClaim = await claimService.createClaim({
+                eventId: selectedEvent.id,
+                guildId,
+                memberId,
+                phase,
+                description
+            });
         }
+
+        await message.channel.send([
+            `Claim ${claimToEdit ? 'updated' : 'created'} successfully.`,
+            `Event: **${selectedEvent.name}**`,
+            `Claim ID: **#${savedClaim.id}**`,
+            `Phase: **${savedClaim.phase}**`,
+            `Description: ${savedClaim.description || 'No description'}`
+        ].join('\n'));
+    } finally {
+        activeClaimFlows.delete(userKey);
     }
+}
 
-    await message.channel.send('Reply with the phase number for this claim.');
-    const phaseReply = await waitForReply(message.channel, message.author.id);
-    if (!phaseReply) {
-        await message.channel.send('Claim flow timed out while waiting for phase.');
-        return;
-    }
+function isUserInActiveClaimFlow(channelId, userId) {
+    return activeClaimFlows.has(getFlowKey(channelId, userId));
+}
 
-    const phase = parseInt(phaseReply.content.trim(), 10);
-    if (!Number.isInteger(phase)) {
-        await message.channel.send('Phase must be an integer. Claim flow cancelled.');
-        return;
-    }
-
-    const descriptionPrompt = await message.channel.send('Reply with a description for this claim, or react with ✅ on this message to skip the description. You can also reply `skip`.');
-    await descriptionPrompt.react(checkEmoji).catch(() => {});
-    await descriptionPrompt.react(cancelEmoji).catch(() => {});
-
-    const descriptionResult = await waitForDescriptionOrSkip(descriptionPrompt, message.channel, message.author.id);
-    if (!descriptionResult || descriptionResult.cancelled) {
-        await message.channel.send('Claim flow cancelled.');
-        return;
-    }
-
-    const description = descriptionResult.description;
-
-    let savedClaim;
-    if (claimToEdit) {
-        savedClaim = await claimService.updateClaim(claimToEdit.id, { phase, description });
-    } else {
-        savedClaim = await claimService.createClaim({
-            eventId: selectedEvent.id,
-            guildId,
-            memberId,
-            phase,
-            description
-        });
-    }
-
-    await message.channel.send([
-        `Claim ${claimToEdit ? 'updated' : 'created'} successfully.`,
-        `Event: **${selectedEvent.name}**`,
-        `Claim ID: **#${savedClaim.id}**`,
-        `Phase: **${savedClaim.phase}**`,
-        `Description: ${savedClaim.description || 'No description'}`
-    ].join('\n'));
+function getFlowKey(channelId, userId) {
+    return `${channelId}:${userId}`;
 }
 
 function formatClaimsList(eventName, claims) {
@@ -306,5 +341,7 @@ async function waitForDescriptionOrSkip(promptMessage, channel, userId) {
 }
 
 module.exports = {
-    startClaimFlow
+    startClaimFlow,
+    startClaimsListFlow,
+    isUserInActiveClaimFlow
 };

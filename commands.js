@@ -27,6 +27,10 @@ module.exports = {
         description: "Starts an interactive claim flow for an event using reactions and replies.",
         example: "$claim"
     },
+    claims: {
+        description: "Lets you choose an event, then lists all claims for that event.",
+        example: "$claims"
+    },
     help: {
         description: "Shows this help menu.",
         example: "$help"
