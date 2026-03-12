@@ -22,6 +22,22 @@ async function listClaimsForEvent(eventId) {
     return result.rows;
 }
 
+async function listAllClaims() {
+    const result = await db.query(`
+        SELECT c.id, c.event_id, c.guild_id, c.member_id, c.phase, c.description,
+               e.name AS event_name,
+               g.name AS guild_name,
+               m.name AS member_name
+        FROM claims c
+        JOIN events e ON e.id = c.event_id
+        JOIN guilds g ON g.id = c.guild_id
+        JOIN members m ON m.id = c.member_id
+        ORDER BY e.name ASC, c.phase ASC, c.id ASC
+    `);
+
+    return result.rows;
+}
+
 async function ensureGuildRecord({ guildId, guildName, serverName }) {
     await db.query(`
         INSERT INTO guilds (id, name, server)
@@ -100,6 +116,7 @@ async function listMembers() {
 module.exports = {
     listEvents,
     listClaimsForEvent,
+    listAllClaims,
     ensureGuildRecord,
     ensureMemberRecord,
     getMemberClaimsForEvent,

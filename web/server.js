@@ -91,32 +91,29 @@ function start(loggedInClient) {
     });
 
     app.get('/maintenance', ensureAuthorized, async (req, res) => {
-        const [events, guilds, members] = await Promise.all([
+        const [events, guilds, members, claims] = await Promise.all([
             claimService.listEvents(),
             claimService.listGuilds(),
-            claimService.listMembers()
+            claimService.listMembers(),
+            claimService.listAllClaims()
         ]);
-        const claims = await db.query(`
-            SELECT c.id, c.phase, c.description, e.name AS event_name, g.name AS guild_name, m.name AS member_name
-            FROM claims c
-            JOIN events e ON e.id = c.event_id
-            JOIN guilds g ON g.id = c.guild_id
-            JOIN members m ON m.id = c.member_id
-            ORDER BY c.id ASC
-        `);
 
         res.render('maintenance', {
             events,
             guilds,
             members,
-            claims: claims.rows
+            claims
         });
     });
 
     app.post('/maintenance/events', ensureAuthorized, async (req, res) => {
-        const name = req.body.name?.trim();
-        if (name) {
-            await db.query('INSERT INTO events (name) VALUES ($1) ON CONFLICT (name) DO NOTHING', [name]);
+        const { id, name } = req.body;
+        if (name?.trim()) {
+            if (id?.trim()) {
+                await db.query('UPDATE events SET name = $2 WHERE id = $1', [id.trim(), name.trim()]);
+            } else {
+                await db.query('INSERT INTO events (name) VALUES ($1) ON CONFLICT (name) DO NOTHING', [name.trim()]);
+            }
         }
         res.redirect('/maintenance');
     });
@@ -159,6 +156,23 @@ function start(loggedInClient) {
 
     app.post('/maintenance/members/:id/delete', ensureAuthorized, async (req, res) => {
         await db.query('DELETE FROM members WHERE id = $1', [req.params.id]);
+        res.redirect('/maintenance');
+    });
+
+    app.post('/maintenance/claims', ensureAuthorized, async (req, res) => {
+        const { id, event_id, guild_id, member_id, phase, description } = req.body;
+        if (id && event_id && guild_id && member_id && phase) {
+            await db.query(`
+                UPDATE claims
+                SET event_id = $2,
+                    guild_id = $3,
+                    member_id = $4,
+                    phase = $5,
+                    description = $6,
+                    updated_at = NOW()
+                WHERE id = $1
+            `, [id, event_id, guild_id, member_id, parseInt(phase, 10), description?.trim() || null]);
+        }
         res.redirect('/maintenance');
     });
 
