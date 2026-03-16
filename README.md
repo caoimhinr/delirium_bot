@@ -2,7 +2,7 @@
 
 Delirium Bot is a Discord bot built with `discord.js` and Azure OpenAI integration. It watches for commands and mentions, then replies in a few different personalities ranging from playful drama to supportive encouragement to a custom interactive claim workflow.
 
-It also includes a web-based admin and maintenance panel, protected with Discord OAuth, plus PostgreSQL-backed storage for claims, events, guilds, members, and settings.
+It also includes a web-based admin and maintenance panel, protected with Discord OAuth, plus PostgreSQL-backed storage for claims, events, guilds, members, settings, and bot memory.
 
 ## Features
 
@@ -14,7 +14,8 @@ It also includes a web-based admin and maintenance panel, protected with Discord
 - Sweet mode for supportive replies
 - Steam price checking from store links
 - Interactive `$claim` command using reactions and replies
-- PostgreSQL-backed data model for events, guilds, members, claims, and web settings
+- PostgreSQL-backed data model for events, guilds, members, claims, web settings, and bot memories
+- Per-user Postgres-backed memory via `$remember key = value`
 - Maintenance UI with Discord login and authorized member access
 - Dockerized app runtime with Docker Compose support
 
@@ -22,6 +23,7 @@ It also includes a web-based admin and maintenance panel, protected with Discord
 
 - `$ping` — basic availability check
 - `$help` — lists available commands
+- `$remember key = value` — stores a personal memory in PostgreSQL for later prompt personalization
 - `$members` — prints usernames from `data/members.json`
 - `$xemidan @user` — deletes the command message and posts a fixed insult
 - `$drama [count]` — picks a recent message or a replied-to message and generates sassy replies
@@ -29,6 +31,26 @@ It also includes a web-based admin and maintenance panel, protected with Discord
 - `$pricecheck <steam url>` — fetches the current Steam price for linked app URLs
 - `$pricecheck drama <steam url>` — fetches the price and adds AI-generated mockery
 - `$claim` — starts the interactive claim registration flow
+
+## Bot memory
+
+The bot can store lightweight user memories in PostgreSQL.
+
+Example:
+
+```text
+$remember favorite_game = Deep Rock Galactic
+$remember pronouns = he/they
+```
+
+Behavior:
+
+- Memory is only available when `DATABASE_URL` is configured
+- Memories are stored in the `bot_memories` table
+- Memories are currently scoped by `(guild_id, channel_id, user_id, memory_key)`
+- Saving the same key again updates the stored value for that scope
+- Up to 5 recent memories are injected into relevant prompts
+- Memories are currently used by mention/Jas replies, drama replies, and dramatic price checks
 
 ## Claim flow
 
@@ -55,6 +77,7 @@ Implemented tables:
 - `members`
 - `claims`
 - `web_settings`
+- `bot_memories`
 
 Default seeded events:
 
@@ -198,7 +221,8 @@ docker compose down -v
 - The bot currently uses a `$` command prefix.
 - The maintenance UI is intended to sit behind Nginx Proxy Manager at `discord.caoimhinr.online`.
 - `DISCORD_CALLBACK_URL` should match the externally reachable callback URL.
-- PostgreSQL is now actively used when `DATABASE_URL` is set.
+- PostgreSQL is actively used when `DATABASE_URL` is set.
+- Bot memory depends on PostgreSQL and is not available in file-only mode.
 
 ## License
 

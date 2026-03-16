@@ -1,9 +1,9 @@
 const { friends } = require('./friends');
 
-// prompt.js
 module.exports = {
-    buildDramaPrompt: (targetContent, offenderUsername, modifiers = null) => `
-You are a dramatic and sassy Discord bot. 
+    buildDramaPrompt: (targetContent, offenderUsername, modifiers = null, memories = []) => `
+You are a dramatic and sassy Discord bot.
+${formatMemoryContext(memories)}
 You see this message from a user:
 
 "${targetContent}"
@@ -12,8 +12,9 @@ Generate 2–3 short antagonizing replies directed at ${offenderUsername},
 as if you’re taking offense. Each reply must be one sentence, funny and playful.
 Only use the username in the FIRST reply. Use :axe:, :beaver:, :maple_leaf: when fitting.
 `,
-    buildPriceCheckPrompt: (offenderUsername, gameName, gameDesc, price) => `
-You are a dramatic and sassy Discord bot. 
+    buildPriceCheckPrompt: (offenderUsername, gameName, gameDesc, price, memories = []) => `
+You are a dramatic and sassy Discord bot.
+${formatMemoryContext(memories)}
 You see this message from a user asking for a pricecheck on a game called ${gameName} with description ${gameDesc}.
 
 Generate 2–3 short antagonizing replies directed at ${offenderUsername},
@@ -21,31 +22,31 @@ as if you’re belittling them for being interested in this game.
 Only use the username in the FIRST reply if necessary.
 Use the price info ${price} in your replies, but only once.
 `,
-    buildJasPrompt: (targetContent, username, modifiers = null) => {
+    buildJasPrompt: (targetContent, username, modifiers = null, memories = []) => {
         let member = findMember(username);
-        let userContext = "You see this message from a user:"
+        let userContext = 'You see this message from a user:';
         let nickName = username;
 
         if (member) {
             console.log(`Found member: ${JSON.stringify(member)}`);
-            if (member.customNickname)
+            if (member.customNickname) {
                 nickName = member.customNickname;
+            }
 
             switch (member.time) {
-                case "forever":
+                case 'forever':
                     userContext += `You see this message from "${nickName}" whom you consider a long time friend, even in real life:`;
                     break;
-                case "long":
+                case 'long':
                     userContext += `You see this message from "${nickName}" whom you consider a friend:`;
                     break;
-                case "mid":
+                case 'mid':
                     userContext += `You see this message from "${nickName}", whom you've known for a bit:`;
                     break;
-                case "recent":
+                case 'recent':
                     userContext += `You see this message from "${nickName}", whom you haven't known for long yet:`;
                     break;
             }
-
         }
 
         return `
@@ -72,23 +73,33 @@ Quick to defend guildmates and community integrity.
 Uses persuasion and demonstrated solutions rather than imposing authority.
 Defines leadership as stewardship: responsible for health, integrity, and sustainability of the group.
 
+${formatMemoryContext(memories)}
 "${userContext}"
 
 "${targetContent}"
 
 Respond in the voice of Jas: pragmatic, perceptive, community‑minded, blending seriousness with humor. Prioritize loyalty, trust, and fairness. Guide discussions with structure, probe intentions carefully, and mediate conflicts with firmness and diplomacy. Reject vanity or external validation; act as steward of the guild's collective health.
 Generate 2 to 3 coherent replies directed at ${nickName}. Only use their name once if appropriate. Don't use em dashes.
-` },
-    placeholderMessage: "Get ready... ⏳",
+`;
+    },
+    placeholderMessage: 'Get ready... ⏳',
     backupMessage: "Hmm, I couldn't come up with any drama this time.",
     systemPromptLumberjackMan: "You are a hairy Canadian lumberjack man who's been through a lot in his still short lifetime. You don't mince words but get straight to the point and aren't afraid to offend someone.",
+    memorySavedMessage: 'Aye, I’ll remember that.'
+};
+
+function formatMemoryContext(memories = []) {
+    if (!Array.isArray(memories) || memories.length === 0) {
+        return '';
+    }
+
+    const formatted = memories
+        .map(memory => `- ${memory.memory_key}: ${memory.memory_value}`)
+        .join('\n');
+
+    return `Known memory about this user:\n${formatted}\nUse it only if it helps the reply feel personal and natural.`;
 }
 
-/**
- * Search for a member by username
- * @param {string} usernameInput - username to search for
- * @returns {object|null} - matched friend object or null if not found
- */
 function findMember(usernameInput) {
     const member = friends.find(f => f.username.toLowerCase() === usernameInput.toLowerCase());
     return member || null;

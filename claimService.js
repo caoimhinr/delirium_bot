@@ -113,6 +113,50 @@ async function listMembers() {
     return result.rows;
 }
 
+async function getGuildSettings(guildId) {
+    const result = await db.query(`
+        SELECT guild_id, system_prompt, updated_at
+        FROM web_settings
+        WHERE guild_id = $1
+    `, [guildId]);
+
+    return result.rows[0] || null;
+}
+
+async function upsertBotMemory({ guildId = null, channelId = null, userId = null, username = null, memoryKey, memoryValue, sourceMessageId = null }) {
+    const result = await db.query(`
+        INSERT INTO bot_memories (guild_id, channel_id, user_id, username, memory_key, memory_value, source_message_id)
+        VALUES ($1, $2, $3, $4, $5, $6, $7)
+        ON CONFLICT (guild_id, channel_id, user_id, memory_key)
+        DO UPDATE SET
+            username = EXCLUDED.username,
+            memory_value = EXCLUDED.memory_value,
+            source_message_id = EXCLUDED.source_message_id,
+            updated_at = NOW()
+        RETURNING id, guild_id, channel_id, user_id, username, memory_key, memory_value, source_message_id, created_at, updated_at
+    `, [guildId, channelId, userId, username, memoryKey, memoryValue, sourceMessageId]);
+
+    return result.rows[0];
+}
+
+async function getBotMemories({ guildId = null, channelId = null, userId = null, limit = 10 }) {
+    const result = await db.query(`
+        SELECT id, guild_id, channel_id, user_id, username, memory_key, memory_value, source_message_id, created_at, updated_at
+        FROM bot_memories
+        WHERE ($1::TEXT IS NULL OR guild_id = $1)
+          AND ($2::TEXT IS NULL OR channel_id = $2)
+          AND ($3::TEXT IS NULL OR user_id = $3)
+        ORDER BY updated_at DESC, id DESC
+        LIMIT $4
+    `, [guildId, channelId, userId, limit]);
+
+    return result.rows;
+}
+
+async function deleteBotMemory(memoryId) {
+    await db.query('DELETE FROM bot_memories WHERE id = $1', [memoryId]);
+}
+
 module.exports = {
     listEvents,
     listClaimsForEvent,
@@ -124,5 +168,9 @@ module.exports = {
     updateClaim,
     deleteClaim,
     listGuilds,
-    listMembers
+    listMembers,
+    getGuildSettings,
+    upsertBotMemory,
+    getBotMemories,
+    deleteBotMemory
 };

@@ -7,9 +7,11 @@ const prompts = require('./data/prompts.js');
 const llms = require('./llm/endpoints.js');
 const fs = require('fs');
 const db = require('./db');
+const claimService = require('./claimService');
 const { startClaimFlow, startClaimsListFlow, isUserInActiveClaimFlow } = require('./claimFlow');
 
 const COMMAND_OPERATOR = '$';
+const MEMORY_COMMAND = `${COMMAND_OPERATOR}remember`;
 
 client.once('clientReady', async () => {
     if (process.env.DATABASE_URL) {
@@ -31,6 +33,11 @@ client.on('messageCreate', async message => {
     if (isUserInActiveClaimFlow(message.channel.id, message.author.id) &&
         message.content !== `${COMMAND_OPERATOR}claim` &&
         message.content !== `${COMMAND_OPERATOR}claims`) {
+        return;
+    }
+
+    if (message.content.startsWith(MEMORY_COMMAND)) {
+        await handleRemember(message);
         return;
     }
 
@@ -80,6 +87,41 @@ async function handlePing(message) {
     message.channel.send('Pong!');
 }
 
+async function handleRemember(message) {
+    if (!process.env.DATABASE_URL) {
+        await message.reply('Memory requires DATABASE_URL to be configured.');
+        return;
+    }
+
+    const input = message.content.slice(MEMORY_COMMAND.length).trim();
+    const separatorIndex = input.indexOf('=');
+
+    if (!input || separatorIndex === -1) {
+        await message.reply('Usage: `$remember favorite_game = Deep Rock Galactic`');
+        return;
+    }
+
+    const memoryKey = input.slice(0, separatorIndex).trim().toLowerCase().replace(/\s+/g, '_');
+    const memoryValue = input.slice(separatorIndex + 1).trim();
+
+    if (!memoryKey || !memoryValue) {
+        await message.reply('Both a memory key and value are required.');
+        return;
+    }
+
+    await claimService.upsertBotMemory({
+        guildId: message.guild?.id || null,
+        channelId: message.channel?.id || null,
+        userId: message.author.id,
+        username: message.author.username,
+        memoryKey,
+        memoryValue,
+        sourceMessageId: message.id
+    });
+
+    await message.reply(prompts.memorySavedMessage);
+}
+
 async function handlePriceCheck(message, drama = false) {
     const steamLinkRegex = /https?:\/\/store\.steampowered\.com\/app\/(\d+)/gi;
     let targetMessage = message;
@@ -101,8 +143,9 @@ async function handlePriceCheck(message, drama = false) {
                 const offender = message.author;
                 const gameName = price.data.name;
                 const gameDesc = stripHtml(price.data.detailed_description);
+                const memories = await getMemoriesForMessage(message);
 
-                const prompt = prompts.buildPriceCheckPrompt(offender.username, gameName, gameDesc, price.text);
+                const prompt = prompts.buildPriceCheckPrompt(offender.username, gameName, gameDesc, price.text, memories);
                 const generatedText = await llms.callAzureOpenAI(prompt);
                 await placeholderMessage.delete().catch(() => { });
 
@@ -230,7 +273,7 @@ async function handleGPTResponse(message, mode = 'drama') {
 async function respondTo(message, mode = 'drama', modifiers = null) {
     switch (mode) {
         case 'drama':
-            await respondWithDrama(message);
+            await respondWithDrama(message, modifiers);
             break;
         case 'sweet':
             await respondWithSweetness(message);
@@ -241,14 +284,48 @@ async function respondTo(message, mode = 'drama', modifiers = null) {
     }
 }
 
+async function getMemoriesForMessage(message) {
+    if (!process.env.DATABASE_URL) {
+        return [];
+    }
+
+    try {
+        return await claimService.getBotMemories({
+            guildId: message.guild?.id || null,
+            channelId: message.channel?.id || null,
+            userId: message.author.id,
+            limit: 5
+        });
+    } catch (err) {
+        console.error('Failed to load memories:', err);
+        return [];
+    }
+}
+
+async function getSystemPromptForGuild(guildId) {
+    if (!process.env.DATABASE_URL || !guildId) {
+        return prompts.systemPromptLumberjackMan;
+    }
+
+    try {
+        const guildSettings = await claimService.getGuildSettings(guildId);
+        return guildSettings?.system_prompt || prompts.systemPromptLumberjackMan;
+    } catch (err) {
+        console.error('Failed to load guild settings:', err);
+        return prompts.systemPromptLumberjackMan;
+    }
+}
+
 async function respondWithJas(message) {
     message.channel.sendTyping();
 
     try {
         const friend = message.author;
         const targetContent = message.content;
-        const prompt = prompts.buildJasPrompt(targetContent, friend.username);
-        const generatedText = await llms.callAzureOpenAI(prompt);
+        const memories = await getMemoriesForMessage(message);
+        const systemPrompt = await getSystemPromptForGuild(message.guild?.id);
+        const prompt = prompts.buildJasPrompt(targetContent, friend.username, null, memories);
+        const generatedText = await llms.callAzureOpenAI(prompt, systemPrompt);
 
         if (!generatedText) {
             return message.channel.send(prompts.backupMessage);
@@ -277,8 +354,10 @@ async function respondWithDrama(message) {
     try {
         const offender = message.author;
         const targetContent = message.content;
-        const prompt = prompts.buildDramaPrompt(targetContent, offender.username);
-        const generatedText = await llms.callAzureOpenAI(prompt);
+        const memories = await getMemoriesForMessage(message);
+        const systemPrompt = await getSystemPromptForGuild(message.guild?.id);
+        const prompt = prompts.buildDramaPrompt(targetContent, offender.username, null, memories);
+        const generatedText = await llms.callAzureOpenAI(prompt, systemPrompt);
         await placeholderMessage.delete().catch(() => { });
 
         if (!generatedText) {
@@ -308,15 +387,16 @@ async function respondWithSweetness(message) {
     try {
         const offender = message.author;
         const targetContent = message.content;
+        const systemPrompt = await getSystemPromptForGuild(message.guild?.id);
 
         const prompt = `
-You are a caring and empathical Discord bot. 
+You are a caring and empathical Discord bot.
 You see the following message from a user:
 
-"${targetContent}" 
+"${targetContent}"
 
-Generate 1 to 2 short supportive replies directed at the user ${offender.username}, 
-as if you are finding a way to help them succeed. Each reply should be one sentence, 
+Generate 1 to 2 short supportive replies directed at the user ${offender.username},
+as if you are finding a way to help them succeed. Each reply should be one sentence,
 sweet and playful, but only use the user's name in the first reply.
 `;
 
@@ -324,7 +404,7 @@ sweet and playful, but only use the user's name in the first reply.
             process.env.AZURE_OPENAI_ENDPOINT,
             {
                 messages: [
-                    { role: 'system', content: "You are a hairy Canadian lumberjack man who's been through a lot in his still short lifetime. You care about the people you interact with and wish for them to reach their full potential in life." },
+                    { role: 'system', content: systemPrompt },
                     { role: 'user', content: prompt }
                 ],
                 max_completion_tokens: process.env.MAX_COMPLETION_TOKENS

@@ -63,6 +63,22 @@ async function initDb() {
     `);
 
     await query(`
+        CREATE TABLE IF NOT EXISTS bot_memories (
+            id SERIAL PRIMARY KEY,
+            guild_id TEXT,
+            channel_id TEXT,
+            user_id TEXT,
+            username TEXT,
+            memory_key TEXT NOT NULL,
+            memory_value TEXT NOT NULL,
+            source_message_id TEXT,
+            created_at TIMESTAMPTZ NOT NULL DEFAULT NOW(),
+            updated_at TIMESTAMPTZ NOT NULL DEFAULT NOW(),
+            UNIQUE (guild_id, channel_id, user_id, memory_key)
+        );
+    `);
+
+    await query(`
         CREATE INDEX IF NOT EXISTS idx_claims_event_id ON claims(event_id);
     `);
 
@@ -72,6 +88,10 @@ async function initDb() {
 
     await query(`
         CREATE INDEX IF NOT EXISTS idx_claims_guild_id ON claims(guild_id);
+    `);
+
+    await query(`
+        CREATE INDEX IF NOT EXISTS idx_bot_memories_lookup ON bot_memories(guild_id, channel_id, user_id);
     `);
 }
 
