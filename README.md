@@ -1,94 +1,229 @@
-# delirium_bot
+# Delirium Bot
 
-## Setup 
+Delirium Bot is a Discord bot built with `discord.js` and Azure OpenAI integration. It watches for commands and mentions, then replies in a few different personalities ranging from playful drama to supportive encouragement to a custom interactive claim workflow.
 
-Update the container
-```
-apt update && apt full-upgrade -y
-apt install -y curl git
-```
-Install node.js
-```
-curl -fsSL https://deb.nodesource.com/setup_lts.x | bash -
-apt install -y nodejs
-```
-Create a bot folder
-```
-mkdir -p /opt/discord-bot
-cd /opt/discord-bot
-```
-Install Discord.js
-```
-npm install discord.js
-```
-Make the bot run in the background
+It also includes a web-based admin and maintenance panel, protected with Discord OAuth, plus PostgreSQL-backed storage for claims, events, guilds, members, settings, and bot memory.
 
-```
-npm install -g pm2
-cd /opt/delirium_bot
-pm2 start index.js --name "delirium_bot"
-pm2 list
+## Features
+
+- Discord bot built on `discord.js`
+- Azure OpenAI-backed responses
+- Mention the bot to trigger a custom “Jas” persona reply
+- Command-based interaction using the `$` prefix
+- Drama mode for playful antagonizing replies
+- Sweet mode for supportive replies
+- Steam price checking from store links
+- Interactive `$claim` command using reactions and replies
+- PostgreSQL-backed data model for events, guilds, members, claims, web settings, and bot memories
+- Per-user Postgres-backed memory via `$remember key = value`
+- Maintenance UI with Discord login and authorized member access
+- Dockerized app runtime with Docker Compose support
+
+## Commands
+
+- `$ping` — basic availability check
+- `$help` — lists available commands
+- `$remember key = value` — stores a personal memory in PostgreSQL for later prompt personalization
+- `$members` — prints usernames from `data/members.json`
+- `$xemidan @user` — deletes the command message and posts a fixed insult
+- `$drama [count]` — picks a recent message or a replied-to message and generates sassy replies
+- `$sweet [count]` — picks a recent message or a replied-to message and generates supportive replies
+- `$pricecheck <steam url>` — fetches the current Steam price for linked app URLs
+- `$pricecheck drama <steam url>` — fetches the price and adds AI-generated mockery
+- `$claim` — starts the interactive claim registration flow
+
+## Bot memory
+
+The bot can store lightweight user memories in PostgreSQL.
+
+Example:
+
+```text
+$remember favorite_game = Deep Rock Galactic
+$remember pronouns = he/they
 ```
 
-View logs
+Behavior:
+
+- Memory is only available when `DATABASE_URL` is configured
+- Memories are stored in the `bot_memories` table
+- Memories are currently scoped by `(guild_id, channel_id, user_id, memory_key)`
+- Saving the same key again updates the stored value for that scope
+- Up to 5 recent memories are injected into relevant prompts
+- Memories are currently used by mention/Jas replies, drama replies, and dramatic price checks
+
+## Claim flow
+
+The `$claim` command follows the flow described in `PROMPT.md`:
+
+1. The bot lists known events and adds numbered reactions.
+2. The user reacts to choose an event.
+3. The bot shows current claims for that event.
+4. If the user or their guild already has a claim, the bot offers:
+   - `✏️` edit latest existing claim
+   - `➕` create a new claim
+5. The bot asks for a phase number.
+6. The bot asks for an optional description.
+   - The user may reply with text
+   - Or react with `✅` to skip
+7. The bot saves the claim in PostgreSQL.
+
+## Data model
+
+Implemented tables:
+
+- `events`
+- `guilds`
+- `members`
+- `claims`
+- `web_settings`
+- `bot_memories`
+
+Default seeded events:
+
+- `Castle Siege`
+- `Guild Raid`
+- `World Boss`
+
+These can be managed in the maintenance UI.
+
+## Web admin and maintenance
+
+The Express app in `web/server.js` provides:
+
+- Discord OAuth login via `passport-discord`
+- `/settings` for guild prompt settings
+- `/maintenance` for CRUD-style record management
+- authorized access using `data/authorizedMembers.json`
+- optional fallback role-based access using `ADMIN_ROLE_ID`
+
+### Maintenance UI supports
+
+- add/delete events
+- add/update/delete guilds
+- add/update/delete members
+- delete claims
+
+## Project structure
+
+```text
+.
+├── index.js
+├── discordClient.js
+├── commands.js
+├── claimFlow.js
+├── claimService.js
+├── db.js
+├── llm/
+│   └── endpoints.js
+├── data/
+│   ├── authorizedMembers.json
+│   ├── prompts.js
+│   ├── friends.js
+│   └── members.json
+├── web/
+│   ├── server.js
+│   ├── guildSettings.json
+│   ├── views/
+│   │   ├── settings.html
+│   │   └── maintenance.html
+│   └── public/
+│       └── style.css
+├── Dockerfile
+├── docker-compose.yml
+└── package.json
 ```
-pm2 logs discord-bot
+
+## Environment variables
+
+Create a `.env` file with values like:
+
+```env
+DISCORD_TOKEN=
+AZURE_OPENAI_ENDPOINT=
+AZURE_OPENAI_KEY=
+MAX_COMPLETION_TOKENS=
+
+DISCORD_CLIENT_ID=
+DISCORD_CLIENT_SECRET=
+DISCORD_CALLBACK_URL=https://discord.caoimhinr.online/callback
+SESSION_SECRET=
+
+ADMIN_ROLE_ID=
+GUILD_ID=
+PORT=3000
+
+POSTGRES_DB=delirium_bot
+POSTGRES_USER=delirium
+POSTGRES_PASSWORD=delirium_password
+POSTGRES_PORT=5432
+DATABASE_URL=postgres://delirium:delirium_password@postgres:5432/delirium_bot
+
+ITAD_API_KEY=
 ```
 
+## Authorized maintenance users
 
-Insults
+Edit `data/authorizedMembers.json` and add Discord user IDs that should be allowed into `/maintenance` and `/settings`.
 
-Dude has 2 braincells and they are both fighting for third place.
-Sharp as a box of rocks.
-Not the sharpest knife in the drawer.
-Can't tell the difference between shit and chocolate.
-Dude is a right space cadet.
-Lights are on but no one is home.
-Gears aren't spinning but something is smoking.
-One can short of a six pack.
-The local village must be missing their idiot.
-Hard of thinking.
-Super nice but their IQ is kinda room temperature.
-So dense they could make light bend.
-Dense as lead, but half as useful.
-Is that your brain or are you breaking it in for an idiot.
-I don't have the energy or the crayons to explain this to you.
-Keep rolling you eyes, maybe someday you'll find a brain back there.
-I'm just glad stupidity isn't contagious.
-Is your last name Dunning or Krueger by any chance?
-You must've been in the gene pool while the lifeguard was off duty.
-We are all victims of our own gene pools, someone just must've pissed in yours.
-Wisdom has been chasing you for years, but you're just fast enough to outrun it.
-Did your parents have any children that actually survived?
-If you were on trial you would probably defend yourself.
-You don't read much do you?
-Guess you slept in when god was handing out brains.
-Can't pick out a tree in a forest.
-Common sense wasn't too common in your house was it?
-Would you rather have a dictionary or a thesaurus for your birthday? Oh sorry a thesaurus is the one that gives words that mean similar things to the word you look up.
-Your mother used to tell you that you were a star growing up, eh? Well, she's right you are a giant, glowing star.
-It must be nice to be so free of the burdens of intelligence.
-He's as useful as a condom in a nunnery.
-Really? Of all the sperm, you were the fastest?
-How often do you experience this brain-mouth interface disconnect we've been seeing?
-Are you Intellectually celibate by choice or unfortunate circumstances?
-You'd probably bring a fork to a soup tasting.
-You should wear a helmet more often, I don't know what will happen if you lose your last brain cell.
-I'm not saying you're the dumbest person alive, but you better hope schoco doesn't die.
-Their lift doesn't travel to the top floor and the architect forgot to include stairs.
-If we sent you for an IQ test, you'd come back and tell us it was positive .
-The eyes open, and your mouth moves, but it seems like anyone worth listening to left long ago .
-By any chance is your uncle and your father the same person?
-You'd have trouble pouring water out of a shoe with the instructions pinned to the heel wouldn't you?
-You're as useful as tits on a bullfrog.
-Where did you say you went to school again? I need to know where not to send my kids.
-The only way you could be dumber is if you were an Isekai dev.
-Sorry, could you repeat what you said? That idea kinda sounded like you were having a stroke.
-I bet you have a beautifully smooth brain don't you?
-Oh you dropped out? Makes sense. You seem like someone who has been educated beyond their capacity.
-My gramma used to tell me I should work smarter, not harder, but your way works too.
-Man, you'd really fit in in Toronto, or better yet, Orlando.
-You're as useful as the last 4 letters in the word queue.
-I bet the reason your parents divorced was that when your dad said "hand me downs" he wasn't talking about secondhand clothing.
-You'd easily be the last man alive in a zombie apocalypse.
-If I wanted to know how to conceive sheer stupidity, I would ask your parents what position they used to make you.
+Current default:
+
+```json
+[
+  "361732550106021890"
+]
+```
+
+## Running locally
+
+Install dependencies:
+
+```bash
+npm install
+```
+
+Start the app:
+
+```bash
+npm start
+```
+
+## Running with Docker Compose
+
+Build and start the stack:
+
+```bash
+docker compose up -d --build
+```
+
+View logs:
+
+```bash
+docker compose logs -f app
+docker compose logs -f postgres
+```
+
+Stop the stack:
+
+```bash
+docker compose down
+```
+
+Remove stack and database volume:
+
+```bash
+docker compose down -v
+```
+
+## Notes
+
+- The bot requires the `Message Content` privileged intent to read message text.
+- The bot currently uses a `$` command prefix.
+- The maintenance UI is intended to sit behind Nginx Proxy Manager at `discord.caoimhinr.online`.
+- `DISCORD_CALLBACK_URL` should match the externally reachable callback URL.
+- PostgreSQL is actively used when `DATABASE_URL` is set.
+- Bot memory depends on PostgreSQL and is not available in file-only mode.
+
+## License
+
+ISC

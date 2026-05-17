@@ -1,9 +1,10 @@
 {
   "name": "delirium_bot",
   "version": "1.0.0",
-  "description": "",
+  "description": "Discord bot with Azure OpenAI integration, claim workflow, and maintenance UI.",
   "main": "index.js",
   "scripts": {
+    "start": "node index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -28,6 +29,7 @@
     "express-session": "^1.18.2",
     "fs": "^0.0.1-security",
     "passport": "^0.7.0",
-    "passport-discord": "^0.1.4"
+    "passport-discord": "^0.1.4",
+    "pg": "^8.13.1"
   }
 }

@@ -9,14 +9,23 @@
 </head>
 
 <body>
-    <h1>Guild Settings for <%= GUILD_ID %>
-    </h1>
-    <form method="POST" action="/settings?guild=<%= GUILD_ID %>">
-        <label>System Prompt:</label><br>
-        <textarea name="systemPrompt" rows="5" cols="60"><%= SYSTEM_PROMPT %></textarea><br>
-        <button type="submit">Save</button>
-    </form>
-    <p><a href="/logout">Logout</a></p>
+    <nav class="topbar">
+        <div class="topbar-brand">DeliriumBot Admin</div>
+        <div class="topbar-links">
+            <a href="/settings" class="topbar-link active">Settings</a>
+            <a href="/maintenance" class="topbar-link">Claims</a>
+            <a href="/logout" class="topbar-link">Logout</a>
+        </div>
+    </nav>
+
+    <main class="page-container">
+        <h1>Guild Settings for <%= GUILD_ID %></h1>
+        <form method="POST" action="/settings?guild=<%= GUILD_ID %>">
+            <label>System Prompt:</label><br>
+            <textarea name="systemPrompt" rows="5" cols="60"><%= SYSTEM_PROMPT %></textarea><br>
+            <button type="submit">Save</button>
+        </form>
+    </main>
 
 </body>
 
